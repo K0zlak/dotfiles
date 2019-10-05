@@ -116,4 +116,5 @@ if ! shopt -oq posix; then
   fi
 fi
 export WIN_HOME=/mnt/c/Users/MiKoz/
+export VIM=/usr/share/vim/vim80/
 alias config='/usr/bin/git --git-dir=/mnt/c/Users/MiKoz/.cfg/ --work-tree=/home/mikoz/'

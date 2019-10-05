@@ -7,13 +7,16 @@ let mapleader = " "
 
 set keywordprg=:help
 
+"Search down into subfolders
+" Provides tab-completion for all file-related tasks
+ set path+=**
 " Enable coloring syntax
 if has("syntax")
-syntax on
+	syntax enable
 endif
 
 set termguicolors
-colorscheme badwolf
+colorscheme malokai
 
 set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
@@ -25,8 +28,6 @@ set incsearch		" Incremental search
 "set background=dark
 " Set visualBell instead enoying soundbell in case of error
 set visualbell
-
-
 " set line numbers 
 :set number
 " set relative numbers 
@@ -35,11 +36,11 @@ set visualbell
 
 " map to show tree file 
 " <A-o>
-nnoremap <Leader>o  :Ntree<CR>
+nnoremap <Leader>o :Ntree<CR>
 
+"enable syntax and plugins (for netrw)
+filetype plugin on
 " map a tabs shortcuts <A-?> Dont work for some reasone
-
-
 " TABS
 " <A-t>
 nmap <Leader>t  :tabnew<CR>
@@ -64,12 +65,9 @@ nnoremap <C-l> <C-w>l
 
 " Zmiana zachowania dopełniania <TAB> np w lini komend :e < ścieżka do
 " pliku> doczytać póżniej i poeksperymentować
-set wildmode=longest:full,list:full,full
+set wildmode=longest,list,full
 " Włączenie menu propozycji 
-" Po wcisnieciu <TAB> np e W komendzie :e C:\ nad linią komend 
-" pojawia się menu z propozycjami z danego katalogu
-set wildmenu
-
+" Po wcisnieciu <TAB> np e W komendzie :e C:\ nad linią komend " pojawia się menu z propozycjami z danego katalogu set wildmenu
 set backspace=2   " Backspace deletes like most programs in insert mode
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
@@ -85,3 +83,9 @@ set colorcolumn=+1
 
 
 set ruler
+
+" By CTRL+A and CTRL+X we can add and substract to
+" numbers and to alfanumeric characters 
+" nformat contain on what format it will work
+set nrformats+=alpha
+
