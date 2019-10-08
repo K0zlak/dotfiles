@@ -25,7 +25,6 @@ set smartcase		" Do smart case matching
 set incsearch		" Incremental search
 "
 
-"set background=dark
 " Set visualBell instead enoying soundbell in case of error
 set visualbell
 " set line numbers 
@@ -36,7 +35,7 @@ set visualbell
 
 " map to show tree file 
 " <A-o>
-nnoremap <Leader>o :Ntree<CR>
+nnoremap <Leader>o :new<CR>:Ntree<CR>
 
 "enable syntax and plugins (for netrw)
 filetype plugin on
@@ -67,7 +66,10 @@ nnoremap <C-l> <C-w>l
 " pliku> doczytać póżniej i poeksperymentować
 set wildmode=longest,list,full
 " Włączenie menu propozycji 
-" Po wcisnieciu <TAB> np e W komendzie :e C:\ nad linią komend " pojawia się menu z propozycjami z danego katalogu set wildmenu
+" Po wcisnieciu <TAB> np e W komendzie :e C:\ nad linią komend " 
+" pojawia się menu z propozycjami z danego katalogu 
+set wildmenu
+
 set backspace=2   " Backspace deletes like most programs in insert mode
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
@@ -89,3 +91,7 @@ set ruler
 " nformat contain on what format it will work
 set nrformats+=alpha
 
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
