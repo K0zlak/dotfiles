@@ -1,0 +1,13 @@
+
+# Active vi mode wit <Escepe>:
+set -o vi
+# Enviroment variables for Ranger
+#shopt -s expand_aliases
+#shopt -s direxpand
+#shopt -s dirspell
+#shopt -s checkjobs
+#shopt -s checkwinsize
+#shopt -s cdspell
+
+# Allow you to cd into directoory marely by typing the directory name
+shopt -s autocd
