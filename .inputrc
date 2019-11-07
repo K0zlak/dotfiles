@@ -1,1 +1,32 @@
+# Change bell form audio to visible
 set bell-style visible
+# Change readline edit style to vim like style
+set editing-mode vi
+
+#Those below taken form reddit post :
+#https://www.reddit.com/r/commandline/comments/kbeoe/you_can_make_readline_and_bash_much_more_user/
+# Readline when completing case will not be taken into consideration
+set completion-ignore-case on
+# Bind <C-k> key to menu-complete readline completion
+Control-k: menu-complete
+
+# Bind <C-j> key to menu-complete (backward) readline completion
+Control-j: menu-complete-backward
+
+# When you have a folder with lots of similarly named files
+# after completion with tab, the first part that has been completed will
+# be replased by "...", and it is simple to see what you need to type to finish
+# the completion
+set completion-prefix-display-length 2
+
+# Bind <C-e> key to shell expansion
+Control-e: shell-expand-line
+# Bind <C-e> key to  alias expansion
+Control-a: alias-expand-line
+# Make completions appear immediately after pressing TAB once.
+# Instead of the default behavior which is to show them after pressing twice.
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+# Enabled underscores (_) and hyphens (-) treated as equal when completing.
+set completion-map-case on
