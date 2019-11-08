@@ -1,11 +1,12 @@
-source ~/.koz_config/options.vim
-source ~/.koz_config/plugins.vim
-source ~/.koz_config/natrew_config.vim
-source ~/.koz_config/bindings.vim
-
 
 "Leader
 let mapleader = " "
+:source ~/.koz_config/options.vim
+:source ~/.koz_config/plugins.vim
+:source ~/.koz_config/natrew_config.vim
+:source ~/.koz_config/bindings.vim
+
+
 
 
 " Enable coloring syntax
