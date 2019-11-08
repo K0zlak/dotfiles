@@ -8,6 +8,8 @@ set keywordprg=:help
 " Provides tab-completion for all file-related tasks
  set path+=**
 
+"Set spelling
+set spell
 
 set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.

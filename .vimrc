@@ -18,6 +18,11 @@ if exists('+termguicolors')
 	set t_ut=
 	set termguicolors
 endif
+"Set highlighting color errors
+augroup my_colors
+	autocmd!
+	autocmd ColorScheme base16-monokai hi SpellBad cterm=reverse
+augroup END
 colorscheme base16-monokai
 
 "enable syntax and plugins (for netrw)
