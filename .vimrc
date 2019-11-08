@@ -1,7 +1,8 @@
-source ~/.vim_plugins
-source ~/.vim_options
-source ~/.natrew_config
-source ~/.vim_key_mappings
+source ~/.koz_config/options.vim
+source ~/.koz_config/plugins.vim
+source ~/.koz_config/natrew_config.vim
+source ~/.koz_config/bindings.vim
+
 
 "Leader
 let mapleader = " "
