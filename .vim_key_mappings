@@ -1,4 +1,3 @@
-
 "map to show tree file
 nnoremap <Leader>o :NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeFocus<CR>
@@ -8,8 +7,8 @@ nnoremap <Leader>f :NERDTreeFocus<CR>
 nnoremap   <Leader>def qdq0"dy$:!<C-R>d<CR>
 
 "Go to next buffor
-nnoremap	<Leader>bn :bnext<CR>
-nnoremap	<Leader>bp :bprevious<CR>
+nnoremap  <Leader>bn :bnext<CR>
+nnoremap  <Leader>bp :bprevious<CR>
 
 " TABS
 nnoremap <Leader>t  :terminal ++curwin <CR>

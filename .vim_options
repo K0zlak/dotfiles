@@ -17,7 +17,7 @@ set incsearch		" Incremental search
 set hlsearch 		" Highlight all matches
 "
 
-" Set visualBell instead enoying soundbell in case of error
+" Set visualBell instead annoying sound bell in case of error
 set visualbell
 " set line numbers
 :set number
@@ -31,7 +31,7 @@ set splitbelow
 set splitright
 
 
-" set a vertical and horisontal line where cursor is.
+" set a vertical and horizontal line where cursor is.
 :set cursorcolumn
 :set cursorline
 
@@ -45,7 +45,7 @@ set wildmenu
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 
-" Display extra whitespace
+" Display extra white space
 set list listchars=tab:»·,trail:·,nbsp:·
 
 " Make it obvious where 80 characters is
@@ -54,8 +54,8 @@ set colorcolumn=+1
 
 set ruler
 
-" By CTRL+A and CTRL+X we can add and substract to
-" numbers and to alfanumeric characters
+" By CTRL+A and CTRL+X we can add and subtract to
+" numbers and to alphanumeric characters
 " nformat contain on what format it will work
 set nrformats+=alpha
 
