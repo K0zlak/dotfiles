@@ -17,6 +17,10 @@ Plugin 'wikitopian/hardmode'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'srooloose/nerdcommenter'
 Plugin 'majutsushi/tagbar'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'blueyed/vim-diminactive'
+Plugin 'vim-airline/vim-airline'
+Plugin 'sjl/gundo.vim'
 " All of your Plugins must be added before the following line
  call vundle#end()            " required
  filetype plugin indent on    " required

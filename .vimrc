@@ -1,10 +1,14 @@
 
 "Leader
 let mapleader = " "
+:source ~/.koz_config/ycm_config.vim
 :source ~/.koz_config/options.vim
 :source ~/.koz_config/plugins.vim
 :source ~/.koz_config/natrew_config.vim
 :source ~/.koz_config/bindings.vim
+":source ~/.koz_config/auto_start.vim
+
+
 
 
 
@@ -34,6 +38,6 @@ filetype plugin on
 :diffthis
 
 "Disable arrow keys  , hjkl keys , backspace , page up and page down keys
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode())
+"autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode())
 "At save remove all trailing white spaces
 autocmd BufWritePre * %s/\s\+$//e
