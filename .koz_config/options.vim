@@ -13,11 +13,19 @@ set spell
 
 set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
+"With both on.searches with no capitals are case insensitive, while searches with
+"a capital characters are case sensitive.
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 set incsearch		" Incremental search
 set hlsearch 		" Highlight all matches
-"
+
+"Persistent undo,even if you close and reopen Vim.Super great when combined with
+"the undotree plugin.
+set undofile
+"Makes fold visible in the sidebar.The higher n is, the more folds are
+"represented visually and the fewer are represented by a number.
+set foldcolumn=5
 
 " Set visualBell instead annoying sound bell in case of error
 set visualbell
@@ -60,7 +68,8 @@ set ruler
 " numbers and to alphanumeric characters
 " nformat contain on what format it will work
 set nrformats+=alpha
-
+"Donot redraw screen in the middle of a macro.Makes them complete faster
+set lazyredraw
 "Folding
 set foldlevelstart=1
 set foldmethod=indent
