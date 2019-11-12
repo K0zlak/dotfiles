@@ -1,4 +1,3 @@
-
 "By pressing <S-K> the command beneath keywordprg is launched with word under a cursor
 "as the parameter. The keyword is defined by the iskeyword parameter.
 
@@ -10,6 +9,7 @@ set keywordprg=:help
 
 "Set spelling
 set spell
+set spelllang=pl,en
 
 set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
