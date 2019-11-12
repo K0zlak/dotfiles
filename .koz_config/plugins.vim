@@ -24,3 +24,6 @@ Plugin 'sjl/gundo.vim'
 " All of your Plugins must be added before the following line
  call vundle#end()            " required
  filetype plugin indent on    " required
+
+"Disable arrow keys  , hjkl keys , backspace , page up and page down keys
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode())
