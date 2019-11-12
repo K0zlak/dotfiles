@@ -22,7 +22,16 @@ set hlsearch 		" Highlight all matches
 
 "Persistent undo,even if you close and reopen Vim.Super great when combined with
 "the undotree plugin.
-set undofile
+if has ('persistent_undo')
+	let target_path = expand('~/.config/vim-persisted-undo/')
+
+	if !isdirectory(target_path)
+		call system('mkdir -p ' . target_path)
+	endif
+
+	let &undodir = target_path
+	set undofile
+endif
 "Makes fold visible in the sidebar.The higher n is, the more folds are
 "represented visually and the fewer are represented by a number.
 set foldcolumn=5
