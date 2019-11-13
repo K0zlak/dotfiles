@@ -35,3 +35,6 @@ nnoremap Q @@
 "Run the current line as if it were a command.Often more convenient than q:
 "when experimenting.
 nnoremap <Leader>e :exe getline(line('.'))<cr>
+
+"GOYO
+nnoremap <F6> :Goyo <CR>
