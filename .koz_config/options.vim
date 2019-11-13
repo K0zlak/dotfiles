@@ -19,6 +19,10 @@ set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 set incsearch		" Incremental search
 set hlsearch 		" Highlight all matches
+set mouse=a		" Enable mouse usage (all modes)
+set ttymouse=xterm2
+set hidden		" Hide buffers when they are abandoned
+set autowrite		" Automatically save before commands like :next and :make
 
 "Persistent undo,even if you close and reopen Vim.Super great when combined with
 "the undotree plugin.
