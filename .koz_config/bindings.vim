@@ -2,7 +2,7 @@
 nnoremap Y y$
 "PANES
 "max the current pane
-nnoremap <C-W>m <C-W>_<C-W>|
+nnoremap <C-W>m <C-W>_<C-W>\|
 "map to show tree file
 nnoremap <Leader>o :NERDTreeToggle<CR>
 
