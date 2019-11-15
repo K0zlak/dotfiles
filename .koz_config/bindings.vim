@@ -49,4 +49,9 @@ nnoremap Q @@
 nnoremap <Leader>e :exe getline(line('.'))<cr>
 
 "GOYO
-nnoremap <F6> :Goyo <CR>
+nnoremap <F6> :Goyo<CR>
+
+"Add dot "." repeat action for visual mode
+vnoremap . :norm. &lt;CR&lt;<CR>
+"Toggle spelling
+nnoremap <F1> :set spell!<CR>
