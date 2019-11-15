@@ -13,7 +13,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'rainbow_parentheses.vim'
 Plugin 'tpope/vim-surround'
-Plugin 'wikitopian/hardmode'
+Plugin 'brianstorti/vim-hardtime'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'srooloose/nerdcommenter'
 Plugin 'majutsushi/tagbar'
@@ -22,9 +22,7 @@ Plugin 'blueyed/vim-diminactive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'sjl/gundo.vim'
 Plugin  'junegunn/goyo.vim'
+Plugin 'junegunn/vim-peekaboo'
 " All of your Plugins must be added before the following line
  call vundle#end()            " required
  filetype plugin indent on    " required
-
-"Disable arrow keys  , hjkl keys , backspace , page up and page down keys
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode())
