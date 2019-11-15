@@ -19,11 +19,23 @@ nnoremap <Leader>tg :TagbarToggle<CR>
 " ++ Clear the screen and redraw
 nnoremap  <Leader>l :nohlsearch<CR>
 
-" Quicker window movement
+" Quicker splits movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+"Resizing splits with Ctrl+ arrows
+nnoremap <C-UP> <C-W>+
+nnoremap <C-DOWN> <C-W>-
+nnoremap <C-LEFT> <C-W><
+nnoremap <C-RIGHT> <C-W>>
+"Quiting splits
+nnoremap <Leader>q <C-W>q
+
+"Searching with default very magic
+nnoremap / /\v
+nnoremap ? ?\v
+
 
 "CtrlP
 nnoremap <Leader>f :CtrlPMRUFiles<CR>
