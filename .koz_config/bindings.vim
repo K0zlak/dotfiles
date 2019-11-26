@@ -12,7 +12,8 @@ nnoremap  <Leader>bp :bprevious<CR>
 
 " TERMINAL
 nnoremap <Leader>T  :wincmd b \| bel terminal ++rows=10<CR>
-tnoremap qt <C-W>N
+tnoremap <Leader>qt <C-W>N
+tnoremap <Leader>pp <C-W>""
 
 "TAGBAR
 nnoremap <Leader>tg :TagbarToggle<CR>
@@ -55,3 +56,17 @@ nnoremap <F6> :Goyo<CR>
 vnoremap . :norm. &lt;CR&lt;<CR>
 "Toggle spelling
 nnoremap <F1> :set spell!<CR>
+
+"YouCompleteMe
+nnoremap <Leader>jgde :YcmCompleter GoToDeclaration <CR>
+nnoremap <Leader>jgt :YcmCompleter GoToType <CR>
+nnoremap <Leader>jgi :YcmCompleter GoToImplementation <CR>
+nnoremap <Leader>jgr :YcmCompleter GoToReference <CR>
+nnoremap <Leader>jgdo :YcmCompleter GoToDoc <CR>
+nnoremap <Leader>jtt :YcmCompleter GetType <CR>
+nnoremap <Leader>jfi :YcmCompleter FixIt <CR>
+nnoremap <Leader>jff :YcmCompleter Format  <CR>
+nnoremap <Leader>jrr :YcmCompleter RefactorRename
+nnoremap <Leader>joi :YcmCompleter OrganizeImports <CR>
+
+
