@@ -16,4 +16,4 @@ source ~/.koz_config/goyo_config.vim
 
 "Set on the left a diff tab
 ":diffthis
-
+let g:hardtime_default_on = 1
