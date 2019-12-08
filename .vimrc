@@ -1,6 +1,8 @@
 
+
 "Leader
 let mapleader = " "
+let maplocalleader = "\\"
 :source ~/.koz_config/gundo_config.vim
 :source ~/.koz_config/ycm_config.vim
 :source ~/.koz_config/options.vim
