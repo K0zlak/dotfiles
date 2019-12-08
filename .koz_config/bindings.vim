@@ -1,3 +1,10 @@
+"Edit vimrc
+nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
+" source this file
+nnoremap <Leader>sf :source %<CR>
+"Line movement
+nnoremap H g^
+nnoremap L g_
 "Change Y key to be more consistent with D and C keys.
 nnoremap Y y$
 "PANES
@@ -69,4 +76,14 @@ nnoremap <Leader>jff :YcmCompleter Format  <CR>
 nnoremap <Leader>jrr :YcmCompleter RefactorRename
 nnoremap <Leader>joi :YcmCompleter OrganizeImports <CR>
 
+" Autocomplete brackets
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap [ []<left>
+inoremap ( ()<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
 
+"Automate add semicolon on the end of the line
+nnoremap <Leader>; A;<ESC>
