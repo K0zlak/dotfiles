@@ -12,8 +12,7 @@ tree -C $@ | less -R;
 
 
 #GIT-ALIAS
-alias glog="git log --pretty=\"format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s
-%C(dim green)(%cr) %C(cyan)<%an>%Creset %n'\" --abbrev-commit --graph --color=always $@ |  less -R;"
+alias glog="git log --pretty=\"format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) %C(cyan)<%an>%Creset %n'\" --abbrev-commit --graph --color=always $@ |  less -R;"
 #++GIT-FUNCTIONS
 #git status
 gs() { git status; }
