@@ -4,45 +4,48 @@
 set keymap vi-command
 
 # Bind <C-k> key to menu-complete readline completion
-
+"\C-x\C-k": menu-complete
 # Bind <C-j> key to menu-complete (backward) readline completion
-
-Control-k: menu-complete
-Control-j: menu-complete-backward
+ "\C-x\C-j": menu-complete-backward
 "u": undo
 "\C-x\C-r": re-read-init-file
+# Add less at the end
 "\C-x\C-l": "A | less -RS\e\C-j"
-"\C-x\C-o": upcase-word
-"\C-x\C-i": downcase-word
-"\C-x\C-s": start-kbd-macro
-"\C-x\C-e": end-kbd-macro
-"\C-x\C-p": print-last-kbd-macro
-"\C-x\C-u": call-last-kbd-macro
+# Add watch at the beginning and cover the whole command in ""
+"\C-x\C-w": "Iwatch -c "jkA""
+# Surround the WORD with ""
+"s\"": "Ea\"jkBi\"jk"
+# Surround the WORD with ''
+"s\'": "Ea\'jkBi\'jk"
+# Surround with '' form the cursor to the end of the line
+"S\'": "i\'jkA\'jk"
+# Surround with "" form the cursor to the end of the line
+"S\"": "i\"jkA\"jk"
+"\C-u": upcase-word
+"\C-d": downcase-word
+"\C-m\C-s": start-kbd-macro
+"\C-m\C-e": end-kbd-macro
+"\C-m\C-p": print-last-kbd-macro
+"\C-m\C-w": call-last-kbd-macro
 # Bind <C-e> key to shell expansion
-"\C-e": shell-expand-line
+"\C-x\C-e": shell-expand-line
 # Bind <C-e> key to  alias expansion
-"\C-a": alias-expand-line
+"\C-x\C-a": alias-expand-line
  ############################################################
  # VI INSERT Mode Key map
  ############################################################
 set keymap vi-insert
 
 "jk": vi-movement-mode
-"\C-x\C-t": "i Lorem Ipsum"
-"\C-x\C-s": start-kbd-macro
-"\C-x\C-e": end-kbd-macro
-"\C-x\C-p": print-last-kbd-macro
-"\C-x\C-u": call-last-kbd-macro
-
 Control-k: menu-complete
 Control-j: menu-complete-backward
 "\C-a": alias-expand-line
 "\C-e": shell-expand-line
- #Default bell-style (audible)
- set bell-style none
  ############################################################
  # VI OPTIONS
  ############################################################
+ #Default bell-style (audible)
+ set bell-style none
 set keymap vi-command
 #Those below taken form reddit post :
 #https://www.reddit.com/r/commandline/comments/kbeoe/you_can_make_readline_and_bash_much_more_user/
