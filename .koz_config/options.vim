@@ -1,3 +1,4 @@
+set encoding=UTF-8
 "By pressing <S-K> the command beneath keywordprg is launched with word under a cursor
 "as the parameter. The keyword is defined by the iskeyword parameter.
 
@@ -67,7 +68,7 @@ set wildmenu
 set backspace=2   " Backspace deletes like most programs in insert mode
 
 " Display extra white space
-set list listchars=tab:»·,trail:·,nbsp:·
+"set list listchars=tab:»·,trail:·,nbsp:·
 
 " Make it obvious where 80 characters is
 set textwidth=80
