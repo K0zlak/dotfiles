@@ -11,3 +11,7 @@ set -o vi
 
 # Allow you to cd into directoory marely by typing the directory name
 shopt -s autocd
+
+
+# Disable XON/XOFF flow control
+stty -ixon
