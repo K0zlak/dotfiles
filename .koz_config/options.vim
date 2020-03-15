@@ -6,7 +6,7 @@ set keywordprg=:help
 
 "Search down into subfolders
 " Provides tab-completion for all file-related tasks
- set path+=**
+set path+=**
 
 "Set spelling
 set spell
@@ -22,18 +22,19 @@ set incsearch		" Incremental search
 set hlsearch 		" Highlight all matches
 set hidden		" Hide buffers when they are abandoned
 set autowrite		" Automatically save before commands like :next and :make
-
+set history=1000	" Set how many entries may be stored in each of the histories
+set scrolloff=10	" set how many lines to keep above and below the cursor.
 "Persistent undo,even if you close and reopen Vim.Super great when combined with
 "the undotree plugin.
 if has ('persistent_undo')
-	let target_path = expand('~/.config/vim-persisted-undo/')
+    let target_path = expand('~/.config/vim-persisted-undo/')
 
-	if !isdirectory(target_path)
-		call system('mkdir -p ' . target_path)
-	endif
+    if !isdirectory(target_path)
+        call system('mkdir -p ' . target_path)
+    endif
 
-	let &undodir = target_path
-	set undofile
+    let &undodir = target_path
+    set undofile
 endif
 "Makes fold visible in the sidebar.The higher n is, the more folds are
 "represented visually and the fewer are represented by a number.
@@ -66,6 +67,7 @@ set wildmode=longest,list,full
 set wildmenu
 
 set backspace=2   " Backspace deletes like most programs in insert mode
+set autoindent		"use the indent of the previous line "
 
 " Display extra white space
 "set list listchars=tab:»·,trail:·,nbsp:·
@@ -79,9 +81,14 @@ set ruler
 " By CTRL+A and CTRL+X we can add and subtract to
 " numbers and to alphanumeric characters
 " nformat contain on what format it will work
-set nrformats+=alpha
+"set nrformats+=alpha
 "Donot redraw screen in the middle of a macro.Makes them complete faster
 set lazyredraw
 "Folding
 set foldlevelstart=1
 set foldmethod=indent
+
+"TABS TO 4 SPACES
+set tabstop=4
+set shiftwidth=4
+"set expandtab
