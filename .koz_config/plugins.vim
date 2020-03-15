@@ -10,12 +10,15 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'valloric/youcompleteme'
 Plugin 'scrooloose/nerdtree'
 Plugin 'chriskempson/base16-vim'
-"Plugin 'Raimondi/delimitMate'
+Plugin 'Raimondi/delimitMate'
 Plugin 'rainbow_parentheses.vim'
+Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
-Plugin 'brianstorti/vim-hardtime'
+Plugin 'tpope/vim-repeat'
+"Plugin 'brianstorti/vim-hardtime'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'srooloose/nerdcommenter'
+"Plugin 'srooloose/nerdcommenter'
+Plugin 'tpope/vim-commentary'
 Plugin 'majutsushi/tagbar'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'blueyed/vim-diminactive'
@@ -26,7 +29,12 @@ Plugin 'junegunn/vim-peekaboo'
 "Plugin 'honza/vim-snippets'
 "Plugin 'SirVer/ultisnips'
 "Plugin 'ervandew/supertab'
-Plugin 'ryanoasis/vim-devicons'
+"Plugin 'ryanoasis/vim-devicons'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tmhedberg/matchit'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'junegunn/vim-easy-align'
+
 " All of your Plugins must be added before the following line
  call vundle#end()            " required
  filetype plugin indent on    " required
@@ -41,3 +49,10 @@ Plugin 'ryanoasis/vim-devicons'
  "let g:UltiSnipsJumpForwardTrigger = '<Tab>'
  "let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
 
+ " Write all buffers before navigating from Vim to tmux pane
+ let g:tmux_navigator_save_on_switch = 2
+ " Disable tmux navigator when zooming the Vim pane
+ let g:tmux_navigator_disable_when_zoomed = 1
+
+ "Diminactive plugin
+ let g:diminactive_use_syntax = 1
