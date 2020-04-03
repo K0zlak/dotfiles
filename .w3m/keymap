@@ -171,12 +171,12 @@ keymap	C-u	PREV_PAGE
 keymap	zz	CENTER_V
 keymap	zt	CENTER_H
 ########## cursor ##########
-#keymap	l	MOVE_RIGHT
-#keymap	h	MOVE_LEFT
-#keymap	j	MOVE_DOWN1
-keymap	j	UP
-#keymap	k	MOVE_UP1
-keymap	k	DOWN
+# keymap	l	MOVE_RIGHT
+# keymap	h	MOVE_LEFT
+# keymap	j	MOVE_DOWN1
+# keymap	j	UP
+# keymap	k	MOVE_UP1
+# keymap	k	DOWN
 keymap	RIGHT	MOVE_RIGHT
 keymap	LEFT	MOVE_LEFT
 keymap	DOWN	MOVE_DOWN1
@@ -199,10 +199,10 @@ keymap	C-n	NEXT_LINK
 keymap	C-p	PREV_LINK
 keymap	J	NEXT_LINK
 keymap K	PREV_LINK
-keymap	ESC-j	NEXT_DOWN
-keymap	ESC-l	NEXT_RIGHT
-keymap	ESC-h	NEXT_LEFT
-keymap	ESC-k	NEXT_UP
+keymap	j	NEXT_DOWN
+keymap	l	NEXT_RIGHT
+keymap	h	NEXT_LEFT
+keymap	k	NEXT_UP
 
 # reload
 keymap	r	RELOAD
@@ -245,8 +245,8 @@ keymap	d	CLOSE_TAB
 keymap	SPCg	GOTO http://www.google.com/en
 keymap	SPCG	TAB_GOTO http://www.google.com/en
 keymap	C-t	NEW_TAB
-keymap	h	PREV_TAB
-keymap	l	NEXT_TAB
+# keymap	h	PREV_TAB
+# keymap	l	NEXT_TAB
 keymap	gt	NEXT_TAB
 keymap	gT	PREV_TAB
 keymap	C-wL	TAB_RIGHT
@@ -265,8 +265,8 @@ keymap	:M	MAIN_MENU
 
 
 ########## external browser ##########
-keymap	SPCB	EXTERN
-keymap	SPCb	EXTERN_LINK
+keymap	gX	EXTERN
+keymap	gx	EXTERN_LINK
 
 ########## W3m config ##########
 keymap	C-xC-r	REINIT
