@@ -1,52 +1,122 @@
- ############################################################
- # VI COMMAND Mode Key map
- ############################################################
-set keymap vi-command
+ #############################################################
+ ## VI INSERT Mode Key map
+ #############################################################
 
-# Bind <C-k> key to menu-complete readline completion
-"\C-x\C-k": menu-complete
-# Bind <C-j> key to menu-complete (backward) readline completion
- "\C-x\C-j": menu-complete-backward
-"u": undo
-"\C-x\C-r": re-read-init-file
-# Add less at the end
-"\C-x\C-l": "A | less -RS\e\C-j"
-# Add watch at the beginning and cover the whole command in ""
-"\C-x\C-w": "Iwatch -c "jkA""
-# Surround the WORD with ""
-"s\"": "Ea\"jkBi\"jk"
-# Surround the WORD with ''
-"s\'": "Ea\'jkBi\'jk"
-# Surround with '' form the cursor to the end of the line
-"S\'": "i\'jkA\'jk"
-# Surround with "" form the cursor to the end of the line
-"S\"": "i\"jkA\"jk"
-"\C-u": upcase-word
-"\C-d": downcase-word
-"\C-m\C-s": start-kbd-macro
-"\C-m\C-e": end-kbd-macro
-"\C-m\C-p": print-last-kbd-macro
-"\C-m\C-w": call-last-kbd-macro
-# Bind <C-e> key to shell expansion
-"\C-x\C-e": shell-expand-line
-# Bind <C-e> key to  alias expansion
-"\C-x\C-a": alias-expand-line
- ############################################################
- # VI INSERT Mode Key map
- ############################################################
 set keymap vi-insert
-
+"\C-w":kill-word
+"\C-f":forward-word
+"\C-b":backward-word
+"\C-a":beginning-of-line
+"\C-e":end-of-line
+"\C-k":kill-line
+"\C-u":unix-line-discard
+"\C-xdm": dump-macros
+"\C-xdf": dump-functions
+"\C-xdv": dump-variables
+"\C-xr": re-read-init-file
+# "\C-o": " .. ; pwd\C-m"
 "jk": vi-movement-mode
-Control-k: menu-complete
-Control-j: menu-complete-backward
-"\C-a": alias-expand-line
-"\C-e": shell-expand-line
- ############################################################
- # VI OPTIONS
- ############################################################
+#"\ek": menu-complete
+#"\ej": menu-complete-backward
+"\C-xf\C-xb": " exec bash\C-m"
+"\C-x\C-xg": : "\C-e | grep -e "
+"\C-x\C-xl": "\C-e | less -RSNJ"
+"\C-x\C-xw": "watch -c ""jki"
+"\C-xgl": glob-list-expansions
+"\C-xgc": glob-complete-word
+"\C-xgw": glob-expand-word
+
+"\C-e\C-ee": shell-expand-line;
+"\C-e\C-eh": history-expand-line
+"\C-e\C-ea": alias-expand-line
+"\C-o": operate-and-get-next
+ #############################################################
+ ## VI COMMAND Mode Key map
+ #############################################################
+
+set keymap vi
+"\C-x\C-r": re-read-init-file
+#Control-E: shell-expand-line
+## bind <c-k> key to menu-complete readline completion
+#"\ek": menu-complete
+## bind <c-j> key to menu-complete (backward) readline completion
+ #"\ej": menu-complete-backward
+#"u": undo
+## Add less at the end
+"\C-x\C-xl": "A | less -RSNJjk"
+"\C-x\C-xb": "ddAexec bashjk"
+"\C-x\C-xg": "A | grep -e \e"
+
+# Execute the command and go to the next in the history
+"\C-o": operate-and-get-next
+## Add watch at the beginning and cover the whole command in ""
+"\C-x\C-xw": "Iwatch -c "jkA""jkhi
+## Bind <C-e> key to shell expansion
+"\C-e\C-ee": shell-expand-line
+## Bind <C-e> key to  alias expansion
+"\C-e\C-ea": alias-expand-line
+
+################################################################
+# SURROUND LIKE KEYS
+################################################################
+
+## Surround the WORD with
+"sW\"": "Ea\"jkBi\"jk"
+"sW\'": "Ea\'jkBi\'jk"
+"sW\(": "Ea\)jkBi\(jk"
+"sW\{": "Ea\}jkBi\{jk"
+"sW\<": "Ea\>jkBi\<jk"
+"sW\[": "Ea\]jkBi\[jk"
+
+## Surround the word with
+"sw\"": "ea\"jkbi\"jk"
+"sw\'": "ea\'jkbi\'jk"
+"sw\(": "ea\)jkbi\(jk"
+"sw\)": "ea\)jkbi\(jk"
+"sw\{": "ea\}jkbi\{jk"
+"sw\}": "ea\}jkbi\{jk"
+"sw\<": "ea\>jkbi\<jk"
+"sw\>": "ea\>jkbi\<jk"
+"sw\[": "ea\]jkbi\[jk"
+"sw\]": "ea\]jkbi\[jk"
+# Surround with ?  form the cursor to the end of the line
+"S\'": "i\'jkA\'jk"
+"S\"": "i\"jkA\"jk"
+"S\(": "i\(jkA\)jk"
+"S\{": "i\{jkA\}jk"
+"S\<": "i\<jkA\>jk"
+"S\[": "i\[jkA\]jk"
+"S\)": "i\(jkA\)jk"
+"S\}": "i\{jkA\}jk"
+"S\>": "i\<jkA\>jk"
+"S\]": "i\[jkA\]jk"
+# Delete the surround
+"sd\"": "F"xf"x"
+"sd\'": "F'xf'x"
+"sd\(": "F(xf)x"
+"sd\{": "F{xf}x"
+"sd\<": "F<xf>x"
+"sd\[": "F[xf]x"
+
+"sd\)": "F(xf)x"
+"sd\}": "F{xf}x"
+"sd\>": "F<xf>x"
+"sd\]": "F[xf]x"
+
+"gU": upcase-word
+"gu": downcase-word
+"qs": start-kbd-macro
+"qe": end-kbd-macro
+"qp": print-last-kbd-macro
+"qc": call-last-kbd-macro
+
+ #############################################################
+ ## VI OPTIONS
+ #############################################################
+ set colored-stats
  #Default bell-style (audible)
- set bell-style none
-set keymap vi-command
+ # set bell-style visible
+ set bell-style audible
 #Those below taken form reddit post :
 #https://www.reddit.com/r/commandline/comments/kbeoe/you_can_make_readline_and_bash_much_more_user/
 
@@ -54,7 +124,10 @@ set keymap vi-command
 # after completion with tab, the first part that has been completed will
 # be replased by "...", and it is simple to see what you need to type to finish
 # the completion
-set completion-prefix-display-length 2
+#set completion-prefix-display-length 2
+# on menu-complete, first display the common prefix, then cycle through the
+# options when hitting TAB
+set menu-complete-display-prefix on
 
 # Make completions appear immediately after pressing TAB once.
 # Instead of the default behavior which is to show them after pressing twice.
@@ -67,8 +140,10 @@ set completion-map-case on
  set editing-mode vi
 set vi-ins-mode-string \1\e[48;5;117;1m\2 I \1\e[38;5;117;48;5;31;1m\2>\1\e[0m\2
 set vi-cmd-mode-string \1\e[48;5;166;1m\2 N \1\e[38;5;166;48;5;31;1m\2>\1\e[0m\2
-#Vim Mode indicator in prompt
+##Vim Mode indicator in prompt
  set show-mode-in-prompt on
  #set vi-ins-mode-string \1\e[6 q\2
  #set vi-cmd-mode-string \1\e[2 q\2
 
+set echo-control-characters off
+set enable-bracketed-paste on
