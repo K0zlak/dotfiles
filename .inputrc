@@ -99,11 +99,45 @@ set keymap vi
 "sd\{": "F{xf}x"
 "sd\<": "F<xf>x"
 "sd\[": "F[xf]x"
-
 "sd\)": "F(xf)x"
 "sd\}": "F{xf}x"
 "sd\>": "F<xf>x"
 "sd\]": "F[xf]x"
+
+# Change the surround
+"sc\'\"": "F\'r\",r\""
+"sc\"\'": "F\"r',r'"
+
+"sc({": "F(r{f)r}"
+"sc){": "F(r{f)r}"
+"sc(}": "F(r{f)r}"
+"sc)}": "F(r{f)r}"
+
+"sc{(": "F{r(f}r)"
+"sc{)": "F{r(f}r)"
+"sc}(": "F{r(f}r)"
+"sc})": "F{r(f}r)"
+
+"sc([": "F(r[f)r]"
+"sc)[": "F(r[f)r]"
+"sc(]": "F(r[f)r]"
+"sc)]": "F(r[f)r]"
+
+"sc[(": "F[r(f]r)"
+"sc[)": "F[r(f]r)"
+"sc](": "F[r(f]r)"
+"sc])": "F[r(f]r)"
+
+
+"sc{[": "F{r[f}r]"
+"sc}[": "F{r[f}r]"
+"sc{]": "F{r[f}r]"
+"sc}]": "F{r[f}r]"
+
+"sc[{": "F[r{f]r}"
+"sc[}": "F[r{f]r}"
+"sc]{": "F[r{f]r}"
+"sc]}": "F[r{f]r}"
 
 "gU": upcase-word
 "gu": downcase-word
