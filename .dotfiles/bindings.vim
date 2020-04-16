@@ -50,10 +50,6 @@ nnoremap ? ?\v
 xnoremap / <ESC>/\%V\v
 xnoremap ? <ESC>/\%V\v
 
-"CTRLP
-nnoremap <Leader>f :CtrlPMRUFiles<CR>
-nnoremap <Leader>cb :CtrlPBuffer<CR>
-
 "MACROS
 "INSTEAD OF STUMBLING INTO EX MODE, REPEAT THE LAST COMMAND USED.
 nnoremap Q :@:<CR>
