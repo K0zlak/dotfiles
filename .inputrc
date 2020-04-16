@@ -21,7 +21,7 @@ set keymap vi-insert
 "\C-xf\C-xb": " exec bash\C-m"
 "\C-x\C-xg": : "\C-e | grep -e "
 "\C-x\C-xl": "\C-e | less -RSNJ"
-"\C-x\C-xw": "watch -c ""jki"
+"\C-x\C-xw": "watch -c ""\ei"
 "\C-xgl": glob-list-expansions
 "\C-xgc": glob-complete-word
 "\C-xgw": glob-expand-word
@@ -61,35 +61,37 @@ set keymap vi
 ################################################################
 
 ## Surround the WORD with
-"sW\"": "Ea\"jkBi\"jk"
-"sW\'": "Ea\'jkBi\'jk"
-"sW\(": "Ea\)jkBi\(jk"
-"sW\{": "Ea\}jkBi\{jk"
-"sW\<": "Ea\>jkBi\<jk"
-"sW\[": "Ea\]jkBi\[jk"
+"sW\"": "Ea\"\eBi\"\e"
+"sW\'": "Ea\'\eBi\'\e"
+"sW\(": "Ea\)\eBi\(\e"
+"sW\{": "Ea\}\eBi\{\e"
+"sW\<": "Ea\>\eBi\<\e"
+"sW\[": "Ea\]\eBi\[\e"
 
 ## Surround the word with
-"sw\"": "ea\"jkbi\"jk"
-"sw\'": "ea\'jkbi\'jk"
-"sw\(": "ea\)jkbi\(jk"
-"sw\)": "ea\)jkbi\(jk"
-"sw\{": "ea\}jkbi\{jk"
-"sw\}": "ea\}jkbi\{jk"
-"sw\<": "ea\>jkbi\<jk"
-"sw\>": "ea\>jkbi\<jk"
-"sw\[": "ea\]jkbi\[jk"
-"sw\]": "ea\]jkbi\[jk"
+"sw\"": "ea\"\ebi\"\e"
+"sw\'": "ea\'\ebi\'\e"
+"sw\(": "ea\)\ebi\(\e"
+"sw\)": "ea\)\ebi\(\e"
+"sw\{": "ea\}\ebi\{\e"
+"sw\}": "ea\}\ebi\{\e"
+"sw\<": "ea\>\ebi\<\e"
+"sw\>": "ea\>\ebi\<\e"
+"sw\[": "ea\]\ebi\[\e"
+"sw\]": "ea\]\ebi\[\e"
+
 # Surround with ?  form the cursor to the end of the line
-"S\'": "i\'jkA\'jk"
-"S\"": "i\"jkA\"jk"
-"S\(": "i\(jkA\)jk"
-"S\{": "i\{jkA\}jk"
-"S\<": "i\<jkA\>jk"
-"S\[": "i\[jkA\]jk"
-"S\)": "i\(jkA\)jk"
-"S\}": "i\{jkA\}jk"
-"S\>": "i\<jkA\>jk"
-"S\]": "i\[jkA\]jk"
+"S\'": "i\'\eA\'\e"
+"S\"": "i\"\eA\"\e"
+"S\(": "i\(\eA\)\e"
+"S\{": "i\{\eA\}\e"
+"S\<": "i\<\eA\>\e"
+"S\[": "i\[\eA\]\e"
+"S\)": "i\(\eA\)\e"
+"S\}": "i\{\eA\}\e"
+"S\>": "i\<\eA\>\e"
+"S\]": "i\[\eA\]\e"
+
 # Delete the surround
 "sd\"": "F"xf"x"
 "sd\'": "F'xf'x"
