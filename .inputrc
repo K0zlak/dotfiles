@@ -160,7 +160,7 @@ set keymap vi
 # after completion with tab, the first part that has been completed will
 # be replased by "...", and it is simple to see what you need to type to finish
 # the completion
-#set completion-prefix-display-length 2
+set completion-prefix-display-length 2
 # on menu-complete, first display the common prefix, then cycle through the
 # options when hitting TAB
 set menu-complete-display-prefix on
