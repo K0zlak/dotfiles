@@ -60,7 +60,7 @@ set splitright
 
 " Zmiana zachowania dopełniania <TAB> np w lini komend :e < ścieżka do
 " pliku> doczytać póżniej i poeksperymentować
-set wildmode=longest,list,full
+set wildmode=list:longest,full
 " Włączenie menu propozycji
 " Po wcisnieciu <TAB> np e W komendzie :e C:\ nad linią komend "
 " pojawia się menu z propozycjami z danego katalogu
