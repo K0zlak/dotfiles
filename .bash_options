@@ -1,5 +1,5 @@
 
-# Active vi mode wit <Escepe>:
+# Active vi mode with <Escepe>:
 set -o vi
 # Enviroment variables for Ranger
 #shopt -s expand_aliases
