@@ -164,10 +164,12 @@ keymap	C-e	UP
 keymap	C-y	DOWN
 keymap	gg	BEGIN
 keymap	G	END
-keymap	C-d	NEXT_PAGE
+keymap	C-f	NEXT_PAGE
 #keymap	d	NEXT_PAGE
-keymap	C-u	PREV_PAGE
+keymap	C-b	PREV_PAGE
 #keymap	u	PREV_PAGE
+keymap	C-d	NEXT_HALF_PAGE
+keymap	C-u	PREV_HALF_PAGE
 keymap	zz	CENTER_V
 keymap	zt	CENTER_H
 ########## cursor ##########
