@@ -1,4 +1,4 @@
-########## invalidate defaults ##########
+######### invalidate defaults ##########
 keymap	K	NULL
 keymap	J	NULL
 keymap	SPC	NULL
@@ -154,8 +154,8 @@ keymap	:O	OPTIONS
 keymap	:d	DOWNLOAD_LIST
 
 ########## history navigation ##########
-keymap	L	NEXT
-keymap	H	PREV
+keymap	]b	NEXT
+keymap	[b	PREV
 keymap	:p	SELECT_MENU
 keymap	:h	HISTORY
 
