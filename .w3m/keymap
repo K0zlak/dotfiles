@@ -172,6 +172,8 @@ keymap	C-d	NEXT_HALF_PAGE
 keymap	C-u	PREV_HALF_PAGE
 keymap	zz	CENTER_V
 keymap	zt	CENTER_H
+keymap	L	SHIFT_RIGHT
+keymap	H	SHIFT_LEFT
 ########## cursor ##########
 # keymap	l	MOVE_RIGHT
 # keymap	h	MOVE_LEFT
