@@ -70,7 +70,7 @@ set backspace=2   " Backspace deletes like most programs in insert mode
 set autoindent		"use the indent of the previous line "
 
 " Display extra white space
-"set list listchars=tab:»·,trail:·,nbsp:·
+set list listchars=tab:»·,trail:·,nbsp:·,space:·
 
 " Make it obvious where 80 characters is
 set textwidth=80
@@ -91,4 +91,5 @@ set foldmethod=indent
 "TABS TO 4 SPACES
 set tabstop=4
 set shiftwidth=4
-"set expandtab
+set expandtab
+
