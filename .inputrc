@@ -22,13 +22,14 @@ set keymap vi-insert
 "\C-x\C-xg": : "\C-e | grep -e "
 "\C-x\C-xl": "\C-e | less -RSNJ"
 "\C-x\C-xw": "watch -c ""\ei"
-"\C-xgl": glob-list-expansions
-"\C-xgc": glob-complete-word
-"\C-xgw": glob-expand-word
+"\C-gl": glob-list-expansions
+"\C-gc": glob-complete-word
+"\C-gw": glob-expand-word
 
-"\C-e\C-ee": shell-expand-line;
-"\C-e\C-eh": history-expand-line
-"\C-e\C-ea": alias-expand-line
+## Bind <C-e> key to  alias expansion
+"\C-xe": shell-expand-line
+"\C-xh": history-expand-line
+"\C-xa": alias-expand-line
 "\C-o": operate-and-get-next
  #############################################################
  ## VI COMMAND Mode Key map
@@ -52,10 +53,11 @@ set keymap vi
 ## Add watch at the beginning and cover the whole command in ""
 "\C-x\C-xw": "Iwatch -c "jkA""jkhi
 ## Bind <C-e> key to shell expansion
-"\C-e\C-ee": shell-expand-line
+"\C-xe": shell-expand-line
 ## Bind <C-e> key to  alias expansion
-"\C-e\C-ea": alias-expand-line
-
+"\C-xa": alias-expand-line
+## Bind <C-e> key to  history expansion
+"\C-xh": history-expand-line
 ################################################################
 # SURROUND LIKE KEYS
 ################################################################
