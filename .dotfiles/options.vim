@@ -24,6 +24,7 @@ set incsearch		" Incremental search
 set hlsearch 		" Highlight all matches
 set hidden		" Hide buffers when they are abandoned
 set autowrite		" Automatically save before commands like :next and :make
+set autoread        "Automativally read the file if the change outside of vim is detected
 set history=1000	" Set how many entries may be stored in each of the histories
 set scrolloff=10	" set how many lines to keep above and below the cursor.
 "Persistent undo,even if you close and reopen Vim.Super great when combined with
@@ -40,7 +41,7 @@ if has ('persistent_undo')
 endif
 "Makes fold visible in the sidebar.The higher n is, the more folds are
 "represented visually and the fewer are represented by a number.
-set foldcolumn=5
+" set foldcolumn=5
 
 " Set visualBell instead annoying sound bell in case of error
 set visualbell
@@ -70,6 +71,11 @@ set wildmenu
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 set autoindent		"use the indent of the previous line "
+set wrap            "Wrap long lines
+set linebreak       "Wrapping lines don't happen on last characters on the screen
+set breakindent     "After wrapping all wrapped continue visually indented
+set browsedir=buffer
+
 
 " Display extra white space
 set list listchars=tab:»·,trail:·,nbsp:·,space:·
@@ -87,8 +93,8 @@ set ruler
 "Donot redraw screen in the middle of a macro.Makes them complete faster
 set lazyredraw
 "Folding
-set foldlevelstart=1
-set foldmethod=indent
+" set foldlevelstart=1
+" set foldmethod=indent
 
 "TABS TO 4 SPACES
 set tabstop=4
