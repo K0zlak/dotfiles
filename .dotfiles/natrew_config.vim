@@ -8,6 +8,4 @@ let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
  let g:netrw_browsex_viewer   = "cmd.exe /C start"
-"enable syntax and plugins (for netrw)
-filetype plugin on
 
