@@ -58,6 +58,13 @@ set keymap vi
 "\C-xa": alias-expand-line
 ## Bind <C-e> key to  history expansion
 "\C-xh": history-expand-line
+
+#Bash commands
+"\C-x\C-xwh": "iwhile true; do sleep 0.5; echo \"Lorem Ipsum\"; done\e"
+"\C-x\C-xif": "iif true; then echo \"Lorem Ipsum\";  fi\e"
+"\C-x\C-xife": "iif  [ \"$t\" -eq \"0\" ] ; then echo \"Lorem Ipsum\";  elif [ \"$t\" -eq \"1\" ]; then echo \"Secundum\";  else echo \"Trictum\";  fi\e";
+"\C-x\C-xf": "ifor index in {raz,dwa,trzy} ; do echo $index ; done\e"
+
 ################################################################
 # SURROUND LIKE KEYS
 ################################################################
