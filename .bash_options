@@ -9,6 +9,10 @@ set -o vi
 #shopt -s checkwinsize
 #shopt -s cdspell
 
+# Unbind  and 
+bind -m vi-insert -r "\C-x"
+bind -m vi-insert -r "\C-g"
+
 # Allow you to cd into directoory marely by typing the directory name
 shopt -s autocd
 
