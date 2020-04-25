@@ -18,7 +18,7 @@ set keymap vi-insert
 "jk": vi-movement-mode
 #"\ek": menu-complete
 #"\ej": menu-complete-backward
-"\C-xf\C-xb": " exec bash\C-m"
+"\C-x\C-xb": " exec bash\C-m"
 "\C-x\C-xg": : "\C-e | grep -e "
 "\C-x\C-xl": "\C-e | less -RSNJ"
 "\C-x\C-xw": "watch -c ""\ei"
