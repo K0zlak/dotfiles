@@ -43,6 +43,8 @@ nnoremap <C-RIGHT> <C-W>>
 "QUITING SPLITS
 nnoremap <Leader>q <C-W>q
 
+nnoremap j  gj
+nnoremap k  gk
 "SEARCHING WITH DEFAULT VERY MAGIC
 nnoremap / /\v
 nnoremap ? ?\v
