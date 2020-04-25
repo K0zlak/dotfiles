@@ -1,3 +1,5 @@
+"enable syntax and plugins
+filetype plugin on
 set encoding=UTF-8
 "By pressing <S-K> the command beneath keywordprg is launched with word under a cursor
 "as the parameter. The keyword is defined by the iskeyword parameter.
