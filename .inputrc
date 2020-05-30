@@ -22,20 +22,41 @@ set keymap vi-insert
 "\C-x\C-xg": : "\C-e | grep -e "
 "\C-x\C-xl": "\C-e | less -RSNJ"
 "\C-x\C-xw": "watch -c ""\ei"
+"\C-x\C-xx": " | xargs -n 1 --delimiter=\"\\n\""
 "\C-gl": glob-list-expansions
 "\C-gc": glob-complete-word
-"\C-gw": glob-expand-word
+"\C-ge": glob-expand-word
 
+
+##COMPLETION
 ## Bind <C-e> key to  alias expansion
 "\C-xe": shell-expand-line
 "\C-xh": history-expand-line
 "\C-xa": alias-expand-line
+"\C-xv": complete-variable
+"\C-xc": complete-command
+"\C-xf": complete-filename
+"\C-xu": complete-username
+"\C-xB": complete-into-braces
+"\C-i": menu-complete
+
 "\C-o": operate-and-get-next
+
+#Unset  , 
+"\C-g":""
+"\C-x":""
+
  #############################################################
- ## VI COMMAND Mode Key map
+ ## VI COMMAND MODE KEY MAP
  #############################################################
 
 set keymap vi
+#Unset S , s , , 
+"S":""
+"s":""
+"\C-g":""
+"\C-x":""
+
 "\C-x\C-r": re-read-init-file
 #Control-E: shell-expand-line
 ## bind <c-k> key to menu-complete readline completion
