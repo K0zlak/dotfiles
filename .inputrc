@@ -14,7 +14,7 @@ set keymap vi-insert
 "\C-xdf": dump-functions
 "\C-xdv": dump-variables
 "\C-xr": re-read-init-file
-# "\C-o": " .. ; pwd\C-m"
+"\C-^": " .. \C-m"
 "jk": vi-movement-mode
 #"\ek": menu-complete
 #"\ej": menu-complete-backward
