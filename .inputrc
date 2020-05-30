@@ -87,8 +87,21 @@ set keymap vi
 "\C-x\C-xf": "ifor index in {raz,dwa,trzy} ; do echo $index ; done\e"
 
 ################################################################
-# SURROUND LIKE KEYS
+# SURROUND LIKE BINDINGS
 ################################################################
+
+# Pair insertion
+"\C-s{":"{ }\ei"
+"\C-s[":"[ ]\ei"
+"\C-s(":"( )\ei"
+"\C-s<":"< >\ei"
+# Pair insertion witout space
+"\C-s}":"{ }\ei"
+"\C-s]":"[ ]\ei"
+"\C-s)":"( )\ei"
+"\C-s>":"< >\ei"
+"\C-s\"":"\"\"\ei"
+"\C-s'":"''\ei"
 
 ## Surround the WORD with
 "sW\"": "Ea\"\eBi\"\e"
@@ -123,51 +136,51 @@ set keymap vi
 "S\]": "i\[\eA\]\e"
 
 # Delete the surround
-"sd\"": "F"xf"x"
-"sd\'": "F'xf'x"
-"sd\(": "F(xf)x"
-"sd\{": "F{xf}x"
-"sd\<": "F<xf>x"
-"sd\[": "F[xf]x"
-"sd\)": "F(xf)x"
-"sd\}": "F{xf}x"
-"sd\>": "F<xf>x"
-"sd\]": "F[xf]x"
+"ds\"": "F"xf"x"
+"ds\'": "F'xf'x"
+"ds\(": "F(xf)x"
+"ds\{": "F{xf}x"
+"ds\<": "F<xf>x"
+"ds\[": "F[xf]x"
+"ds\)": "F(xf)x"
+"ds\}": "F{xf}x"
+"ds\>": "F<xf>x"
+"ds\]": "F[xf]x"
 
 # Change the surround
-"sc\'\"": "F\'r\",r\""
-"sc\"\'": "F\"r',r'"
+"cs\'\"": "F\'r\",r\""
+"cs\"\'": "F\"r',r'"
 
-"sc({": "F(r{f)r}"
-"sc){": "F(r{f)r}"
-"sc(}": "F(r{f)r}"
-"sc)}": "F(r{f)r}"
+"cs({": "F(r{f)r}"
+"cs){": "F(r{f)r}"
+"cs(}": "F(r{f)r}"
+"cs)}": "F(r{f)r}"
 
-"sc{(": "F{r(f}r)"
-"sc{)": "F{r(f}r)"
-"sc}(": "F{r(f}r)"
-"sc})": "F{r(f}r)"
+"cs{(": "F{r(f}r)"
+"cs{)": "F{r(f}r)"
+"cs}(": "F{r(f}r)"
+"cs})": "F{r(f}r)"
 
-"sc([": "F(r[f)r]"
-"sc)[": "F(r[f)r]"
-"sc(]": "F(r[f)r]"
-"sc)]": "F(r[f)r]"
+"cs([": "F(r[f)r]"
+"cs)[": "F(r[f)r]"
+"cs(]": "F(r[f)r]"
+"cs)]": "F(r[f)r]"
 
-"sc[(": "F[r(f]r)"
-"sc[)": "F[r(f]r)"
-"sc](": "F[r(f]r)"
-"sc])": "F[r(f]r)"
+"cs[(": "F[r(f]r)"
+"cs[)": "F[r(f]r)"
+"cs](": "F[r(f]r)"
+"cs])": "F[r(f]r)"
 
 
-"sc{[": "F{r[f}r]"
-"sc}[": "F{r[f}r]"
-"sc{]": "F{r[f}r]"
-"sc}]": "F{r[f}r]"
+"cs{[": "F{r[f}r]"
+"cs}[": "F{r[f}r]"
+"cs{]": "F{r[f}r]"
+"cs}]": "F{r[f}r]"
 
-"sc[{": "F[r{f]r}"
-"sc[}": "F[r{f]r}"
-"sc]{": "F[r{f]r}"
-"sc]}": "F[r{f]r}"
+"cs[{": "F[r{f]r}"
+"cs[}": "F[r{f]r}"
+"cs]{": "F[r{f]r}"
+"cs]}": "F[r{f]r}"
 
 "gU": upcase-word
 "gu": downcase-word
