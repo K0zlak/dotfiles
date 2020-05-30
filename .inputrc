@@ -65,14 +65,14 @@ set keymap vi
  #"\ej": menu-complete-backward
 #"u": undo
 ## Add less at the end
-"\C-x\C-xl": "A | less -RSNJjk"
-"\C-x\C-xb": "ddAexec bashjk"
+"\C-x\C-xl": "A | less -RSNJ\e"
+"\C-x\C-xb": "ddAexec bash\e"
 "\C-x\C-xg": "A | grep -e \e"
 
 # Execute the command and go to the next in the history
-"\C-o": operate-and-get-next
+# "\C-o": operate-and-get-next
 ## Add watch at the beginning and cover the whole command in ""
-"\C-x\C-xw": "Iwatch -c "jkA""jkhi
+"\C-x\C-xw": "Iwatch -c "\eA""\ehi
 ## Bind <C-e> key to shell expansion
 "\C-xe": shell-expand-line
 ## Bind <C-e> key to  alias expansion
