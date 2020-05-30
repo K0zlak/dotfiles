@@ -190,8 +190,7 @@ set keymap vi
 "qc": call-last-kbd-macro
 
  #############################################################
- ## VI OPTIONS
- #############################################################
+ ## READLINE OPTIONS #############################################################
  set colored-stats
  #Default bell-style (audible)
  # set bell-style visible
@@ -215,6 +214,8 @@ set show-all-if-unmodified on
 
 # Enabled underscores (_) and hyphens (-) treated as equal when completing.
 set completion-map-case on
+#Enable case-insensitive completion
+set completion-ignore-case on
 # Change readline edit style to vim like style
  set editing-mode vi
 set vi-ins-mode-string "\1\e[5 q\2"
