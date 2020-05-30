@@ -1,6 +1,11 @@
+shopt -s expand_aliases
 alias config='/usr/bin/git --git-dir=/mnt/c/Users/MiKoz/.cfg/ --work-tree=/home/mikoz/'
-alias v='vim'
+alias paste='powershell.exe -Command "Get-Clipboard"'
+alias du='du -h -c'
+alias rm='rm -i'
+alias v='/usr/local/bin/vim'
 alias g='git'
+alias r='ranger'
 alias HOME=~/
 alias WIN_HOME='/mnt/c/Users/MiKoz/'
 alias VIM='/usr/share/vim/vim80/'
@@ -13,6 +18,28 @@ alias vlc='/mnt/c/Program\ Files/VideoLAN/VLC/vlc.exe'
 trees() {
 tree -C $@ | less -R;
 }
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 
 
 #GIT-ALIAS
