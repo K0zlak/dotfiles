@@ -295,6 +295,8 @@ Plugin 'junegunn/gv.vim'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'junegunn/vim-easy-align'
 Plugin  'wellle/targets.vim'
+Plugin  'morhetz/gruvbox.git'
+
 " All of your Plugins must be added before the following line
  call vundle#end()            " required
  filetype plugin indent on    " required
@@ -417,39 +419,6 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
 let delimitMate_expand_cr = 2
 let delimitMate_expand_space = 1
-
-" }}}
-    "COLOR_SYNTAX{{{
-
-
-"""" Enable coloring syntax
-if has("syntax")
-	syntax enable
-endif
-
-"Use true colors in vim under tmux
-if exists('+termguicolors')
-	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-	set t_ut=
-	set termguicolors
-endif
-
-""Set highlighting color errors
-
-    " augroup my_colors
-    "     autocmd!
-    "     autocmd ColorScheme  base16-monokai hi SpellBad cterm=reverse
-    " augroup END
-
-colorscheme	base16-monokai
-
-"Spelling coloring
-" highlight IncSearch guibg=firebrick2
-" highlight SpellBad guifg=firebrick2
-highlight SpellBad gui=undercurl
-highlight SpellBad cterm=underline
-highlight Visual guibg=#5f87d7
 
 " }}}
     "GOYO_CONFIG {{{
@@ -590,3 +559,36 @@ augroup END
 
 " }}}
 
+"COLOR_SYNTAX{{{
+
+
+"""" Enable coloring syntax
+if has("syntax")
+	syntax enable
+endif
+
+"Use true colors in vim under tmux
+if exists('+termguicolors')
+	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+	set t_ut=
+	set termguicolors
+endif
+
+""Set highlighting color errors
+
+    " augroup my_colors
+    "     autocmd!
+    "     autocmd ColorScheme  base16-monokai hi SpellBad cterm=reverse
+    " augroup END
+
+colorscheme	base16-monokai
+
+"Spelling coloring
+highlight IncSearch guibg=firebrick2
+" highlight SpellBad guifg=firebrick2
+highlight SpellBad gui=undercurl
+highlight SpellBad cterm=underline
+highlight Visual guibg=#5f87d7
+
+" }}}
