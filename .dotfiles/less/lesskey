@@ -1,0 +1,50 @@
+#TO MAKE IT WORK :
+# lesskey -o ~/.less ~/.dotfiles/less/lesskey
+#command
+#Undo highlight
+U		undo-hilite
+h		left-scroll
+l		right-scroll
+f		forw-until-hilite
+#]b to go to next file in list
+]b      next-file
+#[b to go to preview file in list
+[b      prev-file
+#L scroll to right end
+L      end-scroll
+#H scroll to left end
+H      no-scroll
+#CTRL-| <bar> to pipe to vim (also form stdo)
+      goto-line mbG|b vim - \n
+      goto-line pqG
+      help
+
+#line-edit
+#movement
+
+		word-right
+		word-left
+		end
+		home
+		up
+		down
+
+# File Autocompletion
+# Map Shift-Tab to back completion
+[Z	back-complete
+
+# Edition
+		word-backspace
+		word-delete
+
+#env
+#LESS STARTUP OPTIONS
+# -R ANSI COLOR ESCAPE SEQUENCE ARE OUTPUT IN RAW FORM
+# -S DO NOT WRAP LINES
+# -N SHOW LINE NUMBERS
+# -J DISPLAY A STATUS COLUMN AT THE LEFT EDGE OF THE SCREEN.
+# -I IGNORE CASE BUT IF A PATTERN CONTAINS UPPERCASE LETTERS, THEN THAT SEARCH DOES NOT IGNORE CASE
+# -M LONG PROMPT
+# -F quit if one screen
+# -X Without it -F option leave no file contents ( this disable termcap initialization and deinitialization strings to the terminal.)
+LESS=RSNJiMFX
