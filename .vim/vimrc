@@ -557,6 +557,11 @@ augroup ft_bash
 augroup END
 "}}}
 
+" GITCOMMIT {{{
+augroup ft_gitcommit
+    au FileType gitcommit setlocal spell
+augroup END
+"}}}
 " }}}
 
 "COLOR_SYNTAX{{{
