@@ -19,7 +19,7 @@ set keymap vi-insert
 #"\ek": menu-complete
 #"\ej": menu-complete-backward
 "\C-x\C-xb": " exec bash\C-m"
-"\C-x\C-xg": : "\C-e | grep -e "
+"\C-x\C-xg": "\C-e | grep -e "
 "\C-x\C-xl": "\C-e | less -RSNJ"
 "\C-x\C-xw": "watch -c ""\ei"
 "\C-x\C-xx": " | xargs -n 1 --delimiter=\"\\n\""
@@ -30,17 +30,30 @@ set keymap vi-insert
 
 ##COMPLETION
 ## Bind <C-e> key to  alias expansion
-"\C-xe": shell-expand-line
-"\C-xh": history-expand-line
-"\C-xa": alias-expand-line
 "\C-xv": complete-variable
+"\C-xvi": vi-complete
+"\C-xH": complete-hostname
 "\C-xc": complete-command
+"\C-xC": complete
 "\C-xf": complete-filename
 "\C-xu": complete-username
-"\C-xB": complete-into-braces
+"\C-xg": glob-complete-word
+"\C-xb": complete-into-braces
+"\C-xdh": dynamic-complete-history
+"\C-xom": old-menu-complete
 "\C-i": menu-complete
-
 "\C-o": operate-and-get-next
+
+
+#EXPANDING
+"\C-ee": shell-expand-line
+"\C-eh": history-expand-line
+"\C-ea": alias-expand-line
+"\C-ed": dabbrev-expand
+"\C-eg": glob-expand-word
+"\C-eha": history-and-alias-expand-line
+"\C-eg": tilde-expand
+
 
 #Unset  , 
 "\C-g":""
