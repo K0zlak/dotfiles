@@ -157,7 +157,7 @@ nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <leader>lw :<C-U>call LoremWords(v:count1)<CR>
 nnoremap <leader>ls :<C-U>call LoremSentenses(v:count1)<CR>
 nnoremap <leader>lp :<C-U>call LoremParagraphs(v:count1)<CR>
-nnoremap <leader>lr :<C-U>call LoremRandomWords(v:count1)<CR>
+nnoremap <leader>lr :<C-U>call LoremRandomWords(0,v:count1)<CR>
 
 ""Go TO NORMAL MODE
 inoremap jk <ESC>
@@ -342,9 +342,9 @@ function LoremParagraphs(count) " {{{
     call InsertTextIntoLine(lorem)
 endfunction " }}}
 
-function LoremRandomWords(count)  " {{{
+function LoremRandomWords(firstCount,secondCount)  " {{{
     let seed = srand()
-    let randomNumber = rand(seed) % count + 1 " random number 1 - count
+    let randomNumber = rand(seed) % (a:secondCount - a:firstCount) + a:firstCount " random number 1 - count
     let lorem = system("lorem -w " . randomNumber)
     call InsertTextIntoLine(lorem)
 endfunction " }}}
