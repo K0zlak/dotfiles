@@ -16,7 +16,7 @@ L      end-scroll
 H      no-scroll
 #CTRL-| <bar> to pipe to vim (also form stdo)
       goto-line mbG|b vim - \n
-      goto-line pqG
+      goto-line qG
       help
 
 #line-edit
@@ -43,8 +43,8 @@ H      no-scroll
 # -S DO NOT WRAP LINES
 # -N SHOW LINE NUMBERS
 # -J DISPLAY A STATUS COLUMN AT THE LEFT EDGE OF THE SCREEN.
-# -I IGNORE CASE BUT IF A PATTERN CONTAINS UPPERCASE LETTERS, THEN THAT SEARCH DOES NOT IGNORE CASE
+# -i IGNORE CASE BUT IF A PATTERN CONTAINS UPPERCASE LETTERS, THEN THAT SEARCH DOES NOT IGNORE CASE
 # -M LONG PROMPT
 # -F quit if one screen
 # -X Without it -F option leave no file contents ( this disable termcap initialization and deinitialization strings to the terminal.)
-LESS=RSNJiMFX
+# LESS=RSNJiMFX
