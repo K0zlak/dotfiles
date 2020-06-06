@@ -44,7 +44,6 @@ set keymap vi-insert
 "\C-i": menu-complete
 "\C-o": operate-and-get-next
 
-
 #EXPANDING
 "\C-ee": shell-expand-line
 "\C-eh": history-expand-line
@@ -52,7 +51,7 @@ set keymap vi-insert
 "\C-ed": dabbrev-expand
 "\C-eg": glob-expand-word
 "\C-eha": history-and-alias-expand-line
-"\C-eg": tilde-expand
+"\C-et": tilde-expand
 
 
 #Unset  , 
