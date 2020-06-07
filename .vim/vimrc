@@ -220,22 +220,8 @@ nnoremap <F6> :Goyo<CR>
 "ADD DOT "." REPEAT ACTION FOR VISUAL MODE
 vnoremap . :norm.<CR>
 
-
-" "" AUTOCOMPLETE BRACKETS
-" inoremap "" ""<left>
-" inoremap '' ''<left>
-" inoremap [[ []<left>
-" inoremap (( ()<left>
-" inoremap {{ {}<left>
-" inoremap {{<CR> {<CR>}<ESC>O
-" inoremap {<CR> {<CR>};<ESC>O
-
-"AUTOMATE ADD SEMICOLON ON THE END OF THE LINE
-
-" nnoremap jj <nop>
-" nnoremap kk <nop>
-" nnoremap ll <nop>
-" nnoremap hh <nop>
+cnoremap  <C-K> <UP>
+cnoremap  <C-J> <DOWN>
 
 " FZF {{{
 nnoremap <silent><leader>fbt :BTags<CR>
