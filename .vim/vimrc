@@ -221,8 +221,8 @@ nnoremap <F6> :Goyo<CR>
 "ADD DOT "." REPEAT ACTION FOR VISUAL MODE
 vnoremap . :norm.<CR>
 
-cnoremap  <C-K> <UP>
-cnoremap  <C-J> <DOWN>
+" cnoremap  <C-K> <UP>
+" cnoremap  <C-J> <DOWN>
 
 " FZF {{{
 nnoremap <silent><leader>fbt :BTags<CR>
