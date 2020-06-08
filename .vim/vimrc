@@ -111,6 +111,7 @@ set visualbell
 "Makes fold visible in the sidebar.The higher n is, the more folds are
 "represented visually and the fewer are represented by a number.
 set foldcolumn=5
+set foldopen-=block
 
 " Taken form Steve Losh https://bitbucket.org/sjl/dotfiles/src/default/vim/vimrc
 function! MyFoldText() " {{{
