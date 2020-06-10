@@ -18,7 +18,6 @@ filetype plugin on
 set encoding=UTF-8
 "By pressing <S-K> the command beneath keywordprg is launched with word under a cursor
 "as the parameter. The keyword is defined by the iskeyword parameter.
-
 set keywordprg=:help
 
 "Search down into subfolders
@@ -44,6 +43,7 @@ set autoread        "Automatically read the file if the change outside of vim is
 set history=1000	" Set how many entries may be stored in each of the histories
 set scrolloff=10	" set how many lines to keep above and below the cursor.
 set sidescrolloff=5	" set how many lines to keep right and left the cursor.
+
 "Persistent undo,even if you close and reopen Vim.Super great when combined with
 "the undotree plugin.
 if has ('persistent_undo')
@@ -110,7 +110,7 @@ set visualbell
     "Folding {{{
 "Makes fold visible in the sidebar.The higher n is, the more folds are
 "represented visually and the fewer are represented by a number.
-set foldcolumn=5
+" set foldcolumn=5
 set foldopen-=block
 
 " Taken form Steve Losh https://bitbucket.org/sjl/dotfiles/src/default/vim/vimrc
@@ -399,7 +399,6 @@ let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
  let g:netrw_browsex_viewer   = "cmd.exe /C start"
-
 " }}}
     "DELIMITMATE {{{
 
@@ -496,6 +495,11 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+
+
+au TerminalOpen * set nonumber
+au TerminalOpen * set norelativenumber
+au TerminalOpen * set foldcolumn=0
 " }}}
 
 "FILETYPES {{{
@@ -517,7 +521,7 @@ augroup ft_java
 
     au FileType java setlocal foldmethod=marker
     au FileType java setlocal foldmarker={,}
-    au FileType java setlocal foldlevelstart=1
+    au FileType java setlocal foldlevelstart=3
     " au FileType java inoremap <c-n> <c-x><c-]>
 
 augroup END
