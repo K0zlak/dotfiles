@@ -15,7 +15,7 @@ alias NOTES='/mnt/c/Users/MiKoz/Work/Documents/Notes'
 alias firefox='/mnt/c/Program\ Files\ \(x86\)/Mozilla\ Firefox/firefox.exe'
 alias pdfviewer='/mnt/c/Program\ Files/SumatraPDF/SumatraPDF.exe'
 alias vlc='/mnt/c/Program\ Files/VideoLAN/VLC/vlc.exe'
-alias less='HOME=~/.config/less/ LESSKEY=.less less'
+# alias less='HOME=~/.config/less/ LESSKEY=.less less'
 
 function trees() {
 tree -C $@ | less -R;
