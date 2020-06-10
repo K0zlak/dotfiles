@@ -151,9 +151,14 @@ nnoremap L	zL
 nnoremap Y y$
 "PANES
 "MAX THE CURRENT PANE
-nnoremap <C-W>m <C-W>_<C-W>\|
+nnoremap <C-W>m <C-W>_<C-W><bar>
 "MAP TO SHOW TREE FILE
 nnoremap <Leader>n :NERDTreeToggle<CR>
+
+" set window height to 5 by default
+nnoremap <Leader>W 5_
+" set window width to 5 by default
+nnoremap <Leader>H 5<bar>
 
 "LOREM IPSUM GENERATOR BINDINGS
 nnoremap <leader>lw :<C-U>call LoremWords(v:count1)<CR>
@@ -165,8 +170,8 @@ nnoremap <leader>lr :<C-U>call LoremRandomWords(0,v:count1)<CR>
 inoremap jk <ESC>
 
 "Yank into system ClipBoard
-nnoremap <Leader>y :'<,'>w !clip.exe<CR>
-vnoremap <Leader>y :'<,'>w !clip.exe<CR>
+nnoremap <Leader>Y :'<,'>w !clip.exe<CR>
+vnoremap <Leader>Y :'<,'>w !clip.exe<CR>
 "Paste to WSL for Windows Clipboard
 nnoremap <Leader>p :<C-U>call PasteToWSL_FromWindows()<CR>
 
@@ -221,8 +226,8 @@ nnoremap <F6> :Goyo<CR>
 "ADD DOT "." REPEAT ACTION FOR VISUAL MODE
 vnoremap . :norm.<CR>
 
-" cnoremap  <C-K> <UP>
-" cnoremap  <C-J> <DOWN>
+cnoremap  <C-K> <UP>
+cnoremap  <C-J> <DOWN>
 
 " FZF {{{
 nnoremap <silent><leader>fbt :BTags<CR>
@@ -283,13 +288,25 @@ Plugin 'junegunn/vim-easy-align'
 Plugin  'wellle/targets.vim'
 Plugin  'morhetz/gruvbox.git'
 
+"TEXT OBJECTS
+Plugin 'michaeljsmith/vim-indent-object'
+Plugin  'kana/vim-textobj-function'
+Plugin  'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-entire'
+Plugin 'mattn/vim-textobj-url'
+Plugin 'glts/vim-textobj-comment'
+" Plugin 'paulhybryant/vim-textobj-path'
+Plugin 'gilligan/textobj-gitgutter'
+Plugin 'airblade/vim-gitgutter'
+
+
 " All of your Plugins must be added before the following line
  call vundle#end()            " required
  filetype plugin indent on    " required
-
+"textobj
 "}}}
 
-"PLUGINS CONFIGS  - - - - - - - - - - {{{
+"PLUGINS CONFIGS & BINDINGS - - - - - - - - - - {{{
 "MY_FUNCTIONS {{{
 
 
@@ -385,6 +402,21 @@ let g:ycm_server_log_level = 'info' "default info
 let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
 let g:ycm_filetype_whitelist = { '*': 1 }
 let g:ycm_key_invoke_completion = '<TAB>'
+
+"YCM BINDINGS
+vnoremap <Leader>gd  :YcmCompleter GoToDefinition<CR>
+vnoremap <Leader>yfi :YcmCompleter FixIt<CR>
+vnoremap <Leader>yf  :YcmCompleter Format<CR>
+vnoremap <Leader>yR  :YcmRestartServer<CR>
+vnoremap <Leader>gD  :YcmCompleter GoToDeclaration<CR>
+
+nnoremap <Leader>gi :YcmCompleter GoToImplementation
+nnoremap <Leader>yr  :YcmCompleter RefactorRename
+nnoremap <Leader>gd  :YcmCompleter GoToDefinition<CR>
+nnoremap <Leader>yfi :YcmCompleter FixIt<CR>
+nnoremap <Leader>yf  :YcmCompleter Format<CR>
+nnoremap <Leader>yR  :YcmRestartServer<CR>
+nnoremap <Leader>gD  :YcmCompleter GoToDeclaration<CR>
 
 " }}}
     "NATREW_CONFIG {{{
