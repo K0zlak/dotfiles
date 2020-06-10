@@ -1,0 +1,14 @@
+[user]
+	email = mikoz@gmail.com
+	name = MiKoz
+[alias]
+	s = status
+	d = diff
+	co = checkout
+	br = branch
+	cane = commmit --ammend ==no-edit
+	lo =  log --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) %C(cyan)<%an>%Creset %n' --abbrev-commit --graph --color=always
+
+	la =  log --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) %C(cyan)<%an>%Creset %n' --abbrev-commit --all --graph --color=always
+[color]
+	ui = true
