@@ -23,6 +23,8 @@ set keymap vi-insert
 "\C-x\C-xl": "\C-e | less -RSNJ"
 "\C-x\C-xw": "watch -c ""\ei"
 "\C-x\C-xx": " | xargs -n 1 --delimiter=\"\\n\""
+"\C-xtl": " | tmux load-buffer -"
+"\C-xts": " tmux save-buffer - | "
 "\C-gl": glob-list-expansions
 "\C-gc": glob-complete-word
 "\C-ge": glob-expand-word
