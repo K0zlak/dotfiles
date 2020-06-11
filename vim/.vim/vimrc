@@ -202,12 +202,18 @@ nnoremap k  gk
 " In visual mode move highlighted tex with K and J
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap J :m '>+1<CR>gv=gv
+
 "SEARCHING WITH DEFAULT VERY MAGIC
 nnoremap / /\v
 nnoremap ? ?\v
+
+"DEFAULT SEARCHING
+nnoremap <Leader>/ /
+nnoremap <Leader>? ?
+
 "SEARCHING IN VISUAL MODE ON SELECTED TEXT WITH DEFAULT VERY MAGIC
-xnoremap / <ESC>/\%V\v
-xnoremap ? <ESC>/\%V\v
+xnoremap <Leader>/ <ESC>/\%V\v
+xnoremap <Leader>? <ESC>/\%V\v
 
 "MACROS
 "INSTEAD OF STUMBLING INTO EX MODE, REPEAT THE LAST COMMAND USED.
