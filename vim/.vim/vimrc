@@ -266,35 +266,42 @@ nnoremap <silent><leader>rg :execute 'Rg '.expand('<cword>')<CR>
 " let Vundle manage Vundle, required
 
 Plugin 'VundleVim/Vundle.vim'
+" TIM POPE PLUGINS
 Plugin 'tpope/vim-dadbod.git'
-Plugin 'valloric/youcompleteme'
-Plugin 'scrooloose/nerdtree'
-Plugin 'chriskempson/base16-vim'
-Plugin 'rainbow_parentheses.vim'
 Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'ap/vim-css-color'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
+" JUNEGUNN PLUGINS
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
-Plugin 'tpope/vim-commentary'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/vim-peekaboo'
+Plugin 'junegunn/gv.vim'
+Plugin 'junegunn/vim-easy-align'
+
+Plugin 'valloric/youcompleteme'
+Plugin 'scrooloose/nerdtree'
+Plugin 'rainbow_parentheses.vim'
+Plugin 'ap/vim-css-color'
 Plugin 'majutsushi/tagbar'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'blueyed/vim-diminactive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'sjl/gundo.vim'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/vim-peekaboo'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tmhedberg/matchit'
-Plugin 'tpope/vim-fugitive'
-Plugin 'junegunn/gv.vim'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'junegunn/vim-easy-align'
-Plugin  'wellle/targets.vim'
+
+"java plugin
+Plugin 'uiiaoo/java-syntax.vim'
+" COLOR SCHEMAS
 Plugin  'morhetz/gruvbox.git'
+Plugin 'chriskempson/base16-vim'
 
 "TEXT OBJECTS
+Plugin  'wellle/targets.vim'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin  'kana/vim-textobj-function'
 Plugin  'kana/vim-textobj-user'
