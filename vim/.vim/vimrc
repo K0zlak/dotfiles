@@ -2,6 +2,7 @@
 let mapleader = " "
 let maplocalleader = "\\"
 
+" set directory=~/.config/vim-swapfile//,/home/mikoz/tmp,/var/tmp,/tmp
 "}}}
 
 "SHELL config {{{
