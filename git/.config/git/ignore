@@ -1,1 +1,6 @@
+#Ignore tags files
 tags
+
+#Ignore vim swp files but do not ignore swf files
+*.sw[a-p]
+!*.swf
