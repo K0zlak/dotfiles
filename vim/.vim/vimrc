@@ -537,11 +537,11 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 
 "Rainbow Plugin
-au VimEnter * RainbowParenthesesToggle
+au VimEnter * RainbowParenthesesToggleAll
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
+au Syntax * RainbowParenthesesLoadChevrons
 
 
 au TerminalOpen * set nonumber
@@ -565,11 +565,16 @@ augroup ft_java
     " syn region javadoc start="^\s*/\*\*" end="^.*\*/" transparent fold keepend
     " syn region javaBlockComment start="^\s*/\*" end="^.*\*/" transparent fold keepend"""""""""""}))""""))""""}))""""}))"
 
-
+    au FileType java setlocal suffixesadd+=.java
     au FileType java setlocal foldmethod=marker
     au FileType java setlocal foldmarker={,}
     au FileType java setlocal foldlevelstart=3
     " au FileType java inoremap <c-n> <c-x><c-]>
+    au VimEnter * RainbowParenthesesToggleAll
+    au Syntax * RainbowParenthesesLoadRound
+    au Syntax * RainbowParenthesesLoadSquare
+    au Syntax * RainbowParenthesesLoadBraces
+    au Syntax * RainbowParenthesesLoadChevrons
 
 augroup END
 " }}}
