@@ -170,8 +170,8 @@ nnoremap <leader>lr :<C-U>call LoremRandomWords(0,v:count1)<CR>
 inoremap jk <ESC>
 
 "Yank into system ClipBoard
-nnoremap <Leader>Y :'<,'>w !clip.exe<CR>
-vnoremap <Leader>Y :'<,'>w !clip.exe<CR>
+nnoremap <Leader>Y :.w !clip.exe<CR>
+vnoremap <Leader>Y :w !clip.exe<CR>
 "Paste to WSL for Windows Clipboard
 nnoremap <Leader>p :<C-U>call PasteToWSL_FromWindows()<CR>
 
@@ -509,7 +509,7 @@ nmap gA <Plug>(EasyAlign)
 "let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
 
 " Write all buffers before navigating from Vim to tmux pane
- let g:tmux_navigator_save_on_switch = 2
+ let g:tmux_navigator_save_on_switch = 1
 " Disable tmux navigator when zooming the Vim pane
  let g:tmux_navigator_disable_when_zoomed = 1
 
