@@ -417,19 +417,21 @@ let g:ycm_filetype_whitelist = { '*': 1 }
 let g:ycm_key_invoke_completion = '<TAB>'
 
 "YCM BINDINGS
-vnoremap <Leader>gd  :YcmCompleter GoToDefinition<CR>
+vnoremap <Leader>gi  :YcmCompleter GoToImplementation<CR>
+vnoremap <Leader>yr  :YcmCompleter RefactorRename<CR>
+vnoremap gd          :YcmCompleter GoToDefinition<CR>
 vnoremap <Leader>yfi :YcmCompleter FixIt<CR>
-vnoremap <Leader>yf  :YcmCompleter Format<CR>
+vnoremap <Leader>yff :YcmCompleter Format<CR>
 vnoremap <Leader>yR  :YcmRestartServer<CR>
-vnoremap <Leader>gD  :YcmCompleter GoToDeclaration<CR>
+vnoremap gD          :YcmCompleter GoToDeclaration<CR>
 
-nnoremap <Leader>gi :YcmCompleter GoToImplementation
-nnoremap <Leader>yr  :YcmCompleter RefactorRename
-nnoremap <Leader>gd  :YcmCompleter GoToDefinition<CR>
+nnoremap <Leader>gi  :YcmCompleter GoToImplementation<CR>
+nnoremap <Leader>yr  :YcmCompleter RefactorRename<CR>
+nnoremap gd :YcmCompleter GoToDefinition<CR>
 nnoremap <Leader>yfi :YcmCompleter FixIt<CR>
-nnoremap <Leader>yf  :YcmCompleter Format<CR>
+nnoremap <Leader>yff :YcmCompleter Format<CR>
 nnoremap <Leader>yR  :YcmRestartServer<CR>
-nnoremap <Leader>gD  :YcmCompleter GoToDeclaration<CR>
+nnoremap gD :YcmCompleter GoToDeclaration<CR>
 
 " }}}
     "NATREW_CONFIG {{{
