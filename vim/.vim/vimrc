@@ -58,12 +58,13 @@ if has ('persistent_undo')
 endif
 
 " set a vertical and horizontal line where cursor is.
-:set cursorcolumn
-:set cursorline
+set cursorcolumn
+set cursorline
 
 " Zmiana zachowania dopełniania <TAB> np w linii komend :e < ścieżka do
 " pliku> doczytać później i poeksperymentować
-set wildmode=list:longest,full
+" set wildmode=list:longest,full
+set wildmode=full
 " Włączenie menu propozycji
 " Po wciśnięciu <TAB> np e W komendzie :e C:\ nad linią komend "
 " pojawia się menu z propozycjami z danego katalogu
@@ -102,9 +103,9 @@ set expandtab
 " Set visualBell instead annoying sound bell in case of error
 set visualbell
 " set line numbers
-:set number
+set number
 " set relative numbers
-:set relativenumber
+set relativenumber
 
 " }}}
     "Folding {{{
@@ -112,6 +113,8 @@ set visualbell
 "represented visually and the fewer are represented by a number.
 " set foldcolumn=5
 set foldopen-=block
+
+
 
 " Taken form Steve Losh https://bitbucket.org/sjl/dotfiles/src/default/vim/vimrc
 function! MyFoldText() " {{{
@@ -144,51 +147,108 @@ set splitright
 
 "BINDINGS - - - - - - - - - {{{
 
-"Line movement
-nnoremap H  zH
-nnoremap L  zL
+"Horizontal Line movement
+" nnoremap H  zH
+" nnoremap L  zL
+nnoremap H  ^
+vnoremap H  ^
+onoremap H  ^
+nnoremap L  g_
+vnoremap L  g_
+onoremap L  g_
+
+
 "CHANGE Y KEY TO BE MORE CONSISTENT WITH D AND C KEYS.
 nnoremap Y y$
 "PANES
 "MAX THE CURRENT PANE
 nnoremap <C-W>m <C-W>_<C-W><bar>
 "MAP TO SHOW TREE FILE
-nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>n <CMD>NERDTreeToggle<CR>
+
+
 
 " set window height to 5 by default
-nnoremap <Leader>W 5_
+" nnoremap <Leader>W 5_
+nnoremap <Leader>+ <CMD> resize +5<CR>
+nnoremap <Leader>- <CMD> resize -5<CR>
 " set window width to 5 by default
-nnoremap <Leader>H 5<bar>
+" nnoremap <Leader>H 5<bar>
 
-"LOREM IPSUM GENERATOR BINDINGS
-nnoremap <leader>lw :<C-U>call LoremWords(v:count1)<CR>
-nnoremap <leader>ls :<C-U>call LoremSentenses(v:count1)<CR>
-nnoremap <leader>lp :<C-U>call LoremParagraphs(v:count1)<CR>
-nnoremap <leader>lr :<C-U>call LoremRandomWords(0,v:count1)<CR>
+
+""LOREM IPSUM GENERATOR BINDINGS WITH VIM-REPEAT
+nnoremap <Plug>LoremWord :<C-U>call InsertTextIntoLine(LoremWords(v:count1))<BAR>
+            \ silent! call repeat#set("\<Plug>LoremWord", v:count)<CR>
+nnoremap <Plug>LoremSentense   :<C-U>call InsertTextIntoLine(LoremSentenses(v:count1))<BAR>
+            \ silent! call repeat#set("\<Plug>LoremSentense", v:count)<CR>
+nnoremap <Plug>LoremParagraph  :<C-U>call InsertTextIntoLine(LoremParagraphs(v:count1))<BAR>
+            \ silent! call repeat#set("\<Plug>LoremParagraph", v:count)<CR>
+nnoremap <Plug>LoremRandomWord :<C-U>call InsertTextIntoLine(LoremRandomWords(0,v:count1))<BAR>
+            \ silent! call repeat#set("\<Plug>LoremRandomWord", v:count)<CR>
+
+nmap <leader>lw <Plug>LoremWord
+nmap <leader>ls <Plug>LoremSentense
+nmap <leader>lp <Plug>LoremParagraph
+nmap <leader>lr <Plug>LoremRandomWord
+
+vnoremap <leader>lw c<C-R>=LoremWords(v:count1)<CR>gv
+vnoremap <leader>ls c<C-R>=LoremSentenses(v:count1)<CR>gv
+vnoremap <leader>lp c<C-R>=LoremParagraphs(v:count1)<CR>gv
+vnoremap <leader>lr c<C-R>=LoremRandomWords(0,v:count1)<CR>gv
+
+
+
 
 ""Go TO NORMAL MODE
 inoremap jk <ESC>
 
+
+"SPLIT :OPOSITE TO 'J' THE LAST HL IS TO NEXT <K>(UP) NOT TAKE CURSOR TO THE LAST
+" POSITION OF THE NEXT LINE BUT TO SIGN ABOVE CURRENT ON
+nnoremap S i <ESC>k$hl
+
 "Yank into system ClipBoard
-nnoremap <Leader>Y :.w !clip.exe<CR>
+nnoremap <Leader>Y <CMD>w !clip.exe<CR>
 vnoremap <Leader>Y :w !clip.exe<CR>
 "Paste to WSL for Windows Clipboard
-nnoremap <Leader>p :<C-U>call PasteToWSL_FromWindows()<CR>
+nnoremap <Leader>P <CMD>call PasteToWSL_FromWindows()<CR>
 
+" WRITING FILES
+nnoremap <Leader>w <CMD>w<CR>
 "SEARCHING
 "Set on scrolloff option and it work well
 nnoremap n nzz
 nnoremap N Nzz
+
+"SEARCHING WITH DEFAULT VERY MAGIC
+nnoremap / /\v
+nnoremap ? ?\v
+
+"DEFAULT SEARCHING
+nnoremap <Leader>/ /
+nnoremap <Leader>? ?
+
+"SEARCHING IN VISUAL MODE ON SELECTED TEXT WITH DEFAULT VERY MAGIC
+xnoremap <Leader>/ /\%V\v
+xnoremap <Leader>? /\%V\v
+
+" CHANGE THE DEFAULT BEHAVIOUR OF JUMPING TO THE NEXT MATCH TO CURSOR POSITION REMAIN IN THE SAME SPACE
+nnoremap * *N
+nnoremap g* g*N
+nnoremap g# g#N
+nnoremap # #N
+
+" ++ CLEAR THE SCREEN AND REDRAW
+nnoremap  <Leader>h <CMD>nohlsearch<CR>
+
 " TERMINAL
 "nnoremap <Leader>T  :wincmd b \| bel terminal ++rows=10<CR>
-nnoremap <Leader>T :execute('terminal')<CR>
-nnoremap <Leader>cd :lcd %:p:h<CR>
-tnoremap <Leader>qt <C-W>N
+" nnoremap <Leader>T :execute('terminal')<CR>
+" nnoremap <Leader>cd :lcd %:p:h<CR>
+" tnoremap <Leader>qt <C-W>N
 
 "TAGBAR
-nnoremap <F4>   :TagbarToggle<CR>
-" ++ CLEAR THE SCREEN AND REDRAW
-nnoremap  <Leader>h :nohlsearch<CR>
+" nnoremap <F4>   :TagbarToggle<CR>
 
 "RESIZING SPLITS WITH CTRL+ ARROWS
 nnoremap <C-UP> <C-W>+
@@ -203,51 +263,49 @@ nnoremap k  gk
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap J :m '>+1<CR>gv=gv
 
-"SEARCHING WITH DEFAULT VERY MAGIC
-nnoremap / /\v
-nnoremap ? ?\v
-
-"DEFAULT SEARCHING
-nnoremap <Leader>/ /
-nnoremap <Leader>? ?
-
-"SEARCHING IN VISUAL MODE ON SELECTED TEXT WITH DEFAULT VERY MAGIC
-xnoremap <Leader>/ <ESC>/\%V\v
-xnoremap <Leader>? <ESC>/\%V\v
-
 "MACROS
-"INSTEAD OF STUMBLING INTO EX MODE, REPEAT THE LAST COMMAND USED.
-nnoremap Q :@:<CR>
+" nnoremap Q <CMD>@:<CR>
 
-"RUN THE CURRENT LINE AS IF IT WERE A COMMAND.OFTEN MORE CONVENIENT THAN Q:
 "WHEN EXPERIMENTING.
-nnoremap <Leader><Leader>e :exe getline(line('.'))<cr>
 
-"GOYO
-nnoremap <F6> :Goyo<CR>
-"Dot repeat previous behaviour and leave the cursor at the point where it was before editing started
+nnoremap <F6> <CMD>Goyo<CR>
 "nnoremap g. <Plug>(RepeatDot)`[
-"Alt + Dot ( <A-?> or <M-?> don't work)
 "nnoremap   .   `[<Down>.
+vnoremap . <CMD>norm.<CR>
 "ADD DOT "." REPEAT ACTION FOR VISUAL MODE
-vnoremap . :norm.<CR>
+"Alt + Dot ( <A-?> or <M-?> don't work)
+"Dot repeat previous behaviour and leave the cursor at the point where it was before editing started
+"GOYO
+nnoremap <Leader><Leader>e <CMD>exe getline(line('.'))<cr>
+"RUN THE CURRENT LINE AS IF IT WERE A COMMAND.OFTEN MORE CONVENIENT THAN Q:
+nnoremap Q @@
+"INSTEAD OF STUMBLING INTO EX MODE, REPEAT THE LAST COMMAND USED.
 
+" REBIND <UP> AND <DOWN> FOR ^K AND ^J FOR EASIER COMMAND LINE HISTORY USE
 cnoremap  <C-K> <UP>
 cnoremap  <C-J> <DOWN>
 
-" FZF {{{
-nnoremap <silent><leader>fbt :BTags<CR>
-nnoremap <silent><leader>ft :Tags<CR>
-nnoremap <silent><leader>fc :BCommits<CR>
-nnoremap <silent><leader>f/ :History/<CR>
-nnoremap <silent><leader>f: :History:<CR>
-nnoremap <silent><leader>fh :History<CR>
-nnoremap <silent><leader>fg :GFiles<CR>
-nnoremap <silent><leader>fm :Marks<CR>
-nnoremap <silent><leader>ff :FZF<CR>
-nnoremap <silent><leader>fb :Buffers<CR>
-nnoremap <silent><leader>rg :execute 'Rg '.expand('<cword>')<CR>
+" BUFFFER ACTION
+nnoremap <leader>bd <CMD>bd<CR>
+nnoremap <leader>bO <CMD>%bd<bar>e#<bar>bd# <CR>
 
+
+" FZF {{{
+nnoremap <silent><leader>fbt <CMD>BTags<CR>
+nnoremap <silent><leader>ftt <CMD>Tags<CR>
+nnoremap <silent><leader>fbc <CMD>BCommits<CR>
+nnoremap <silent><leader>f/ <CMD>History/<CR>
+nnoremap <silent><leader>f: <CMD>History:<CR>
+nnoremap <silent><leader>fh <CMD>History<CR>
+nnoremap <silent><leader>fg <CMD>GFiles<CR>
+nnoremap <silent><leader>fm <CMD>Marks<CR>
+nnoremap <silent><leader>ff <CMD>FZF<CR>
+nnoremap <silent><leader>fF <CMD>HFiles<CR>
+nnoremap <silent><leader>fB <CMD>Buffers<CR>
+nnoremap <silent><leader>rg <CMD>execute 'Rg '.expand('<cword>')<CR>
+
+command! -bang -nargs=? -complete=dir HFiles
+  \ call fzf#vim#files(<q-args>, {'source': 'ag --hidden --ignore .git -g ""'}, <bang>0)
 " let $FZF_DEFAULT_OPTS .= ' --reverse --info=inline'
 
 " }}}
@@ -255,68 +313,65 @@ nnoremap <silent><leader>rg :execute 'Rg '.expand('<cword>')<CR>
 " }}}
 
 "PLUGINS - - - - - - - - - - {{{
+if !has('nvim')
+call plug#begin('~/.vim/plugged')
 
 
-" set the runtime path to include Vundle and initialize
- set rtp+=~/.vim/bundle/Vundle.vim
+        "" TIM POPE PLUGINS
 
- call vundle#begin()
+        " Plugin 'tpope/vim-dadbod.git'
+        " Plugin 'tpope/vim-speeddating'
+        Plug 'tpope/vim-surround'
+        Plug 'tpope/vim-repeat'
+        Plug 'tpope/vim-commentary'
+        Plug 'tpope/vim-fugitive'
+        Plug 'tpope/vim-unimpaired'
 
+        "" JUNEGUNN PLUGINS
 
-" let Vundle manage Vundle, required
+        Plug 'junegunn/fzf'
+        Plug 'junegunn/fzf.vim'
+        Plug 'junegunn/goyo.vim'
+        Plug 'junegunn/vim-peekaboo'
+        Plug 'junegunn/gv.vim'
+        Plug 'junegunn/vim-easy-align'
 
-Plugin 'VundleVim/Vundle.vim'
-" TIM POPE PLUGINS
-Plugin 'tpope/vim-dadbod.git'
-Plugin 'tpope/vim-speeddating'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-unimpaired'
-" JUNEGUNN PLUGINS
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/vim-peekaboo'
-Plugin 'junegunn/gv.vim'
-Plugin 'junegunn/vim-easy-align'
+        " Plugin 'valloric/youcompleteme'
+        Plug 'airblade/vim-gitgutter'
+        Plug 'scrooloose/nerdtree'
+        Plug 'kien/rainbow_parentheses.vim'
+        " Plugin 'ap/vim-css-color'
+        Plug 'majutsushi/tagbar'
+        Plug 'ludovicchabant/vim-gutentags'
+        Plug 'blueyed/vim-diminactive'
+        Plug 'vim-airline/vim-airline'
+        Plug 'sjl/gundo.vim'
+        Plug 'christoomey/vim-tmux-navigator'
+        " Plugin 'tmhedberg/matchit'
 
-Plugin 'valloric/youcompleteme'
-Plugin 'scrooloose/nerdtree'
-Plugin 'rainbow_parentheses.vim'
-Plugin 'ap/vim-css-color'
-Plugin 'majutsushi/tagbar'
-Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'blueyed/vim-diminactive'
-Plugin 'vim-airline/vim-airline'
-Plugin 'sjl/gundo.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'tmhedberg/matchit'
+        "java plugin
+        Plug 'uiiaoo/java-syntax.vim'
+        " COLOR SCHEMAS
+        Plug  'morhetz/gruvbox'
+        " Plugin 'chriskempson/base16-vim'
 
-"java plugin
-Plugin 'uiiaoo/java-syntax.vim'
-" COLOR SCHEMAS
-Plugin  'morhetz/gruvbox.git'
-Plugin 'chriskempson/base16-vim'
-
-"TEXT OBJECTS
-Plugin  'wellle/targets.vim'
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin  'kana/vim-textobj-function'
-Plugin  'kana/vim-textobj-user'
-Plugin 'kana/vim-textobj-entire'
-Plugin 'mattn/vim-textobj-url'
-Plugin 'glts/vim-textobj-comment'
-" Plugin 'paulhybryant/vim-textobj-path'
-Plugin 'gilligan/textobj-gitgutter'
-Plugin 'airblade/vim-gitgutter'
+        "TEXT OBJECTS
+        Plug  'wellle/targets.vim'
+        Plug 'michaeljsmith/vim-indent-object'
+        Plug  'kana/vim-textobj-function'
+        Plug  'kana/vim-textobj-user'
+        Plug 'kana/vim-textobj-entire'
+        Plug 'mattn/vim-textobj-url'
+        Plug 'glts/vim-textobj-comment'
+        " Plugin 'paulhybryant/vim-textobj-path'
 
 
-" All of your Plugins must be added before the following line
- call vundle#end()            " required
- filetype plugin indent on    " required
-"textobj
+call plug#end()
+
+endif
+
+ filetype plugin indent on
+
 "}}}
 
 "PLUGINS CONFIGS & BINDINGS - - - - - - - - - - {{{
@@ -325,7 +380,7 @@ Plugin 'airblade/vim-gitgutter'
 
 "PASTE FROM SYSTEM CLIPBOARD " {{{
 
-function InsertTextIntoLine(text) "{{{
+function! InsertTextIntoLine(text) "{{{
     let textToInsert = a:text
     let line = getline('.')
     let pos = col('.')-1
@@ -338,33 +393,33 @@ function InsertTextIntoLine(text) "{{{
 
 endfunction "}}}
 
- function PasteToWSL_FromWindows() "{{{
-    let systemClipboard = system("powershell.exe -Command Get-Clipboard")
+ function! PasteToWSL_FromWindows() "{{{
+    let systemClipboard = system("powershell=\"$(powershell.exe -Command Get-Clipboard)\" ; echo -n \"${powershell//[$'\r\n\t']}\"")
     call InsertTextIntoLine(systemClipboard)
  endfunction "}}}
 
 "}}}
 "LOREM IPSUM {{{
-function LoremSentenses(count) " {{{
+function! LoremSentenses(count) " {{{
     let lorem = system("lorem -s " . a:count )
-    call InsertTextIntoLine(lorem)
+    return lorem
 endfunction " }}}
 
-function LoremWords(count) " {{{
+function! LoremWords(count) " {{{
     let lorem = system("lorem -w " . a:count )
-    call InsertTextIntoLine(lorem)
+    return lorem
 endfunction " }}}
 
-function LoremParagraphs(count) " {{{
+function! LoremParagraphs(count) " {{{
     let lorem = system("lorem -p " . a:count )
-    call InsertTextIntoLine(lorem)
+    return lorem
 endfunction " }}}
 
-function LoremRandomWords(firstCount,secondCount)  " {{{
+function! LoremRandomWords(firstCount,secondCount)  " {{{
     let seed = srand()
     let randomNumber = rand(seed) % (a:secondCount - a:firstCount) + a:firstCount " random number 1 - count
     let lorem = system("lorem -w " . randomNumber)
-    call InsertTextIntoLine(lorem)
+    return lorem
 endfunction " }}}
 
 "}}}
@@ -372,8 +427,7 @@ endfunction " }}}
 
 
     "GUNDO_CONFIG {{{
-
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <F5> <CMD>GundoToggle<CR>
 let g:gundo_preview_bottom=1
 let g:gundo_right=1
 let g:gundo_prefer_python3=1
@@ -382,56 +436,56 @@ let g:gundo_return_on_revert=0
 " }}}
     "YCM_CONFIG {{{
 
-let g:ycm_filetype_whitelist = { 'java': 1}
-autocmd FileType java set tags+=~/.tags/java.tags
+"let g:ycm_filetype_whitelist = { 'java': 1}
+"autocmd FileType java set tags+=~/.tags/java.tags
 
-" YouCompleteMe options
+"" YouCompleteMe options
 
-let g:ycm_register_as_syntastic_checker = 1 "default 1
-let g:Show_diagnostics_ui = 1 "default 1
+"let g:ycm_register_as_syntastic_checker = 1 "default 1
+"let g:Show_diagnostics_ui = 1 "default 1
 
-"will put icons in Vim's gutter on lines that have a diagnostic set.
-"Turning this off will also turn off the YcmErrorLine and YcmWarningLine
-"highlighting
-let g:ycm_enable_diagnostic_signs = 1
-let g:ycm_enable_diagnostic_highlighting = 0
-let g:ycm_always_populate_location_list = 1 "default 0
-let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
-
-
-let g:ycm_complete_in_strings = 1 "default 1
-let g:ycm_collect_identifiers_from_tags_files = 1 "default 0
-let g:ycm_path_to_python_interpreter = '' "default ''
+""will put icons in Vim's gutter on lines that have a diagnostic set.
+""Turning this off will also turn off the YcmErrorLine and YcmWarningLine
+""highlighting
+"let g:ycm_enable_diagnostic_signs = 1
+"let g:ycm_enable_diagnostic_highlighting = 0
+"let g:ycm_always_populate_location_list = 1 "default 0
+"let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
 
 
-let g:ycm_server_use_vim_stdout = 0 "default 0 (logging to console)
-let g:ycm_server_log_level = 'info' "default info
+"let g:ycm_complete_in_strings = 1 "default 1
+"let g:ycm_collect_identifiers_from_tags_files = 1 "default 0
+"let g:ycm_path_to_python_interpreter = '' "default ''
 
 
-"let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'  "where to search for .ycm_extra_conf.py if not found
-"let g:ycm_confirm_extra_conf = 1
+"let g:ycm_server_use_vim_stdout = 0 "default 0 (logging to console)
+"let g:ycm_server_log_level = 'info' "default info
 
 
-let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
-let g:ycm_filetype_whitelist = { '*': 1 }
-let g:ycm_key_invoke_completion = '<TAB>'
+""let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'  "where to search for .ycm_extra_conf.py if not found
+""let g:ycm_confirm_extra_conf = 1
 
-"YCM BINDINGS
-vnoremap <Leader>gi  :YcmCompleter GoToImplementation<CR>
-vnoremap <Leader>yr  :YcmCompleter RefactorRename<CR>
-vnoremap gd          :YcmCompleter GoToDefinition<CR>
-vnoremap <Leader>yfi :YcmCompleter FixIt<CR>
-vnoremap <Leader>yff :YcmCompleter Format<CR>
-vnoremap <Leader>yR  :YcmRestartServer<CR>
-vnoremap gD          :YcmCompleter GoToDeclaration<CR>
 
-nnoremap <Leader>gi  :YcmCompleter GoToImplementation<CR>
-nnoremap <Leader>yr  :YcmCompleter RefactorRename<CR>
-nnoremap gd :YcmCompleter GoToDefinition<CR>
-nnoremap <Leader>yfi :YcmCompleter FixIt<CR>
-nnoremap <Leader>yff :YcmCompleter Format<CR>
-nnoremap <Leader>yR  :YcmRestartServer<CR>
-nnoremap gD :YcmCompleter GoToDeclaration<CR>
+"let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
+"let g:ycm_filetype_whitelist = { '*': 1 }
+"let g:ycm_key_invoke_completion = '<TAB>'
+
+""YCM BINDINGS
+"vnoremap <Leader>gi  :YcmCompleter GoToImplementation<CR>
+"vnoremap <Leader>yr  :YcmCompleter RefactorRename<CR>
+"vnoremap gd          :YcmCompleter GoToDefinition<CR>
+"vnoremap <Leader>yfi :YcmCompleter FixIt<CR>
+"vnoremap <Leader>yff :YcmCompleter Format<CR>
+"vnoremap <Leader>yR  :YcmRestartServer<CR>
+"vnoremap gD          :YcmCompleter GoToDeclaration<CR>
+
+"nnoremap <Leader>gi  :YcmCompleter GoToImplementation<CR>
+"nnoremap <Leader>yr  :YcmCompleter RefactorRename<CR>
+"nnoremap gd :YcmCompleter GoToDefinition<CR>
+"nnoremap <Leader>yfi :YcmCompleter FixIt<CR>
+"nnoremap <Leader>yff :YcmCompleter Format<CR>
+"nnoremap <Leader>yR  :YcmRestartServer<CR>
+"nnoremap gD :YcmCompleter GoToDeclaration<CR>
 
 " }}}
     "NATREW_CONFIG {{{
@@ -491,31 +545,36 @@ let g:goyo_height=150
 let g:hardtime_default_on = 1
 set statusline+=%{gutentags#statusline()}
 "packadd! matchit
+
+" EASY-ALIGN CONFIGURATION {{{
+
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap gA <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap gA <Plug>(EasyAlign)
 
-" " make YCM compatible with UltiSnips (using supertab)
-"let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
-"let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
-"let g:ycm_key_list_accept_completion = ['<C-y>']
-""let g:SuperTabDefaultCompletionType = '<C-j>'
+" Start live interactive EasyAlign in visual mode (e.g. vipga)
+xmap gL <Plug>(LiveEasyAlign)
 
-"" better key bindings for UltiSnipsExpandTrigger
-"let g:UltiSnipsExpandTrigger = '<Tab>'
-"let g:UltiSnipsJumpForwardTrigger = '<Tab>'
-"let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
+" Start live interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap gL <Plug>(LiveEasyAlign)
+
+" }}}
 
 " Write all buffers before navigating from Vim to tmux pane
  let g:tmux_navigator_save_on_switch = 1
 " Disable tmux navigator when zooming the Vim pane
  let g:tmux_navigator_disable_when_zoomed = 1
 
-"Diminactive plugin
-let g:diminactive_filetype_blacklist = ['startify']
+ "DIMINACTIVE PLUGIN {{{
+ let g:diminactive_buftype_blacklist = ['nofile', 'nowrite', 'acwrite', 'quickfix', 'help']
+ let g:diminactive_filetype_blacklist = ['startify']
  let g:diminactive_use_syntax = 0
+ let g:diminactive_enable_focus = 1
+
+" }}}
+
  " }}}
 
 "}}}
@@ -532,21 +591,22 @@ fun! StripTrailingWhitespace()
     endfun
 
 autocmd BufWritePre * call StripTrailingWhitespace()
-autocmd FileType markdown tex let b:noStripWhitespace=1
+autocmd FileType markdown,tex let b:noStripWhitespace=1
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 
-"Rainbow Plugin
-au VimEnter * RainbowParenthesesToggleAll
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-au Syntax * RainbowParenthesesLoadChevrons
+if !has('nvim')
+    "Rainbow Plugin
+    au VimEnter * RainbowParenthesesToggleAll
+    au Syntax * RainbowParenthesesLoadRound
+    au Syntax * RainbowParenthesesLoadSquare
+    au Syntax * RainbowParenthesesLoadBraces
+    au Syntax * RainbowParenthesesLoadChevrons
 
-
-au TerminalOpen * set nonumber
-au TerminalOpen * set norelativenumber
-au TerminalOpen * set foldcolumn=0
+    au TerminalOpen * set nonumber
+    au TerminalOpen * set norelativenumber
+    au TerminalOpen * set foldcolumn=0
+endif
 " }}}
 
 "FILETYPES {{{
@@ -568,13 +628,17 @@ augroup ft_java
     au FileType java setlocal suffixesadd+=.java
     au FileType java setlocal foldmethod=marker
     au FileType java setlocal foldmarker={,}
-    au FileType java setlocal foldlevelstart=3
+    au FileType java setlocal foldlevelstart=10
+    au FileType java setlocal iskeyword-=_
     " au FileType java inoremap <c-n> <c-x><c-]>
+
+if ! has('nvim')
     au VimEnter * RainbowParenthesesToggleAll
     au Syntax * RainbowParenthesesLoadRound
     au Syntax * RainbowParenthesesLoadSquare
     au Syntax * RainbowParenthesesLoadBraces
     au Syntax * RainbowParenthesesLoadChevrons
+endif
 
 augroup END
 " }}}
@@ -582,9 +646,9 @@ augroup END
 " VIM {{{
 augroup ft_vim
     au!
-    au FileType vim setlocal foldmethod=marker
+    " au FileType vim setlocal foldmethod=marker
     " au FileType vim setlocal foldmarker={,}
-    au FileType vim setlocal foldlevelstart=1
+    " au FileType vim setlocal foldlevelstart=1
     " au FileType vim inoremap <c-n> <c-x><c-]>
 augroup END
 " }}}
@@ -622,8 +686,10 @@ augroup END
 
 "COLOR_SYNTAX{{{
 
+set background=dark
 
-"""" Enable coloring syntax
+colorscheme gruvbox
+
 if has("syntax")
     syntax enable
 endif
@@ -643,7 +709,6 @@ endif
     "     autocmd ColorScheme  base16-monokai hi SpellBad cterm=reverse
     " augroup END
 
-colorscheme base16-monokai
 
 "Spelling coloring
 highlight IncSearch guibg=firebrick2
