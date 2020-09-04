@@ -3,7 +3,7 @@ alias config='/usr/bin/git --git-dir=/mnt/c/Users/MiKoz/.cfg/ --work-tree=/home/
 alias paste='powershell.exe -Command "Get-Clipboard"'
 alias du='du -h -c'
 alias rm='rm -i'
-alias v='/usr/local/bin/vim'
+alias v='/usr/local/bin/nvim'
 alias g='git'
 alias r='ranger'
 alias HOME=~/

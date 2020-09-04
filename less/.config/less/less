@@ -1,7 +1,7 @@
 #TO MAKE IT WORK :
-# lesskey -o ~/.less ~/.dotfiles/less/lesskey
+# lesskey -o ~/.less ~/<This File>
+
 #command
-#Undo highlight
 U		undo-hilite
 h		left-scroll
 l		right-scroll

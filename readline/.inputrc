@@ -14,7 +14,7 @@ set keymap vi-insert
 "\C-xdf": dump-functions
 "\C-xdv": dump-variables
 "\C-xr": re-read-init-file
-"\C-^": " .. \C-m"
+# "\C-^": " .. \C-m"
 "jk": vi-movement-mode
 #"\ek": menu-complete
 #"\ej": menu-complete-backward
@@ -28,6 +28,10 @@ set keymap vi-insert
 "\C-gl": glob-list-expansions
 "\C-gc": glob-complete-word
 "\C-ge": glob-expand-word
+"\C-l": clear-screen
+"\C-d": vi-eof-maybe
+
+
 
 
 ##COMPLETION
