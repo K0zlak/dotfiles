@@ -1,6 +1,10 @@
 #Ignore tags files
 tags
 
+#ignore .gradle directory
+.gradle
+
 #Ignore vim swp files but do not ignore swf files
 *.sw[a-p]
 !*.swf
+
