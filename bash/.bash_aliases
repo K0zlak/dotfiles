@@ -4,6 +4,7 @@ alias paste='powershell.exe -Command "Get-Clipboard"'
 alias du='du -h -c'
 alias rm='rm -i'
 alias v='/usr/local/bin/nvim'
+alias t='/usr/local/bin/tmux'
 alias g='git'
 alias r='ranger'
 alias HOME=~/
