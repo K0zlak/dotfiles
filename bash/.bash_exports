@@ -5,6 +5,7 @@ export  XDG_DATA_HOME=$HOME/.locale/share
 export  EDITOR=vim
 export  PAGGER=less
 export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64/"
+export JDK_HOME="/usr/lib/jvm/java-11-openjdk-amd64/"
 export IMAGE_VIEWER='/mnt/c/Program Files/IrfanView'
 export PATH=$JAVA_HOME/bin:$PATH
 export PATH=$IMAGE_VIEWER:$PATH:
