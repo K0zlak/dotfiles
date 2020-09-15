@@ -1,0 +1,16 @@
+bind -v
+bind \\t rl_complete
+bind ^F	em-next-word
+bind ^B ed-prev-word
+bind ^E ed-move-to-end
+bind ^A ed-move-to-beg
+bind ^S ed-search-prev-history
+bind ^R ed-search-next-history
+bind "^W" ed-delete-prev-word
+bind "^U" vi-kill-line-prev
+bind ^K ed-kill-line
+bind ^P ed-prev-history
+bind ^N ed-next-history
+bind -s ^D "SHOW DATABASES;^J"
+bind -s ^T "SHOW TABLES;^J"
+bind -s ^S "\eA ; \eISELECT * FROM "
