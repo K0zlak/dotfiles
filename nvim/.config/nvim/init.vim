@@ -126,14 +126,16 @@ function! UnmapPluginMappings()
 
 endfunction
 
-" Turn on Terminal an set up global 'T' mark, global verb, and terminal mapping only for this terminal buffer
-function! TerminalOn()
+" Turn on Terminal and set up global 'T' mark, global verb, and terminal mappings only for this terminal buffer
+function! TerminalToggle()
 
     if !exists( 'g:terminalIsOn' )
         let g:terminalIsOn = 1
         call execute( 'terminal')
         normal! mT
         tnoremap <buffer> <Esc><Esc> <C-\><C-n>
+        "with yanking (text) text obj go to start of parentheses and then gF into
+        "that file
         nmap <buffer> gf yibgF
     else
         normal! 'T
@@ -141,7 +143,8 @@ function! TerminalOn()
 
 
 endfunction
-function! TerminalOff()
+
+function! TerminalDistroy()
 
     if exists( 'g:terminalIsOn' )
         unlet g:terminalIsOn
@@ -149,8 +152,8 @@ function! TerminalOff()
 
 endfunction
 
-nnoremap <silent><Leader>t <CMD>call TerminalOn()<CR>
-nnoremap <silent><Leader>T <CMD>call TerminalOff()<CR>
+nnoremap <silent><Leader>t <CMD>call TerminalToggle()<CR>
+nnoremap <silent><Leader>T <CMD>call TerminalDistroy()<CR>
 
 autocmd BufEnter * call UnmapPluginMappings()
 
