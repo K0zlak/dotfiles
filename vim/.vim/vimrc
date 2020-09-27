@@ -208,10 +208,10 @@ inoremap jk <ESC>
 nnoremap S i <ESC>k$hl
 
 "Yank into system ClipBoard
-nnoremap <Leader>Y <CMD>w !clip.exe<CR>
-vnoremap <Leader>Y :w !clip.exe<CR>
+vnoremap Y :w !clip.exe<CR>
+
 "Paste to WSL for Windows Clipboard
-nnoremap <Leader>P <CMD>call PasteToWSL_FromWindows()<CR>
+vnoremap P :<C-U>call PasteToWSL_FromWindows()<CR>
 
 " WRITING FILES
 nnoremap <Leader>w <CMD>w<CR>
