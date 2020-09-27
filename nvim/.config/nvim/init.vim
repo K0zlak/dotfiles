@@ -192,6 +192,7 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
+
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
@@ -241,6 +242,7 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
 xmap <leader>cf  <Plug>(coc-format-selected)
+vmap <leader>cf  <Plug>(coc-format-selected)
 nmap <leader>cf  <Plug>(coc-format-selected)
 
 augroup mygroup
@@ -257,16 +259,19 @@ xmap <leader>ca  <Plug>(coc-codeaction-selected)
 nmap <leader>ca  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
-nmap <leader>aC  <Plug>(coc-codeaction)
+nmap <leader>Ca  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>cq  <Plug>(coc-fix-current)
+"Jump to first floating window
+nmap <leader><C-W><C-W>  <Plug>(coc-float-jump)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
+
+xmap if  <Plug>(coc-funcobj-i)
+omap if  <Plug>(coc-funcobj-i)
+xmap af  <Plug>(coc-funcobj-a)
+omap af  <Plug>(coc-funcobj-a)
 xmap icl <Plug>(coc-classobj-i)
 omap icl <Plug>(coc-classobj-i)
 xmap acl <Plug>(coc-classobj-a)
@@ -326,6 +331,18 @@ nnoremap <space>C  :<C-u>Coc
  let g:vista_sidebar_width = 50
  " let g:vista_echo_cursor_strategy = "floating_win"
 " }}}
+
+" Coc-Actions {{{
+" Remap for do codeAction of selected region
+
+function! s:cocActionsOpenFromSelected(type) abort
+  execute 'CocCommand actions.open ' . a:type
+
+endfunction
+xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+
+"}}}
 
 inoremap <C-UP> <ESC>kr<bar>a
 inoremap <C-DOWN> <ESC>jr<bar>a
