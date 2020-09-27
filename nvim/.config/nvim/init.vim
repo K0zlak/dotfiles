@@ -73,6 +73,11 @@ call plug#end()
 " SOURCE THE ORIGINAL VIMRC
 source ~/.vim/vimrc
 
+vnoremap vv V;
+vnoremap V vg_;
+
+nnoremap vv V;
+nnoremap V vg_;
 
 nnoremap <leader>gs <CMD>Gstatus<CR>
 " " TEXTOBJ MAPPINGS
