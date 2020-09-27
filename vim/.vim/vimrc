@@ -239,11 +239,11 @@ nnoremap g# g#N
 nnoremap # #N
 
 " ++ CLEAR THE SCREEN AND REDRAW
-nnoremap  <Leader>h <CMD>nohlsearch<CR>
+nnoremap  <Leader>h :nohlsearch<CR>
 
 " TERMINAL
 "nnoremap <Leader>T  :wincmd b \| bel terminal ++rows=10<CR>
-" nnoremap <Leader>T :execute('terminal')<CR>
+" nnoremap <Leader>T :execute()<CR>
 " nnoremap <Leader>cd :lcd %:p:h<CR>
 " tnoremap <Leader>qt <C-W>N
 
@@ -582,13 +582,13 @@ nmap gL <Plug>(LiveEasyAlign)
 "AUTOCOMMANDS - - - - - - - - - - {{{
 
 "At save remove all trailing white spaces
-fun! StripTrailingWhitespace()
+function! StripTrailingWhitespace()
 " Only strip if the b:noStripeWhitespace variable isn't set
     if exists('b:noStripWhitespace')
         return
     endif
         %s/\s\+$//e
-    endfun
+    endfunction
 
 autocmd BufWritePre * call StripTrailingWhitespace()
 autocmd FileType markdown,tex let b:noStripWhitespace=1
@@ -597,15 +597,16 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 if !has('nvim')
     "Rainbow Plugin
-    au VimEnter * RainbowParenthesesToggleAll
-    au Syntax * RainbowParenthesesLoadRound
-    au Syntax * RainbowParenthesesLoadSquare
-    au Syntax * RainbowParenthesesLoadBraces
-    au Syntax * RainbowParenthesesLoadChevrons
+    autocmd!
+    autocmd VimEnter * RainbowParenthesesToggleAll
+    autocmd Syntax * RainbowParenthesesLoadRound
+    autocmd Syntax * RainbowParenthesesLoadSquare
+    autocmd Syntax * RainbowParenthesesLoadBraces
+    autocmd Syntax * RainbowParenthesesLoadChevrons
 
-    au TerminalOpen * set nonumber
-    au TerminalOpen * set norelativenumber
-    au TerminalOpen * set foldcolumn=0
+    autocmd TerminalOpen * set nonumber
+    autocmd TerminalOpen * set norelativenumber
+    autocmd TerminalOpen * set foldcolumn=0
 endif
 " }}}
 
@@ -614,7 +615,7 @@ endif
 " Java {{{
 "SteveLosh's https://bitbucket.org/sjl/dotfiles/src/tip/vim/vimrc
 augroup ft_java
-    au!
+    autocmd!
 
 
     " set foldmethod=syntax
@@ -625,19 +626,19 @@ augroup ft_java
     " syn region javadoc start="^\s*/\*\*" end="^.*\*/" transparent fold keepend
     " syn region javaBlockComment start="^\s*/\*" end="^.*\*/" transparent fold keepend"""""""""""}))""""))""""}))""""}))"
 
-    au FileType java setlocal suffixesadd+=.java
-    au FileType java setlocal foldmethod=marker
-    au FileType java setlocal foldmarker={,}
-    au FileType java setlocal foldlevelstart=10
-    au FileType java setlocal iskeyword-=_
-    " au FileType java inoremap <c-n> <c-x><c-]>
+    autocmd FileType java setlocal suffixesadd+=.java
+    autocmd FileType java setlocal foldmethod=marker
+    autocmd FileType java setlocal foldmarker={,}
+    autocmd FileType java setlocal foldlevelstart=5
+    autocmd FileType java setlocal iskeyword-=_
+    " autocmd FileType java inoremap <c-n> <c-x><c-]>
 
 if ! has('nvim')
-    au VimEnter * RainbowParenthesesToggleAll
-    au Syntax * RainbowParenthesesLoadRound
-    au Syntax * RainbowParenthesesLoadSquare
-    au Syntax * RainbowParenthesesLoadBraces
-    au Syntax * RainbowParenthesesLoadChevrons
+    autocmd VimEnter * RainbowParenthesesToggleAll
+    autocmd Syntax * RainbowParenthesesLoadRound
+    autocmd Syntax * RainbowParenthesesLoadSquare
+    autocmd Syntax * RainbowParenthesesLoadBraces
+    autocmd Syntax * RainbowParenthesesLoadChevrons
 endif
 
 augroup END
@@ -645,41 +646,45 @@ augroup END
 
 " VIM {{{
 augroup ft_vim
-    au!
-    " au FileType vim setlocal foldmethod=marker
-    " au FileType vim setlocal foldmarker={,}
-    " au FileType vim setlocal foldlevelstart=1
-    " au FileType vim inoremap <c-n> <c-x><c-]>
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+    autocmd FileType vim setlocal foldmarker={{{,}}}
+    autocmd FileType vim setlocal foldlevelstart=3
+    autocmd FileType vim inoremap <c-n> <c-x><c-]>
 augroup END
 " }}}
 
 
 " GIT {{{
 augroup ft_git
-    au FileType git setlocal spell
+    autocmd!
+    autocmd FileType git setlocal spell
 augroup END
 "}}}
 
 " TEX {{{
 augroup ft_tex
 
-    au FileType tex syntax spell toplevel
-    au FileType tex setlocal spell
+    autocmd!
+    autocmd FileType tex syntax spell toplevel
+    autocmd FileType tex setlocal spell
 augroup END
 "}}}
 
 " BASH {{{
 augroup ft_bash
-    au FileType bash,sh setlocal spell
-    au FileType bash,sh setlocal foldmethod=marker
-    au FileType bash,sh setlocal foldmarker={,}
-    au FileType bash,sh setlocal foldlevelstart=1
+    autocmd!
+    autocmd FileType bash,sh setlocal spell
+    autocmd FileType bash,sh setlocal foldmethod=marker
+    autocmd FileType bash,sh setlocal foldmarker={,}
+    autocmd FileType bash,sh setlocal foldlevelstart=1
 augroup END
 "}}}
 
 " GITCOMMIT {{{
 augroup ft_gitcommit
-    au FileType gitcommit setlocal spell
+    autocmd!
+    autocmd FileType gitcommit setlocal spell
 augroup END
 "}}}
 " }}}
