@@ -11,13 +11,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
  " Plug 'tmhedberg/matchit'
 
 " TIM POPE
- " Plug 'tpope/vim-dadbod.git'
- " Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-projectionist'
 
 " JUNE GUNN
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -37,15 +36,26 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'blueyed/vim-diminactive'
 Plug 'vim-airline/vim-airline'
 Plug 'sjl/gundo.vim'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'morhetz/gruvbox'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/visualrepeat'
-Plug 'tmux-plugins/vim-tmux-focus-events'
 " Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'osyo-manga/vim-brightest' "{{{
+
+" let g:brightest#highlight = {
+" \   "group" : "BrightestUnderline"
+" \}
+
+"}}}
+
+" TMUX
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'wellle/tmux-complete.vim'
 
 "TEXT OBJECTS
-Plug 'wellle/targets.vim' "Plug 'michaeljsmith/vim-indent-object'
+Plug 'wellle/targets.vim'
+"Plug 'michaeljsmith/vim-indent-object'
 Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
