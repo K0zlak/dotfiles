@@ -2,7 +2,7 @@ export  XDG_CONFIG_HOME=$HOME/.config
 export  XDG_CACHE_HOME=$HOME/.cache
 export  XDG_DATA_HOME=$HOME/.locale/share
 
-export  EDITOR=vim
+export  EDITOR=nvim
 export  PAGGER=less
 export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64/"
 export JDK_HOME="/usr/lib/jvm/java-11-openjdk-amd64/"
