@@ -4,6 +4,10 @@ alias paste='powershell.exe -Command "Get-Clipboard"'
 alias du='du -h -c'
 alias rm='rm -i'
 alias v='/usr/local/bin/nvim'
+# SET FZF COMPLETION FOR V
+complete -o bashdefault -o default -F _fzf_path_completion v
+
+
 alias t='/usr/local/bin/tmux'
 alias g='git'
 alias r='ranger'
@@ -15,7 +19,11 @@ alias PROJECTS='/mnt/c/Users/MiKoz/Work/Projects'
 alias NOTES='/mnt/c/Users/MiKoz/Work/Documents/Notes'
 alias firefox='/mnt/c/Program\ Files\ \(x86\)/Mozilla\ Firefox/firefox.exe'
 alias pdfviewer='/mnt/c/Program\ Files/SumatraPDF/SumatraPDF.exe'
+alias clip='/mnt/c/Windows/System32/clip.exe'
 alias vlc='/mnt/c/Program\ Files/VideoLAN/VLC/vlc.exe'
+alias trr='tree -C | less -R'
+alias tr='tree -C -L 1 '
+
 # alias less='HOME=~/.config/less/ LESSKEY=.less less'
 
 function trees() {
