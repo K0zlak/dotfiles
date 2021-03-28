@@ -1,0 +1,179 @@
+let mapleader=" "
+
+"TODO
+"QuickActionPopup                                   <A-C-CR>
+"QuickActions
+"QuickChangeScheme                                  <C-À>
+"QuickDocCopy                                       <C-C> <C-Ins>
+"QuickEvaluateExpression                            <A-C-F8> button=1 clickCount=1 modifiers=512
+"QuickFixes
+"QuickImplementations                               <C-S-I>
+"QuickJavaDoc                                       <C-Q> button=2 clickCount=1 modifiers=512
+"QuickList.Deployment
+"QuickPreview                                       < >
+"QuickTypeDefinition
+
+" NORMAL VIM MAPPINGS
+nnoremap Y  y$
+nnoremap H ^
+nnoremap L g_
+vnoremap H ^
+vnoremap L g_
+
+nnoremap V v$
+nnoremap vv V
+vnoremap vv V
+vnoremap V v$
+
+vnoremap > >gv
+vnoremap < <gv
+vnoremap <leader>em :action ExtractMethod<CR>
+
+nnoremap <C-H> <C-W>h;
+nnoremap <C-J> <C-W>j;
+nnoremap <C-K> <C-W>k;
+nnoremap <C-L> <C-W>l;
+
+nnoremap Q @@
+
+nnoremap n nzz
+nnoremap N Nzz
+
+"IDEAVIM MAPPINGS
+nnoremap ZQ :action Exit<CR>
+nnoremap <leader>h :nohlsearch<CR>
+
+" IDEA ACTION MAPPINGS
+"Nex/Prev tab
+nmap [t :action PreviousTab<cr>
+nmap ]t :action NextTab<cr>
+"
+"First/Last tab
+nmap [T :first<cr>
+nmap ]T :action GoToLastTab<cr>
+
+"Add Space above or below current line
+nnoremap ]<Space> mao<Esc>`a
+nnoremap [<Space> maO<Esc>`a
+
+"Move the line up or down
+nnoremap ]e ddp
+nnoremap [e ddkP
+
+"I dont know
+nnoremap [q :action PreviousOccurence<cr>
+nnoremap ]q :action NextOccurence<cr>
+
+"Next/Prev method
+nnoremap [m :action MethodUp<cr>
+nnoremap ]m :action MethodDown<cr>
+
+"Next/Prev changes with VCS
+nnoremap [c :action VcsShowPrevChangeMarker<cr>
+nnoremap ]c :action VcsShowNextChangeMarker<cr>
+
+"Next/Prev error
+nnoremap ]g :action GotoNextError<cr>
+nnoremap [g :action GotoPreviousError<CR>
+
+nnoremap ]/ /\v^\s*\/{2}<CR>
+nnoremap [/ ?\v^\s*\/{2}<CR>
+"nnoremap ]/ /\v^\s+\/{2}|^\s+\/\*{2}|^\s+\*\/<CR>
+"nnoremap [/ ?\v^\s+\/{2}|^\s+\/\*{2}|^\s+\*\/<CR>
+
+
+nnoremap gr :action GotoDeclarationOnly<cr>
+nnoremap gi :action GotoImplementation<cr>
+
+"nnoremap <leader>wm :action HideAllWindows<CR>
+nnoremap <C-W>m :action HideAllWindows<CR>
+
+nnoremap <leader>h :nohlsearch<cr>
+nnoremap <leader>fa :action GotoAction<cr>
+nnoremap <leader>fb :action Git.Branches<cr>
+nnoremap <leader>fB :action ViewBreakpoints<cr>
+nnoremap <leader>fh :action RecentFiles<cr>
+nnoremap <leader>ff :action GotoFile<cr>
+nnoremap <leader>fc :action GotoClass<cr>
+nnoremap <leader>fs :action GotoSymbol<cr>
+nnoremap <leader>t :action GotoTest<cr>
+nnoremap gD :action GotoTypeDeclaration<cr>
+nnoremap ge :action ShowErrorDescription<CR>
+
+nnoremap <leader>em :action ExtractMethod<CR>
+nnoremap <leader>a :action ShowIntentionActions<CR>
+nnoremap <leader>A :action Annotate<CR>
+nnoremap <leader>G :action Genereate<CR>
+
+
+nnoremap <leader>gg :action ActivateVersionControlToolWindow<CR>
+nnoremap <leader>gt :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>gr :action ActivateRunToolWindow<CR>
+nnoremap <leader>gs :action ActivateStructureToolWindow<CR>
+nnoremap <leader>gS :action ActivateSpringToolWindow<CR>
+"nnoremap <leader>gf :action ActivateProjectToolWindow<CR>
+nnoremap <leader>gf :NERDTreeFind<CR>
+nnoremap <leader>gp :action ActivateProblemsViewToolWindow<CR>
+nnoremap <leader>gm :action ActivateMavenToolWindow<CR>
+
+"BREAKEPOINTS
+nnoremap <leader>bb :action ToggleLineBreakpoint<cr>
+nnoremap <leader>bm :action ToggleMethodBreakpoint<cr>
+nnoremap <leader>be :action EditBreakpoint<cr>
+
+" Building, Running and Debugging
+"nmap <leader>c :action CompileDirty<cr>
+"nnoremap <leader>R :action RunAnything<cr>
+nnoremap <leader>rr :action Run<cr>
+nnoremap <leader>s  :action Stop<cr>
+nnoremap <leader>rd :action Debug<cr>
+nnoremap <leader>rn :action RenameElement<cr>
+nnoremap <leader>rc :action RunClass<cr>
+nnoremap <leader>dc :action DebugClass<cr>
+nnoremap <leader>rt :action RerunTests<cr>
+nnoremap <leader>rT :action RerunFailedTests<cr>
+
+nnoremap <leader>mt :action Maven.ToggleSkipTests<CR>
+nnoremap <leader>mr :action Maven.RunBuild<CR>
+
+" Closing tabs
+nnoremap <leader>q :action CloseContent<cr>
+nnoremap <leader>Q :action ReopenClosedTab<cr>
+nnoremap <leader>n :action NERDTree<cr>
+
+" Commadline maps
+cnoremap <C-K> <Up>
+cnoremap <C-J> <Down>
+cnoremap <Tab> <Nop>
+
+" OPTIONS
+set hidden
+set nowrap
+set iskeyword-=_
+
+" IDEA PLUGINS
+set NERDTree
+set surround
+set commentary
+set argtextobj
+set exchange
+set textobj-entire
+set highlightedyank
+set ideajoin
+
+" OPTIONS
+set incsearch
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set scrolloff=5
+set sidescrolloff=5
+set number
+set relativenumber
+set clipboard+=unnamed
+set showmode
+set showcmd
+set visualbell
+set autoindent
+set copyindent
