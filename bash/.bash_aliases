@@ -4,6 +4,7 @@ alias paste='powershell.exe -Command "Get-Clipboard"'
 alias du='du -h -c'
 alias rm='rm -i'
 alias v='/usr/local/bin/nvim'
+alias vim='/usr/local/bin/nvim'
 # SET FZF COMPLETION FOR V
 complete -o bashdefault -o default -F _fzf_path_completion v
 
