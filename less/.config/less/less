@@ -15,7 +15,7 @@ L      end-scroll
 #H scroll to left end
 H      no-scroll
 #CTRL-| <bar> to pipe to vim (also form stdo)
-      goto-line mbG|b vim - \n
+      goto-line mbG|b nvim - \n
       goto-line qG
       help
 
