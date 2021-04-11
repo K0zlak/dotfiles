@@ -150,6 +150,7 @@ set splitright
 "Horizontal Line movement
 " nnoremap H  zH
 " nnoremap L  zL
+" noremap <space> <NOP>
 nnoremap H  ^
 vnoremap H  ^
 onoremap H  ^
@@ -208,7 +209,7 @@ inoremap jk <ESC>
 nnoremap S i <ESC>k$hl
 
 "Yank into system ClipBoard
-vnoremap Y :w !clip.exe<CR>
+vnoremap Y :w !clip<CR>
 
 "Paste to WSL for Windows Clipboard
 vnoremap P :<C-U>call PasteToWSL_FromWindows()<CR>
@@ -239,7 +240,7 @@ nnoremap g# g#N
 nnoremap # #N
 
 " ++ CLEAR THE SCREEN AND REDRAW
-nnoremap  <Leader>h :nohlsearch<CR>
+nnoremap  <Leader>H :nohlsearch<CR>
 
 " TERMINAL
 "nnoremap <Leader>T  :wincmd b \| bel terminal ++rows=10<CR>
@@ -290,13 +291,22 @@ nnoremap <leader>bd <CMD>bd<CR>
 nnoremap <leader>bO <CMD>%bd<bar>e#<bar>bd# <CR>
 
 
-" FZF {{{
+ " FZF {{{
+
+nnoremap <silent><leader>fn <plug>(fzf-maps-n)
+nnoremap <silent><leader>fi <plug>(fzf-maps-i)
+nnoremap <silent><leader>fx <plug>(fzf-maps-x)
+nnoremap <silent><leader>fo <plug>(fzf-maps-o)
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-l> <plug>(fzf-complete-line)
 nnoremap <silent><leader>fbt <CMD>BTags<CR>
 nnoremap <silent><leader>ftt <CMD>Tags<CR>
 nnoremap <silent><leader>fbc <CMD>BCommits<CR>
 nnoremap <silent><leader>f/ <CMD>History/<CR>
 nnoremap <silent><leader>f: <CMD>History:<CR>
 nnoremap <silent><leader>fh <CMD>History<CR>
+nnoremap <silent><leader>fH <CMD>Helptags<CR>
 nnoremap <silent><leader>fg <CMD>GFiles<CR>
 nnoremap <silent><leader>fm <CMD>Marks<CR>
 nnoremap <silent><leader>ff <CMD>FZF<CR>
@@ -312,67 +322,6 @@ command! -bang -nargs=? -complete=dir HFiles
 
 " }}}
 
-"PLUGINS - - - - - - - - - - {{{
-if !has('nvim')
-call plug#begin('~/.vim/plugged')
-
-
-        "" TIM POPE PLUGINS
-
-        " Plugin 'tpope/vim-dadbod.git'
-        " Plugin 'tpope/vim-speeddating'
-        Plug 'tpope/vim-surround'
-        Plug 'tpope/vim-repeat'
-        Plug 'tpope/vim-commentary'
-        Plug 'tpope/vim-fugitive'
-        Plug 'tpope/vim-unimpaired'
-
-        "" JUNEGUNN PLUGINS
-
-        Plug 'junegunn/fzf'
-        Plug 'junegunn/fzf.vim'
-        Plug 'junegunn/goyo.vim'
-        Plug 'junegunn/vim-peekaboo'
-        Plug 'junegunn/gv.vim'
-        Plug 'junegunn/vim-easy-align'
-
-        " Plugin 'valloric/youcompleteme'
-        Plug 'airblade/vim-gitgutter'
-        Plug 'scrooloose/nerdtree'
-        Plug 'kien/rainbow_parentheses.vim'
-        " Plugin 'ap/vim-css-color'
-        Plug 'majutsushi/tagbar'
-        Plug 'ludovicchabant/vim-gutentags'
-        Plug 'blueyed/vim-diminactive'
-        Plug 'vim-airline/vim-airline'
-        Plug 'sjl/gundo.vim'
-        Plug 'christoomey/vim-tmux-navigator'
-        " Plugin 'tmhedberg/matchit'
-
-        "java plugin
-        Plug 'uiiaoo/java-syntax.vim'
-        " COLOR SCHEMAS
-        Plug  'morhetz/gruvbox'
-        " Plugin 'chriskempson/base16-vim'
-
-        "TEXT OBJECTS
-        Plug  'wellle/targets.vim'
-        Plug 'michaeljsmith/vim-indent-object'
-        Plug  'kana/vim-textobj-function'
-        Plug  'kana/vim-textobj-user'
-        Plug 'kana/vim-textobj-entire'
-        Plug 'mattn/vim-textobj-url'
-        Plug 'glts/vim-textobj-comment'
-        " Plugin 'paulhybryant/vim-textobj-path'
-
-
-call plug#end()
-
-endif
-
- filetype plugin indent on
-
-"}}}
 
 "PLUGINS CONFIGS & BINDINGS - - - - - - - - - - {{{
 "MY_FUNCTIONS {{{
@@ -434,61 +383,8 @@ let g:gundo_prefer_python3=1
 let g:gundo_return_on_revert=0
 
 " }}}
-    "YCM_CONFIG {{{
 
-"let g:ycm_filetype_whitelist = { 'java': 1}
-"autocmd FileType java set tags+=~/.tags/java.tags
-
-"" YouCompleteMe options
-
-"let g:ycm_register_as_syntastic_checker = 1 "default 1
-"let g:Show_diagnostics_ui = 1 "default 1
-
-""will put icons in Vim's gutter on lines that have a diagnostic set.
-""Turning this off will also turn off the YcmErrorLine and YcmWarningLine
-""highlighting
-"let g:ycm_enable_diagnostic_signs = 1
-"let g:ycm_enable_diagnostic_highlighting = 0
-"let g:ycm_always_populate_location_list = 1 "default 0
-"let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
-
-
-"let g:ycm_complete_in_strings = 1 "default 1
-"let g:ycm_collect_identifiers_from_tags_files = 1 "default 0
-"let g:ycm_path_to_python_interpreter = '' "default ''
-
-
-"let g:ycm_server_use_vim_stdout = 0 "default 0 (logging to console)
-"let g:ycm_server_log_level = 'info' "default info
-
-
-""let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'  "where to search for .ycm_extra_conf.py if not found
-""let g:ycm_confirm_extra_conf = 1
-
-
-"let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
-"let g:ycm_filetype_whitelist = { '*': 1 }
-"let g:ycm_key_invoke_completion = '<TAB>'
-
-""YCM BINDINGS
-"vnoremap <Leader>gi  :YcmCompleter GoToImplementation<CR>
-"vnoremap <Leader>yr  :YcmCompleter RefactorRename<CR>
-"vnoremap gd          :YcmCompleter GoToDefinition<CR>
-"vnoremap <Leader>yfi :YcmCompleter FixIt<CR>
-"vnoremap <Leader>yff :YcmCompleter Format<CR>
-"vnoremap <Leader>yR  :YcmRestartServer<CR>
-"vnoremap gD          :YcmCompleter GoToDeclaration<CR>
-
-"nnoremap <Leader>gi  :YcmCompleter GoToImplementation<CR>
-"nnoremap <Leader>yr  :YcmCompleter RefactorRename<CR>
-"nnoremap gd :YcmCompleter GoToDefinition<CR>
-"nnoremap <Leader>yfi :YcmCompleter FixIt<CR>
-"nnoremap <Leader>yff :YcmCompleter Format<CR>
-"nnoremap <Leader>yR  :YcmRestartServer<CR>
-"nnoremap gD :YcmCompleter GoToDeclaration<CR>
-
-" }}}
-    "NATREW_CONFIG {{{
+"NATREW_CONFIG {{{
 
 "Tweaks for browsing
 let g:netrw_banner=0        " disable annoying banner
@@ -501,13 +397,15 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
  let g:netrw_browsex_viewer   = "cmd.exe /C start"
 " }}}
-    "DELIMITMATE {{{
+
+"DELIMITMATE {{{
 
 let delimitMate_expand_cr = 2
 let delimitMate_expand_space = 1
 
 " }}}
-    "GOYO_CONFIG {{{
+
+"GOYO_CONFIG {{{
 
 let g:goyo_width=100
 let g:goyo_height=150
@@ -536,10 +434,8 @@ let g:goyo_height=150
     autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " }}}
-    "FZF {{{
 
-" "}}}
-    "MISC {{{
+"MISC {{{
 "Set on the left a diff tab
 ":diffthis
 let g:hardtime_default_on = 1
