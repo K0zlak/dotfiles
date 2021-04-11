@@ -1,0 +1,65 @@
+ #############################################################
+ ## VI INSERT Mode Key map
+ #############################################################
+
+set keymap vi-insert
+"\C-w":kill-word
+"\C-f":forward-word
+"\C-b":backward-word
+"\C-a":beginning-of-line
+"\C-e":end-of-line
+"\C-k":kill-line
+"\C-u":backward-kill-line
+# "jk": vi-movement-mode
+#"\ek": menu-complete
+#"\ej": menu-complete-backward
+"\C-x\C-xb": " exec bash\C-m"
+"\C-x\C-xg": "\C-e | grep -e "
+"\C-x\C-xc": "\C-e | clip.exe "
+"\C-x\C-xl": "\C-e | less -RSNJ"
+"\C-x\C-xw": "watch -c ""\ei"
+"\C-x\C-xx": " | xargs -n 1 --delimiter=\"\\n\""
+"\C-x\C-xf" "\C-e | fzf"
+#"\C-xtl": " | tmux load-buffer -"
+#"\C-xts": " tmux save-buffer - | "
+"\C-gl": glob-list-expansions
+"\C-gc": glob-complete-word
+"\C-ge": glob-expand-word
+"\C-l": clear-screen
+"\C-d": vi-eof-maybe
+
+# Execute the command and go to the next in the history
+"\C-o": operate-and-get-next
+
+
+
+##COMPLETION
+#PREFIX <C-X>
+"\C-xv": complete-variable
+"\C-xvi": vi-complete
+"\C-xH": complete-hostname
+"\C-xc": complete-command
+"\C-xC": complete
+"\C-xf": complete-filename
+"\C-xu": complete-username
+"\C-xg": glob-complete-word
+"\C-xb": complete-into-braces
+"\C-xdh": dynamic-complete-history
+"\C-xom": old-menu-complete
+"\C-i": menu-complete
+"\C-o": operate-and-get-next
+
+#EXPANDING
+#PREFIX <C-E>
+"\C-ee": shell-expand-line
+"\C-eh": history-expand-line
+"\C-ea": alias-expand-line
+"\C-ed": dabbrev-expand
+"\C-eg": glob-expand-word
+"\C-eha": history-and-alias-expand-line
+"\C-et": tilde-expand
+
+
+#Unset  , 
+"\C-g":""
+"\C-x":""

@@ -1,0 +1,65 @@
+ #############################################################
+ ## VI COMMAND MODE KEY MAP
+ #############################################################
+set keymap vi
+
+
+# END OF THE LINE
+"L": end-of-line
+#BEGINNING OF THE LINE
+"H": beginning-of-line
+
+# GO UP ONE DIRECTORY
+"O": "0\C-ki ..\C-m\e\e"
+
+"gU": upcase-word
+"gu": downcase-word
+
+#MACROS
+"qs": start-kbd-macro
+"qe": end-kbd-macro
+"qp": print-last-kbd-macro
+"qc": call-last-kbd-macro
+
+#Unset S , s , , 
+"S":""
+"s":""
+"\C-g":""
+"\C-x":""
+
+"\C-x\C-r": re-read-init-file
+#Control-E: shell-expand-line
+## bind <c-k> key to menu-complete readline completion
+#"\ek": menu-complete
+## bind <c-j> key to menu-complete (backward) readline completion
+ #"\ej": menu-complete-backward
+#"u": undo
+## Add less at the end
+"\C-x\C-xl": "A | less -RSNJ\e"
+"\C-x\C-xb": "ddAexec bash\e"
+"\C-x\C-xg": "A | grep -e \e"
+"\C-x\C-xf" "A | fzf"
+
+"\C-xdm": dump-macros
+"\C-xdf": dump-functions
+"\C-xdv": dump-variables
+"\C-xr": re-read-init-file
+
+# Execute the command and go to the next in the history
+"\C-o": operate-and-get-next
+## Add watch at the beginning and cover the whole command in ""
+"\C-x\C-xw": "Iwatch -c "\eA""\ehi
+
+## Bind <C-e> key to shell expansion
+"\C-xe": shell-expand-line
+## Bind <C-e> key to  alias expansion
+"\C-xa": alias-expand-line
+## Bind <C-e> key to  history expansion
+"\C-xh": history-expand-line
+
+##Bash commands
+#"\C-x\C-xwh": "iwhile true; do sleep 0.5; echo \"Lorem Ipsum\"; done\e"
+#"\C-x\C-xif": "iif true; then echo \"Lorem Ipsum\";  fi\e"
+#"\C-x\C-xife": "iif  [ \"$t\" -eq \"0\" ] ; then echo \"Lorem Ipsum\";  elif [ \"$t\" -eq \"1\" ]; then echo \"Secundum\";  else echo \"Trictum\";  fi\e";
+#"\C-x\C-xf": "ifor index in {raz,dwa,trzy} ; do echo $index ; done\e"
+

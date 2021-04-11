@@ -1,0 +1,98 @@
+################################################################
+# SURROUND LIKE BINDINGS
+################################################################
+
+# Pair insertion
+"\C-s{":"{ }\ei"
+"\C-s[":"[ ]\ei"
+"\C-s(":"( )\ei"
+"\C-s<":"< >\ei"
+# Pair insertion witout space
+"\C-s}":"{ }\ei"
+"\C-s]":"[ ]\ei"
+"\C-s)":"( )\ei"
+"\C-s>":"< >\ei"
+"\C-s\"":"\"\"\ei"
+"\C-s'":"''\ei"
+
+set keymap vi
+## Surround the WORD with
+"sW\"": "Ea\"\eBi\"\e"
+"sW\'": "Ea\'\eBi\'\e"
+"sW\(": "Ea\)\eBi\(\e"
+"sW\{": "Ea\}\eBi\{\e"
+"sW\<": "Ea\>\eBi\<\e"
+"sW\[": "Ea\]\eBi\[\e"
+
+## Surround the word with
+"sw\"": "ea\"\ebi\"\e"
+"sw\'": "ea\'\ebi\'\e"
+"sw\(": "ea\)\ebi\(\e"
+"sw\)": "ea\)\ebi\(\e"
+"sw\{": "ea\}\ebi\{\e"
+"sw\}": "ea\}\ebi\{\e"
+"sw\<": "ea\>\ebi\<\e"
+"sw\>": "ea\>\ebi\<\e"
+"sw\[": "ea\]\ebi\[\e"
+"sw\]": "ea\]\ebi\[\e"
+
+# Surround with ?  form the cursor to the end of the line
+"S\'": "i\'\eA\'\e"
+"S\"": "i\"\eA\"\e"
+"S\(": "i\(\eA\)\e"
+"S\{": "i\{\eA\}\e"
+"S\<": "i\<\eA\>\e"
+"S\[": "i\[\eA\]\e"
+"S\)": "i\(\eA\)\e"
+"S\}": "i\{\eA\}\e"
+"S\>": "i\<\eA\>\e"
+"S\]": "i\[\eA\]\e"
+
+# Delete the surround
+"ds\"": "F"xf"x"
+"ds\'": "F'xf'x"
+"ds\(": "F(xf)x"
+"ds\{": "F{xf}x"
+"ds\<": "F<xf>x"
+"ds\[": "F[xf]x"
+"ds\)": "F(xf)x"
+"ds\}": "F{xf}x"
+"ds\>": "F<xf>x"
+"ds\]": "F[xf]x"
+
+# Change the surround
+"cs\'\"": "F\'r\",r\""
+"cs\"\'": "F\"r',r'"
+
+"cs({": "F(r{f)r}"
+"cs){": "F(r{f)r}"
+"cs(}": "F(r{f)r}"
+"cs)}": "F(r{f)r}"
+
+"cs{(": "F{r(f}r)"
+"cs{)": "F{r(f}r)"
+"cs}(": "F{r(f}r)"
+"cs})": "F{r(f}r)"
+
+"cs([": "F(r[f)r]"
+"cs)[": "F(r[f)r]"
+"cs(]": "F(r[f)r]"
+"cs)]": "F(r[f)r]"
+
+"cs[(": "F[r(f]r)"
+"cs[)": "F[r(f]r)"
+"cs](": "F[r(f]r)"
+"cs])": "F[r(f]r)"
+
+
+"cs{[": "F{r[f}r]"
+"cs}[": "F{r[f}r]"
+"cs{]": "F{r[f}r]"
+"cs}]": "F{r[f}r]"
+
+"cs[{": "F[r{f]r}"
+"cs[}": "F[r{f]r}"
+"cs]{": "F[r{f]r}"
+"cs]}": "F[r{f]r}"
+
+

@@ -1,0 +1,40 @@
+ #############################################################
+ ## READLINE OPTIONS #############################################################
+ set colored-stats
+ #Default bell-style (audible)
+ set bell-style visible
+ # set bell-style audible
+#Those below taken form reddit post :
+#https://www.reddit.com/r/commandline/comments/kbeoe/you_can_make_readline_and_bash_much_more_user/
+
+# When you have a folder with lots of similarly named files
+# after completion with tab, the first part that has been completed will
+# be replased by "...", and it is simple to see what you need to type to finish
+# the completion
+set completion-prefix-display-length 2
+# on menu-complete, first display the common prefix, then cycle through the
+# options when hitting TAB
+set menu-complete-display-prefix on
+
+# Make completions appear immediately after pressing TAB once.
+# Instead of the default behavior which is to show them after pressing twice.
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+# Enabled underscores (_) and hyphens (-) treated as equal when completing.
+set completion-map-case on
+#Enable case-insensitive completion
+set completion-ignore-case on
+# Change readline edit style to vim like style
+ set editing-mode vi
+set vi-ins-mode-string "\1\e[5 q\2"
+set vi-cmd-mode-string "\1\e[1 q\2"
+# set vi-ins-mode-string \1\e[48;5;117;1m\2 I \1\e[38;5;117;48;5;31;1m\2>\1\e[0m\2
+# set vi-cmd-mode-string \1\e[48;5;166;1m\2 N \1\e[38;5;166;48;5;31;1m\2>\1\e[0m\2
+##Vim Mode indicator in prompt
+ set show-mode-in-prompt on
+ #set vi-ins-mode-string \1\e[6 q\2
+ #set vi-cmd-mode-string \1\e[2 q\2
+
+set echo-control-characters off
+set enable-bracketed-paste on
