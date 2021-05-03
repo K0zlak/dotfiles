@@ -27,7 +27,6 @@ vnoremap V v$
 
 vnoremap > >gv
 vnoremap < <gv
-vnoremap <leader>em :action ExtractMethod<CR>
 
 nnoremap <C-H> <C-W>h;
 nnoremap <C-J> <C-W>j;
@@ -99,8 +98,8 @@ nnoremap <leader>fs :action GotoSymbol<cr>
 nnoremap <leader>t :action GotoTest<cr>
 nnoremap gD :action GotoTypeDeclaration<cr>
 nnoremap ge :action ShowErrorDescription<CR>
+" HippieCompletion                                   <A-/>
 
-nnoremap <leader>em :action ExtractMethod<CR>
 nnoremap <leader>a :action ShowIntentionActions<CR>
 nnoremap <leader>A :action Annotate<CR>
 nnoremap <leader>G :action Genereate<CR>
@@ -117,8 +116,10 @@ nnoremap <leader>gp :action ActivateProblemsViewToolWindow<CR>
 nnoremap <leader>gm :action ActivateMavenToolWindow<CR>
 
 "BREAKEPOINTS
+nnoremap <leader>ba :action ToggleBreakpointAction<cr>
 nnoremap <leader>bb :action ToggleLineBreakpoint<cr>
 nnoremap <leader>bm :action ToggleMethodBreakpoint<cr>
+nnoremap <leader>bf :action ToggleFieldBreakpoint<cr>
 nnoremap <leader>be :action EditBreakpoint<cr>
 
 " Building, Running and Debugging
@@ -145,6 +146,39 @@ nnoremap <leader>n :action NERDTree<cr>
 cnoremap <C-K> <Up>
 cnoremap <C-J> <Down>
 cnoremap <Tab> <Nop>
+
+" EXTRACTION/INTRODUCE
+nnoremap <leader>em :action ExtractMethod<CR>
+vnoremap <leader>em :action ExtractMethod<CR>
+nnoremap <leader>ev :action IntroduceVariable<CR>
+vnoremap <leader>ev :action IntroduceVariable<CR>
+nnoremap <leader>ec :action IntroduceConstant<CR>
+vnoremap <leader>ec :action IntroduceConstant<CR>
+nnoremap <leader>ef :action IntroduceField<CR>
+vnoremap <leader>ef :action IntroduceField<CR>
+nnoremap <leader>ep :action IntroduceParameter<CR>
+vnoremap <leader>ep :action IntroduceParameter<CR>
+
+
+"new maps
+
+" RunConfiguration
+
+" select all occurances of the variable
+nnoremap <leader>s :action SelectAllOccurrences<CR>
+vnoremap <leader>s :action SelectAllOccurrences<CR>
+nnoremap <leader>i :action Inline<CR>
+nnoremap <leader>I :action ExpressionTypeInfo<CR>
+vnoremap <leader>I :action ExpressionTypeInfo<CR>
+nnoremap leader>G :action Generate<CR>
+vnoremap <leader>G :action Generate<CR>
+nnoremap <leader>F :action ReformatCode<CR>
+nnoremap <leader>R :action Refactorings.QuickListPopupAction<cr>
+vnoremap <leader>R :action Refactorings.QuickListPopupAction<cr>
+nnoremap <leader>E :action QuickEvaluateExpression<cr>
+vnoremap <leader>E :action QuickEvaluateExpression<cr>
+nnoremap <leader>ee :action EvaluateExpression<cr>
+vnoremap <leader>ee :action EvaluateExpression<cr>
 
 " OPTIONS
 set hidden
