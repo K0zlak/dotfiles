@@ -86,7 +86,9 @@ nnoremap gi :action GotoImplementation<cr>
 
 "nnoremap <leader>wm :action HideAllWindows<CR>
 nnoremap <C-W>m :action HideAllWindows<CR>
-
+nnoremap <leader>cp :action CopyAbsolutePath<cr>
+nnoremap <leader>cr :action CopyContentRootPath<cr>
+nnoremap <leader>p :action ShowFilePath<cr>
 nnoremap <leader>h :nohlsearch<cr>
 nnoremap <leader>fa :action GotoAction<cr>
 nnoremap <leader>fb :action Git.Branches<cr>
@@ -94,9 +96,11 @@ nnoremap <leader>fB :action ViewBreakpoints<cr>
 nnoremap <leader>fh :action RecentFiles<cr>
 nnoremap <leader>ff :action GotoFile<cr>
 nnoremap <leader>fc :action GotoClass<cr>
-nnoremap <leader>fs :action GotoSymbol<cr>
+nnoremap <leader>fS :action GotoSymbol<cr>
+nnoremap <leader>fs :action FileStructurePopup<cr>
 nnoremap <leader>t :action GotoTest<cr>
 nnoremap gD :action GotoTypeDeclaration<cr>
+nnoremap gs :action GotoSuperMethod<cr>
 nnoremap ge :action ShowErrorDescription<CR>
 " HippieCompletion                                   <A-/>
 
