@@ -21,11 +21,6 @@ if has("nvim")
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
     " }}}
-    " NVIM {{{
-    " " Use release branch (recommend)
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-    "}}}
     " LSP {{{
 
     Plug 'neovim/nvim-lspconfig'
@@ -78,7 +73,7 @@ if has("nvim")
     " }}}
     " MISC {{{
     Plug 'tommcdo/vim-exchange'
-    " Plug 'ThePrimeagen/vim-be-good'
+    Plug 'ThePrimeagen/vim-be-good'
     Plug 'ryanoasis/vim-devicons'
     Plug 'preservim/nerdtree' "{{{
     noremap <leader>N :NERDTreeFind %<CR>
@@ -271,8 +266,9 @@ set backspace=2   " Backspace deletes like most programs in insert mode
 set autoindent      "use the indent of the previous line "
 set wrap            "Wrap long lines
 set linebreak       "Wrapping lines don't happen on last characters on the screen
-set breakindent     "After wrapping all wrapped continue visually indented
+set breakindent     "After wrapping all hello.get(lowrapped continue visually indented
 set browsedir=buffer
+set nowrapscan
 
 
 " Display extra white space
@@ -346,7 +342,8 @@ set splitright
 "Horizontal Line movement
 " nnoremap H  zH
 " nnoremap L  zL
-noremap <space> <NOP>
+
+nnoremap <space> <NOP>
 nnoremap H  ^
 vnoremap H  ^
 onoremap H  ^
@@ -354,6 +351,10 @@ nnoremap L  g_
 vnoremap L  g_
 onoremap L  g_
 
+nnoremap <leader>h <CMD>nohlsearch<CR>
+nnoremap gb :ls<CR>:buffer<Space>
+nnoremap gp `[v`]
+nnoremap gy `[v`]
 
 "CHANGE Y KEY TO BE MORE CONSISTENT WITH D AND C KEYS.
 nnoremap Y y$
@@ -501,6 +502,7 @@ nnoremap <leader>bd <CMD>bd<CR>
 nnoremap <leader>bO <CMD>%bd<bar>e#<bar>bd# <CR>
 
 
+nnoremap <esc> :noh<CR><esc>
  " FZF {{{
 
 
@@ -508,22 +510,23 @@ nnoremap <leader>bO <CMD>%bd<bar>e#<bar>bd# <CR>
 " imap <c-x><c-f> <plug>(fzf-complete-path)
 " imap <c-x><c-l> <plug>(fzf-complete-line)
 
-nnoremap <silent><leader>fbt <CMD>BTags<CR>
-nnoremap <silent><leader>ft  <CMD>Tags<CR>
-nnoremap <silent><leader>fbc <CMD>BCommits<CR>
-nnoremap <silent><leader>f/  <CMD>History/<CR>
-nnoremap <silent><leader>f:  <CMD>History:<CR>
-nnoremap <silent><leader>fh  <CMD>History<CR>
-nnoremap <silent><leader>fl  <CMD>Lines<CR>
-nnoremap <silent>        g/  <CMD>Lines<CR>
-nnoremap <silent>        g?  <CMD>Lines<CR>
-nnoremap <silent><leader>fH  <CMD>Helptags<CR>
-nnoremap <silent><leader>fg  <CMD>GFiles<CR>
-nnoremap <silent><leader>fm  <CMD>Marks<CR>
-nnoremap <silent><leader>ff  <CMD>FZF<CR>
-nnoremap <silent><leader>fF  <CMD>HFiles<CR>
-nnoremap <silent><leader>fbb <CMD>Buffers<CR>
-nnoremap <silent><leader>rg  <CMD>execute 'Rg '.expand('<cword>')<CR>
+nnoremap s <nop>
+nnoremap S <nop>
+nnoremap <silent>sbt <CMD>BTags<CR>
+nnoremap <silent>st  <CMD>Tags<CR>
+nnoremap <silent>sbc <CMD>BCommits<CR>
+nnoremap <silent>s/  <CMD>History/<CR>
+nnoremap <silent>s?  <CMD>History/<CR>
+nnoremap <silent>s:  <CMD>History:<CR>
+nnoremap <silent>sh  <CMD>History<CR>
+nnoremap <silent>sl  <CMD>Lines<CR>
+nnoremap <silent>sH  <CMD>Helptags<CR>
+nnoremap <silent>sg  <CMD>GFiles<CR>
+nnoremap <silent>sm  <CMD>Marks<CR>
+nnoremap <silent>sf  <CMD>FZF<CR>
+nnoremap <silent>sF  <CMD>HFiles<CR>
+nnoremap <silent>sB <CMD>Buffers<CR>
+nnoremap <silent>sr  <CMD>execute 'Rg '.expand('<cword>')<CR>
 
 command! -bang -nargs=? -complete=dir HFiles
   \ call fzf#vim#files(<q-args>, {'source': 'ag --hidden --ignore .git -g ""'}, <bang>0)
@@ -838,169 +841,6 @@ nnoremap <silent><Leader>T <CMD>call TerminalDistroy()<CR>
 "}}}
 
 
-"" COC CONFIGURATION {{{
-"" TextEdit might fail if hidden is not set.
-set hidden
-
-"" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
-"" Give more space for displaying messages.
-set cmdheight=2
-
-"" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-"" delays and poor user experience.
-set updatetime=300
-
-"" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-
-"" Always show the signcolumn, otherwise it would shift the text each time
-"" diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes:2
-endif
-
-"" Use tab for trigger completion with characters ahead and navigate.
-"" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-"" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-"" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-"" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-"" position. Coc only does snippet and additional edit on confirm.
-"" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-
-"" Use `[g` and `]g` to navigate diagnostics
-"" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-"" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-"" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-"""
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-"" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-"" Formatting selected code.
-xmap <leader>cf  <Plug>(coc-format-selected)
-vmap <leader>cf  <Plug>(coc-format-selected)
-nmap <leader>cf  <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType java,vim,js setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-"" Applying codeAction to the selected region.
-"" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-"" Remap keys for applying codeAction to the current buffer.
-nmap <leader>Ca  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>cq  <Plug>(coc-fix-current)
-"Jump to first floating window
-nmap <leader><C-W><C-W>  <Plug>(coc-float-jump)
-
-"" Map function and class text objects
-"" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-
-xmap if  <Plug>(coc-funcobj-i)
-omap if  <Plug>(coc-funcobj-i)
-xmap af  <Plug>(coc-funcobj-a)
-omap af  <Plug>(coc-funcobj-a)
-xmap icl <Plug>(coc-classobj-i)
-omap icl <Plug>(coc-classobj-i)
-xmap acl <Plug>(coc-classobj-a)
-omap acl <Plug>(coc-classobj-a)
-
-"" Use CTRL-S for selections ranges.
-"" Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
-
-"" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-
-"" Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-"" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-"" Add (Neo)Vim's native statusline support.
-"" NOTE: Please see `:h coc-status` for integrations with external plugins that
-"" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
- " Mappings for CoCList
-" Show all diagnostics.
-nnoremap <silent><nowait> <space>cd  <CMD>CocList diagnostics<cr>
-" Manage extensions.
-nnoremap <silent><nowait> <space>ce  <CMD>CocList extensions<cr>
-" Show commands.
-nnoremap <silent><nowait> <space>cc  <CMD>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent><nowait> <space>co  <CMD>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent><nowait> <space>cs  <CMD>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent><nowait> <space>cj  <CMD>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent><nowait> <space>ck  <CMD>CocPrev<CR>
-" Resume latest coc list.
-nnoremap <silent><nowait> <space>cp  <CMD>CocListResume<CR>
-" Preper CocList selection
-
-nnoremap <space>C  :<C-u>Coc
-
-"" }}}
-
-
 " Vista {{{
     nnoremap <leader>vv :Vista!!<CR>
   let g:vista_default_executive = 'coc'
@@ -1014,19 +854,6 @@ nnoremap <space>C  :<C-u>Coc
  let g:vista_sidebar_width = 50
  let g:vista_echo_cursor_strategy = "floating_win"
 " }}}
-
-" Coc-Actions {{{
-" " Remap for do codeAction of selected region
-
-" function! s:cocActionsOpenFromSelected(type) abort
-"   execute 'CocCommand actions.open ' . a:type
-
-" endfunction
-
-" xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
-" nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
-
-"}}}
 
 " INSERT ARROW EXPERIMENT {{{
 " inoremap <C-UP> <ESC>kr<bar>a
@@ -1066,132 +893,3 @@ nnoremap <space>C  :<C-u>Coc
 
 " }}}
 
-" TREESITTER {{{
-lua << EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    },
-    }
-EOF
-
-
-" TREESITTER TEXTOBJECTS {{{
-
-
-" lua <<EOF
-" require'nvim-treesitter.configs'.setup {
-" textobjects = {
-"   select = {
-"     enable = true,
-"     keymaps = {
-"       -- You can use the capture groups defined in textobjects.scm
-"       ["ip"] = "@parameter.inner",
-"       ["ap"] = "@parameter.outer",
-"       ["il"] = "@loop.inner",
-"       ["al"] = "@loop.outer",
-"       ["af"] = "@function.outer",
-"       ["if"] = "@function.inner",
-"       ["ac"] = "@class.outer",
-"       ["ic"] = "@class.inner",
-
-"     },
-"   },
-" },
-" }
-" EOF
-
-
-" }}}
-
-" set foldmethod=expr
-" set foldexpr=nvim_treesitter#foldexpr()
-" }}}
-
-
-" LSP {{{
-
-"" Use <Tab> and <S-Tab> to navigate through popup menu
-"inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-""map <c-p> to manually trigger completion
-"imap <silent> <C-Space> <Plug>(completion_trigger)
-"imap  <c-j> <Plug>(completion_next_source)
-"imap  <c-k> <Plug>(completion_prev_source)
-
-
-"" Avoid showing message extra message when using completion
-"set shortmess+=c
-"" Set completeopt to have a better completion experience
-"set completeopt=menuone,noinsert,noselect,preview
-"let g:completion_matching_strategy_list = [ 'exact','substring', 'fuzzy' ]
-"let g:completion_enable_snippet = 'UltiSnips'
-"let g:completion_matching_smart_case = 1
-"let g:completion_trigger_keyword_length = 1
-
-"" lua require'lspconfig'.jdtls.setup{on_attach=require'completion'.on_attach}
-"" lua require'lspconfig'.jdtls.setup{}
-"" lua require'lspconfig'.vimls.setup{on_attach=require'completion'.on_attach}
-"" lua require'lspconfig'.vimls.setup{}
-
-
-"lua << EOF
-"local custom_attach = function()
-"  require'completion'.on_attach()
-"--  " require'diagnostic'.on_attach()
-"end
-
-"local custom_diagnostics = function()
-"    require'lspconfig'.vimls.setup({
-"      settings = {
-"        Lua = {
-"          diagnostics = {
-"            enable = true,
-"            globals = { "vim" },
-"          },
-"        }
-"      },
-
-     " on_attach = custom_lsp_attach
-"    })
-"end
-"EOF
-
-
-" lua require'lspconfig'.jdtls.setup{on_attach=custom_attach}
-" lua require'lspconfig'.vimls.setup{on_attach=custom_attach}
-" lua require'lspconfig'.cssls.setup{on_attach=custom_attach}
-
-" lua require'lspconfig'.jdtls.setup{}
-" lua require'lspconfig'.vimls.setup{}
-" lua require'lspconfig'.cssls.setup{}
-
-"" Use completion-nvim in every buffer
-"autocmd BufEnter * lua require'completion'.on_attach()
-"" autocmd BufEnter * lua require'diagnostics'.on_attach()
-
-"nnoremap K          <cmd>lua vim.lsp.buf.hover()<CR>
-"nnoremap gd         <cmd>lua vim.lsp.buf.declaration()<CR>
-"nnoremap gr         <cmd>lua vim.lsp.buf.references()<CR>
-"nnoremap gD         <cmd>lua vim.lsp.buf.definition()<CR>
-"nnoremap gs         <cmd>lua print(vim.lsp.buf.server_ready())<CR>
-"nnoremap gt         <cmd>lua vim.lsp.buf.type_definition()<CR>
-"nnoremap gh         <cmd>lua vim.lsp.buf.signature_help()<CR>
-"nnoremap rn         <cmd>lua vim.lsp.buf.rename()<CR>
-"nnoremap gI         <cmd>lua vim.lsp.buf.implementation()<CR>
-"nnoremap gi         <cmd>lua vim.lsp.buf.incoming_calls()<CR>
-"nnoremap go         <cmd>lua vim.lsp.buf.outgoing_calls()<CR>
-"nnoremap gO         <cmd>lua vim.lsp.buf.document_symbol()<CR>
-"nnoremap gW         <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-"nnoremap <leader>a  <cmd>lua vim.lsp.buf.code_action()<CR>
-"nnoremap ]g         <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
-"nnoremap [g         <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-"nnoremap <leader>lD <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
-
-
-"" nnoremap <silent>  <leader>f     <cmd>lua vim.lsp.buf.formatting()<CR>
-"" nnoremap <silent>  <leader>a     <cmd>lua vim.lsp.buf.range_code_action()<CR>
-
-" }}}
