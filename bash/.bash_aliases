@@ -21,10 +21,13 @@ alias NOTES='/mnt/c/Users/MiKoz/Work/Documents/Notes'
 alias firefox='/mnt/c/Program\ Files\ \(x86\)/Mozilla\ Firefox/firefox.exe'
 alias pdfviewer='/mnt/c/Program\ Files/SumatraPDF/SumatraPDF.exe'
 alias clip='/mnt/c/Windows/System32/clip.exe'
+alias wsl='/mnt/c/Windows/System32/wsl.exe'
 alias vlc='/mnt/c/Program\ Files/VideoLAN/VLC/vlc.exe'
 alias trr='tree -C | less -R'
 alias tr='tree -C -L 1 '
 
+# USE W3M BROWSER TO GOOGLE THE TOPIC
+function q(){ w3m "www.google.com/search?q=${*}";}
 # alias less='HOME=~/.config/less/ LESSKEY=.less less'
 
 function trees() {
@@ -88,3 +91,10 @@ function gdiffName() { git diff   --color=always $1...$2  --name-only ${@:3} |  
 
 #to co gdiff() wyżej ale z samymi nazwami plików i statusem zmiany.
 function gdiffStatus() { git diff   --color=always $1...$2 --name-status ${@:3} |  less -R;}
+
+#From https://gist.github.com/TheodorRene/a9aaca4ad978d5c0b7afe6d2b6ba4ca0#file-iwanttobeabetterman-sh
+#Programs that don't have man pages usually have "--help" flags. Pipe it into less to get the real "man" experience.
+function man() { command man $1 || $_ --help ;}
+
+# https://www.youtube.com/watch?v=_KwufzorZlI&list=WL&index=17&t=13s
+function vic() { vim $( which $1); }
