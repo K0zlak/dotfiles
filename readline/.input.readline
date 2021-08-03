@@ -3,6 +3,7 @@
  #############################################################
 
 set keymap vi-insert
+#"\C-y":complete
 "\C-w":kill-word
 "\C-f":forward-word
 "\C-b":backward-word
@@ -28,6 +29,8 @@ set keymap vi-insert
 "\C-l": clear-screen
 "\C-d": vi-eof-maybe
 
+"\C-y": yank-nth-arg
+"\C-o": operate-and-get-next
 # Execute the command and go to the next in the history
 "\C-o": operate-and-get-next
 
@@ -41,13 +44,13 @@ set keymap vi-insert
 "\C-xc": complete-command
 "\C-xC": complete
 "\C-xf": complete-filename
-"\C-xu": complete-username
+"\C-xU": complete-username
+"\C-xu": universal-argument
 "\C-xg": glob-complete-word
 "\C-xb": complete-into-braces
 "\C-xdh": dynamic-complete-history
 "\C-xom": old-menu-complete
 "\C-i": menu-complete
-"\C-o": operate-and-get-next
 
 #EXPANDING
 #PREFIX <C-E>
@@ -55,6 +58,7 @@ set keymap vi-insert
 "\C-eh": history-expand-line
 "\C-ea": alias-expand-line
 "\C-ed": dabbrev-expand
+"\C-_": dabbrev-expand
 "\C-eg": glob-expand-word
 "\C-eha": history-and-alias-expand-line
 "\C-et": tilde-expand

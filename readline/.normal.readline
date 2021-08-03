@@ -3,6 +3,8 @@
  #############################################################
 set keymap vi
 
+# Yank argument from previous command ( possible number selection)
+"\C-y": yank-nth-arg
 
 # END OF THE LINE
 "L": end-of-line
@@ -27,13 +29,16 @@ set keymap vi
 "\C-g":""
 "\C-x":""
 
+## bind <c-k> key to menu-complete readline completion
+"\C-n": menu-complete
+## bind <c-j> key to menu-complete (backward) readline completion
+"\C-p": menu-complete-backward
+
 "\C-x\C-r": re-read-init-file
 #Control-E: shell-expand-line
-## bind <c-k> key to menu-complete readline completion
-#"\ek": menu-complete
-## bind <c-j> key to menu-complete (backward) readline completion
- #"\ej": menu-complete-backward
+
 #"u": undo
+
 ## Add less at the end
 "\C-x\C-xl": "A | less -RSNJ\e"
 "\C-x\C-xb": "ddAexec bash\e"
