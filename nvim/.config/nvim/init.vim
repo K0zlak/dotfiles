@@ -188,9 +188,6 @@ autocmd BufEnter * call UnmapPluginMappings()
 call plug#end()
 " }}}
 
-
-
-
 "VIMRC {{{
 
 
@@ -854,42 +851,3 @@ nnoremap <silent><Leader>T <CMD>call TerminalDistroy()<CR>
  let g:vista_sidebar_width = 50
  let g:vista_echo_cursor_strategy = "floating_win"
 " }}}
-
-" INSERT ARROW EXPERIMENT {{{
-" inoremap <C-UP> <ESC>kr<bar>a
-" inoremap <C-DOWN> <ESC>jr<bar>a
-" inoremap <C-LEFT> <ESC>hr─a
-" inoremap <C-RIGHT> <ESC>lr─a
-
-" inoremap <S-LEFT> <ESC>hr<a
-" inoremap <S-RIGHT> <ESC>lr>a
-" inoremap <S-LEFT> <ESC>hr<a
-" inoremap <S-DOWN> <ESC>jrva
-" inoremap <S-UP> <ESC>kr^a
-
-" inoremap <M-UP><M-RIGHT> <ESC>klr/a
-" inoremap <M-UP><M-LEFT> <ESC>khr\a
-" inoremap <M-DOWN><M-RIGHT> <ESC>jlr\a
-" inoremap <M-DOWN><M-LEFT> <ESC>jhr/a
-" inoremap <M-UP><M-UP> <ESC>klroa
-" inoremap <M-DOWN><M-DOWN> <ESC>jlroa
-" inoremap <M-UP> <ESC>kroa
-" inoremap <M-DOWN> <ESC>jroa
-" inoremap <M-LEFT> <ESC>hroa
-" inoremap <M-RIGHT> <ESC>lroa
-
-" makes Ascii art font
-
-" nmap <leader>Tt :.!toilet -w 200 -f smmono12<CR>
-" vmap <leader>Tt :!toilet -w 200 -f smmono12<CR>
-
-" nmap <leader>Ts :.!toilet -w 200 -f small<CR>
-" vmap <leader>Ts :!toilet -w 200 -f small<CR>
-
-" makes Ascii border
-
-" nmap <leader>Tb :.!toilet -w 200 -f term -F border<CR>
-" vmap <leader>Tb :!toilet -w 200 -f term -F border<CR>
-
-" }}}
-
