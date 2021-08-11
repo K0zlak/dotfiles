@@ -415,8 +415,18 @@ vnoremap <silent> gy :y <bar> '<,'>w ! clip<CR>
 nnoremap <Leader>w <CMD>w<CR>
 "SEARCHING
 "Set on scrolloff option and it work well
-nnoremap n nzz
-nnoremap N Nzz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+"Leave the cursor in the same position after the joining the line
+nnoremap J mzJ`z
+
+" Separate the undo action in one text insetion.
+" inoremap , ,<c-g>u
+" inoremap . .<c-g>u
+" inoremap ! !<c-g>u
+" inoremap ? ?<c-g>u
+" inoremap <Space> <Space><c-g>u
 
 "SEARCHING WITH DEFAULT VERY MAGIC
 nnoremap / /\v
