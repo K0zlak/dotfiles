@@ -492,13 +492,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 
 if !has('nvim')
-    "Rainbow Plugin
     autocmd!
-    autocmd VimEnter * RainbowParenthesesToggleAll
-    autocmd Syntax * RainbowParenthesesLoadRound
-    autocmd Syntax * RainbowParenthesesLoadSquare
-    autocmd Syntax * RainbowParenthesesLoadBraces
-    autocmd Syntax * RainbowParenthesesLoadChevrons
 
     autocmd TerminalOpen * set nonumber
     autocmd TerminalOpen * set norelativenumber
@@ -529,13 +523,13 @@ augroup ft_java
     autocmd FileType java setlocal iskeyword-=_
     " autocmd FileType java inoremap <c-n> <c-x><c-]>
 
-if ! has('nvim')
-    autocmd VimEnter * RainbowParenthesesToggleAll
-    autocmd Syntax * RainbowParenthesesLoadRound
-    autocmd Syntax * RainbowParenthesesLoadSquare
-    autocmd Syntax * RainbowParenthesesLoadBraces
-    autocmd Syntax * RainbowParenthesesLoadChevrons
-endif
+" if ! has('nvim')
+"     autocmd VimEnter * RainbowParenthesesToggleAll
+"     autocmd Syntax * RainbowParenthesesLoadRound
+"     autocmd Syntax * RainbowParenthesesLoadSquare
+"     autocmd Syntax * RainbowParenthesesLoadBraces
+"     autocmd Syntax * RainbowParenthesesLoadChevrons
+" endif
 
 augroup END
 " }}}
@@ -589,7 +583,7 @@ augroup END
 
 set background=dark
 
-colorscheme gruvbox
+colorscheme desert
 
 if has("syntax")
     syntax enable
