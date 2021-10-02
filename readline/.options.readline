@@ -38,3 +38,7 @@ set vi-cmd-mode-string "\1\e[1 q\2"
 
 set echo-control-characters off
 set enable-bracketed-paste on
+
+# https://unix.stackexchange.com/questions/598222/how-do-i-remap-control-w-in-bash
+set bind-tty-special-chars off
+

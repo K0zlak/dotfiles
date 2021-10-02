@@ -4,7 +4,7 @@
 
 set keymap vi-insert
 #"\C-y":complete
-"\C-w":kill-word
+"\C-w":unix-filename-rubout
 "\C-f":forward-word
 "\C-b":backward-word
 "\C-a":beginning-of-line

@@ -1,3 +1,4 @@
+# $include /etc/inputrc
 $include ~/repos/dotfiles/readline/.input.readline
 $include ~/repos/dotfiles/readline/.normal.readline
 $include ~/repos/dotfiles/readline/.options.readline
