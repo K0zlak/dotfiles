@@ -42,3 +42,7 @@ set enable-bracketed-paste on
 # https://unix.stackexchange.com/questions/598222/how-do-i-remap-control-w-in-bash
 set bind-tty-special-chars off
 
+ #sets the completions to be listed immediately instead of ringing the bell, when the completing word has more than one possible completion but no partial completion can be made.
+set mark-symlinked-directories On
+# sets completions to be appended by characters that indicate their file types reported by the stat system call.
+set visible-stats On

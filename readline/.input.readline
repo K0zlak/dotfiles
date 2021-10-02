@@ -33,7 +33,9 @@ set keymap vi-insert
 "\C-o": operate-and-get-next
 # Execute the command and go to the next in the history
 "\C-o": operate-and-get-next
-
+# double \C-a because it is my tmux prefix
+# "\ef": '\C-a\C-afor i in $(\C-e) ; do echo $i; done; \C-a\C-a'
+# "\ex": 'cd !$ \C-mls\C-m'
 
 
 ##COMPLETION
