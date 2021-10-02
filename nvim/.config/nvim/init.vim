@@ -406,7 +406,7 @@ vnoremap <leader>lr c<C-R>=LoremRandomWords(0,v:count1)<CR>gv
 nnoremap S i <ESC>k$hl
 
 "Yank into system ClipBoard
-vnoremap <silent> gy :y <bar> '<,'>w ! clip<CR>
+vnoremap <silent> gy :y <bar> '<,'>w ! clip<CR><CR>
 
 "Paste to WSL for Windows Clipboard
 " vnoremap P :<C-U>call PasteToWSL_FromWindows()<CR>
@@ -509,7 +509,7 @@ nnoremap <leader>bd <CMD>bd<CR>
 nnoremap <leader>bO <CMD>%bd<bar>e#<bar>bd# <CR>
 
 
-nnoremap <esc> :noh<CR><esc>
+nnoremap <silent><esc> :noh<CR><esc>
  " FZF {{{
 
 
