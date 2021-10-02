@@ -11,3 +11,5 @@
 	la =  log --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) %C(cyan)<%an>%Creset %n' --abbrev-commit --all --graph --color=always
 [color]
 	ui = true
+[credential]
+	helper = cache
