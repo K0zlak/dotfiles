@@ -1,0 +1,429 @@
+let mapleader=" "
+
+"nnoremap :action SelectInProjectView<CR>
+"nnoremap :action JavaDebuggerActions<CR>
+
+"TODO
+"QuickJavadoc
+
+" QuickActionPopup                                   <A-C-CR>
+" QuickActions
+" QuickChangeScheme                                  <C-À>
+" QuickDocCopy                                       <C-C> <C-Ins>
+" QuickEvaluateExpression                            <A-C-F8> button=1 clickCount=1 modifiers=512
+" QuickFixes
+" QuickImplementations                               <C-S-I>
+"QuickList.Deployment
+"QuickPreview
+" QuickJavaDoc                                       <C-Q> button=2 clickCount=1 modifiers=512
+" QuickTypeDefinition
+
+
+"NORMAL VIM MAPPINGS
+
+inoremap jk <ESC>
+"vnoremap jk <ESC>
+nnoremap Y y$
+nnoremap H ^
+vnoremap H ^
+nnoremap L g_
+vnoremap L g_
+
+nnoremap V v$
+nnoremap vV V
+vnoremap vv V
+vnoremap V v$
+
+vnoremap > >gv
+vnoremap < <gv
+
+"WINDOWS OPERATIONS
+
+nnoremap <C-W>% :action ChangeSplitOrientation<CR>
+nnoremap <C-W>h :action HideAllWindows<CR>
+nnoremap <C-W>o :action CloseAllEditorsButActive<CR>
+nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+nnoremap <C-W>J :action MoveTabDown<CR>
+nnoremap <C-W>H :action MoveTabLeft <CR>
+nnoremap <C-W>K :action MoveTabUp<CR>
+nnoremap <C-W>L :action MoveTabRight<CR>
+"nnoremap <C-W>v :action OpenInRightSplit<CR>
+
+
+"nnoremap <C-W>m :action OpenEditorInOppositeTabGroup<CR>
+"nnoremap <C-W>M :action MoveEditorToOppositeTabGroup<CR>
+"nnoremap <C-W>u :action Unsplit<CR>
+"nnoremap <C-W>u :action UnsplitAll<CR>
+
+
+"nnoremap <C-W><DOWN> :action StretchSplitToBottom<CR>
+"nnoremap <C-W><LEFT> :action StretchSplitToLeft<CR>
+"nnoremap <C-W><RIGHT> :action StretchSplitToLeft<CR>
+"nnoremap <C-W><UP> :action StretchSplitToTop<CR>
+"nnoremap <C-W>1 :action GoToTab1<CR>
+"nnoremap <C-W>2 :action GoToTab2<CR>
+"nnoremap <C-W>3 :action GoToTab3<CR>
+"nnoremap <C-W>4 :action GoToTab4<CR>
+"nnoremap <C-W>5 :action GoToTab5<CR>
+"nnoremap <C-W>6 :action GoToTab6<CR>
+"nnoremap <C-W>7 :action GoToTab7<CR>
+"nnoremap <C-W>8 :action GoToTab8<CR>
+"nnoremap <C-W>9 :action GoToTab9<CR>
+
+"SOURCING THE .IDEAVIMRC
+nnoremap <leader>S :source C:/Users?ADCIJ7M/.ideavimr<CR>
+nnoremap Q @@
+nnoremap n nzz
+nnoremap N Nzz
+
+"COMPLETIONS
+inoremap <C-X>c <ESC>:action ClassNameCompletion<CR>a
+inoremap <C-X>l <ESC>:action HippieBackwardCompletion<CR>a
+inoremap <C-X>h <ESC>:action HippieCompletion<CR>a
+inoremap <C-N> <C-O>:action HippieBackwardCompletion<CR>
+inoremap <C-P> <C-O>:action HippieCompletion<CR>
+
+"NEXT/PREV TAB
+nnoremap ]b :action PreviousTab<CR>
+nnoremap ]t :action PreviousTab<CR>
+nnoremap [b :action NextTab<CR>
+nnoremap [t :action NextTab<CR>
+
+"FIRST/LAST TAB
+nnoremap [B :action GoToTab1<CR>
+nnoremap [T :action GoToTab1<CR>
+nnoremap ]T :action GoToLastTab<CR>
+nnoremap ]B :action GoToLastTab<CR>
+
+"add space above or below current line
+nnoremap ]<Space> mao<ESC>`a
+nnoremap [<Space> maO<ESC>`a
+
+"move the line up or down
+nnoremap ]e ddp
+nnoremap ]e ddkP
+
+"I do not know
+nnoremap [q :action PreviousOccurence<CR>zz
+nnoremap ]q :action NextOccurence<CR>zz
+
+"NEXT/PREV METHOD
+nnoremap [m :action MethodUp<CR>
+nnoremap ]m :action MethodDown<CR>
+
+"NEXT/PREV DIFF WITH VCS
+nnoremap [d :action PreviousDiff<CR>
+nnoremap ]d :action NextDiff<CR>
+
+
+"NEXT/PREV CHANGES WITH VCS
+nnoremap [c :action VcsShowPrevChangeMarker<CR>
+nnoremap ]c :action VcsShowNextChangeMarker<CR>
+
+nnoremap ]g :action GotoNextError<CR>
+nnoremap [g :action GotoPreviousError<CR>
+nnoremap g; :action JumpToLastChange<CR>
+nnoremap g, :action JumpToNextChange<CR>
+
+nnoremap ]/ /\v^\s*\/{2}<CR>
+nnoremap [/ ?\v^\s*\/{2}<CR>
+
+nnoremap [C /\v^\s*.*(class<bar>interface)\s+\zs.*<CR>:nohlsearch<CR>
+nnoremap ]C ?\v^\s*.*(class<bar>interface)\s+\zs.*<CR>:nohlsearch<CR>
+"nnoremap ]/ /\v^\s+\/\*{2}|^\s+\*\/<CR>
+"nnoremap [/ ?\v^\s+\/\*{2}|^\s+\*\/<CR>
+
+"change of the font size
+nnoremap z0 :action EditorResetFontSize<CR>
+nnoremap z= :action EditorIncreaseFontSize<CR>
+nnoremap z- :action EditorDecreaseFontSize<CR>
+
+nnoremap gh :action TypeHierarchy<CR>
+nnoremap gH :action MethodHierarchy<CR>
+nnoremap gs :action GotoSuperMethod<CR>
+nnoremap gt :action GotoTest<CR>
+nnoremap gT <nop>
+nnoremap gD :action GotoTypeDeclaration<CR>
+nnoremap gr :action GotoDeclarationOnly<CR>
+nnoremap gi :action GotoImplementation<CR>
+
+"EDITOR MAPPINGS
+
+nnoremap <leader>sr :action EditorSortLines<CR>
+vnoremap <leader>sr :action EditorSortLines<CR>
+
+"SEARCH MAPPINGS
+
+"nnoremap sC :action CodeMenu<CR>
+"nnoremap sC :action CheckStylePluginActions<CR>
+"nnoremap sS :action GotoSymbol<CR>
+"nnoremap sS :action SurroundWith<CR>
+
+nnoremap s <nop>
+
+nnoremap sa :action GotoAction<CR>
+nnoremap smA :action ViewAppearanceGroup<CR>
+nnoremap sb :action Git.Branches<CR>
+nnoremap sB :action ViewBreakpoints<CR>
+nnoremap sc :action GotoClass<CR>
+nnoremap sd :action JavaDebuggerActions<CR>
+nnoremap se :action ShowErrorDescription<CR>
+nnoremap sF :action FindInPath<CR>
+nnoremap sf :action GotoFile<CR>
+nnoremap sG :action Generate<CR>
+nnoremap sh :action RecentFiles<CR>
+nnoremap sH :action MethodHierarchyPopupMenu<CR>
+
+nnoremap s<C-T> :action NavBarToolBar<CR>
+" nnoremap s<C-T> :action NavBarToolBarOthers<CR>
+nnoremap sN :action NewScratchFile<CR>
+nnoremap sn :action NewElementInMenuGroup<CR>
+nnoremap sR :action Refactorings.QuickListPopupAction<CR>
+nnoremap sr :action RunAnything<CR>
+
+nnoremap ss :action FileSettingsGroup<CR>
+nnoremap sS :action SurroundWith<CR>
+nnoremap st :action ShowRecentTests<CR>
+nnoremap sT :action EditorTabPopupMenu<CR>
+nnoremap s<C-T> :action ActiveToolwindowGroup<CR>
+nnoremap su :action ShowUsages<CR>
+nnoremap Su :action FindUsages<CR>
+vnoremap Su :action FindUsages<CR>
+nnoremap sv :action Vcs.QuickListPopupAction<CR>
+nnoremap sV :action Vcs.Show.Toolwindow.Tab<CR>
+vnoremap sa :action GotoAction<CR>
+vnoremap sF :action FindInPath<CR>
+vnoremap sG :action Generate<CR>
+vnoremap sR :action Refactorings.QuickListPopupAction<CR>
+vnoremap sS :action SurroundWith<CR>
+
+nnoremap <leader>h :nohlsearch<CR>
+nnoremap <leader>p $SearchWeb<CR>
+vnoremap <leader>p $SearchWeb<CR>
+nnoremap <leader>a ShowIntentionActions<CR>
+vnoremap <leader>a ShowIntentionActions<CR>
+nnoremap <leader>A Annotate<CR>
+
+"SEARCH MENU
+nnoremap sC :action CoverageMenu<CR>
+nnoremap sE :action EditorPopupMenu<CR>
+nnoremap sg :action Git.MainMenu<CR>
+nnoremap sM :action Mainmenu<CR>
+nnoremap sma :action AnalyzeMenu<CR>
+nnoremap sA :action AnalyzeMenu<CR>
+vnoremap sA :action AnalyzeMenu<CR>
+nnoremap smb :action BuildMenu<CR>
+nnoremap smc :action CodeMenu<CR>
+nnoremap smD :action DatabaseViewPopupMenu<CR>
+nnoremap sme :action EditMenu<CR>
+nnoremap sme :action EditMenu<CR>
+nnoremap smg :action Git.Menu<CR>
+nnoremap smm :action MainMenu<CR>
+nnoremap smv :action ViewMenu<CR>
+nnoremap smw :action WindowMenu<CR>
+nnoremap smf :action FileMenu<CR>
+nnoremap smF :action FileMenuGroup<CR>
+nnoremap smh :action HelpMenu<CR>
+nnoremap smn :action NavBarToolBar<CR>
+nnoremap smR :action RefactoringMenu<CR>
+nnoremap smr :action RunMenu<CR>
+nnoremap smt :action ToolsMenu<CR>
+
+"vnoremap <C-W> :<C-U>action SmartSelect<CR>
+"vnoremap <C-S-W> :<C-U>action SmartUnSelect<CR>
+
+"GO TO
+
+"nnoremap GS :action ActivateSpringToolWindow<CR>
+nnoremap G <nop>
+
+
+" nnoremap G<C-S> :action ActivateSonarLintToolWindow<CR>
+nnoremap Gh :action ActivateHierarchyToolWindow<CR>
+nnoremap Gb :action ActivateBuildToolWindow<CR>
+" nnoremap GC :action ActivateCheckStyleToolWindow<CR>
+nnoremap Gd :action ActivateDebugToolWindow<CR>
+nnoremap GE :action ActivateEndpontsToolWindow<CR>
+nnoremap Ge :action ActivateEventLogToolWindow<CR>
+nnoremap Gf :action ActivateFindToolWindow<CR>
+nnoremap Gg :action ActivateVersionControlToolWindow<CR>
+nnoremap GG G
+" nnoremap Gm :action ActivateMavenToolWindow<CR>
+nnoremap Gn :action NERDTreeFind<CR>
+nnoremap GN :action NERDTreeFocus<CR>
+nnoremap Gp :action ActivateProblemsViewToolWindow<CR>
+" nnoremap GP :action ActivateProfilerToolWindow<CR>
+nnoremap Gr :action ActivateRunToolWindow<CR>
+nnoremap Gs :action ActivateStructureToolWindow<CR>
+nnoremap GS :action ShowSettings<CR>
+nnoremap GT :action ActivateTerminalToolWindow<CR>
+nnoremap Gt :action ActivateTODOToolWindow<CR>
+nnoremap Gu :action FindUsages<CR>
+vnoremap Gu :action FindUsages<CR>
+nnoremap GV :action Vcs.ShowTabbedFileHistory<CR>
+" nnoremap Gi :action ActivateInspectionResultsToolWindow<CR>
+nnoremap Gl :action ActivateLearnToolWindow<CR>
+" nnoremap GM :action ActivateMessagesToolWindow<CR>
+" nnoremap Ga :action ActivateAnalyzeDataflowtoToolWindow<CR>
+
+"DEBUG OPERATIONS
+nnoremap <leader>dd :action Debug<CR>
+nnoremap <leader>dc :action DebugClass<CR>
+vnoremap <leader>dc :action DebugClass<CR>
+vnoremap <leader>dr :action Resume<CR>
+vnoremap <leader>dm :action XDebugger.MuteBreakpoints<CR>
+vnoremap <leader>dp :action ShowExecutionPoint<CR>
+
+"BREAKPOINTS
+nnoremap <leader>ba :action ToggleBreakpointAction<CR>
+nnoremap <leader>bb :action ToggleLineBreakpoint<CR>
+vnoremap <leader>bb :action ToggleLineBreakpoint<CR>
+nnoremap <leader>bC :action Debugger.RemoveAllBreakpoints<CR>
+nnoremap <leader>bc :action Debugger.RemoveAllBreakpointsInFile<CR>
+nnoremap <leader>bs :action ToggleBreakpointEnabled<CR>
+nnoremap <leader>be :action EditBreakpoint<CR>
+nnoremap <leader>bf :action ToggleFieldBreakpoint<CR>
+nnoremap <leader>bm :action ToggleMethodBreakpoint<CR>
+nnoremap <Right> :action StepOver<CR>
+nnoremap <Up> :action StepOut<CR>
+nnoremap <Down> :action StepInto<CR>
+nnoremap <C-Down> :action SmartStepInto<CR>
+nnoremap <C-Right> :action Resume<CR>
+nnoremap <Delete> :action ToggleLineBreakpoint<CR>
+
+
+"nnoremap <Up> :action Debugger.FramePanelPopup<CR>
+"nnoremap <C-q> :action EvaluateExpression<CR>
+
+"BUILDING, RUNNING AND DEBUGING
+"nmap <leader>c :action CompileDirty<cr>
+"nnoremap <leader>R :action RunAnything <cr>
+
+"RERUN LAST RUN
+nnoremap <leader>cc :action Coverage<CR>
+nnoremap <leader>rC :action RunCoverage<CR>
+
+"RUN BUILD
+nnoremap <leader>rb :action CompileProject<CR>
+nnoremap <leader>rr :action Run<CR>
+nnoremap <leader>ss :action Stop<CR>
+nnoremap <leader>sS :action StopBackgroundProcesses<CR>
+nnoremap <leader>rn :action RenameElement<CR>
+nnoremap <leader>rc :action RunClass<CR>
+vnoremap <leader>rc :action RunClass<CR>
+vnoremap <leader>rB :action CompileDirty<CR>
+vnoremap <leader>rb :action CompileFile<CR>
+
+"nnoremap <leader>rd :action DebugClass<CR>
+"nnoremap <leader>rt :action RerunTests<CR>
+"nnoremap <leader>rT :action RerunFailedTests<CR>
+
+nnoremap <leader>mt :action Maven.ToggleSkipTests<CR>
+nnoremap <leader>mr :action Maven.RunBuild<CR>
+
+"Closing tabs
+nnoremap <leader>q :action CloseContent<CR>
+nnoremap <leader>Q :action ReopenClosedTab<CR>
+
+"Commanline maps
+inoremap <C-k> <UP>
+inoremap <C-j> <DOWN>
+cnoremap <C-K> <Up>
+cnoremap <C-J> <Down>
+cnoremap <TAB> <nop>
+
+"VSC/GIT OPERATIONS
+nnoremap <leader>vM :action Vcs.ShowMessageHistory<CR>
+nnoremap <leader>vf :action Git.Fetch<CR>
+nnoremap <leader>vR :action Vcs.RollbackChangedLines<CR>
+nnoremap <leader>vc :action Vcs.Show.Local.Changes<CR>
+nnoremap <leader>vl :action Vcs.Show.Log<CR>
+nnoremap <leader>vL :action Vcs.Log.OpenAnotherTab<CR>
+nnoremap <leader>vH :action Vcs.ShowTabbedFileHistory<CR>
+nnoremap <leader>vU :action Vcs.UpdateProject<CR>
+nnoremap <leader>vP :action Vcs.Push<CR>
+nnoremap <leader>vA :action Vcs.ToggleAmendCommitMode<CR>
+
+"EXTRACTION/INTRUDUCE
+nnoremap <leader>em :action ExtractMethod<CR>
+onoremap <leader>em :action ExtractMethod<CR>
+vnoremap <leader>em :action ExtractMethod<CR>
+inoremap <leader>ev :action IntroduceVariable<CR>
+vnoremap <leader>ev :action IntroduceVariable<CR>
+inoremap <leader>ec :action IntroduceConstant<CR>
+onoremap <leader>ec :action IntroduceConstant<CR>
+vnoremap <leader>ec :action IntroduceConstant<CR>
+nnoremap <leader>ef :action IntroduceField<CR>
+vnoremap <leader>ef :action IntroduceField<CR>
+nnoremap <leader>ep :action IntroduceParameter<CR>
+vnoremap <leader>ep :action IntroduceParameter<CR>
+
+"COPY
+nnoremap <leader>cp :action CopyAbsolutePath<CR>
+nnoremap <leader>cr :action CopyContentRootPath<CR>
+nnoremap <leader>cn :action CopyFileName<CR>
+
+"new maps
+" nnoremap <leader>C :action CheckStyleCurrentFileAction<CR>
+
+"RUN CONFIGURATION
+
+"select all occurances of the variable
+" nnoremap <leader>S :action SelectAllOccurrences<CR>
+" vnoremap <leader>S :action SelectAllOccurrences<CR>
+nnoremap <leader>I :action Inline<CR>
+nnoremap <leader>t :action GotoTest<CR>
+nnoremap <leader>i :action ExpressionTypeInfo<CR>
+vnoremap <leader>i :action ExpressionTypeInfo<CR>
+nnoremap <leader>F :action ReformatCode<CR>
+vnoremap <leader>f :action ReformatCode<CR>
+vnoremap <leader>E :action QuickEvaluateExpression<CR>
+vnoremap <leader>E :action QuickEvaluateExpression<CR>
+nnoremap <leader>ee :action EvaluateExpression<CR>
+vnoremap <leader>ee :action EvaluateExpression<CR>
+
+"MISC
+"nnoremap ZQ :action Exit<CR>
+nnoremap <BS> <C-S-6>
+nnoremap ZQ :action CloseProject<CR>
+nnoremap <leader>P :action <c-R>*<CR>
+vnoremap <leader>P :action <c-R>*<CR>
+nnoremap <leader>sC :action ShowColorPicker<CR>
+nnoremap <leader>sp :action ShowFilePath<CR>
+" nnoremap <leader>l :action ActivateSonarLintToolWindow<CR>
+
+"OPTIONS
+set hidden
+set nowrap
+set iskeyword-=_
+
+"IDEA PLUGINS
+set NERDTree
+set surround
+set commentary
+set argtextobj
+set exchange
+set textobj-entire
+set highlightedyank
+set ideajoin
+set idearefactoremode=keep
+
+"OPTIONS
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch
+set scrolloff=5
+set sidescrolloff=5
+set number
+set relativenumber
+set clipboard+=unnamed
+set showmode
+set showcmd
+set visualbell
+set autoindent
+set copyindent
+set history=1000
